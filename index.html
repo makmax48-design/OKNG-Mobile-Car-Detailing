@@ -156,11 +156,15 @@
     .services-v2 .section-inner { max-width: 1280px; margin: 0 auto; }
 
     /* Column layout */
-    .sv2-layout { display: flex; flex-direction: column; gap: 24px; margin-top: 32px; }
+    .sv2-layout { display: flex; flex-direction: column; gap: 24px; margin-top: 24px; }
+    .price-notice { display: flex; align-items: flex-start; gap: 12px; background: rgba(123,189,232,0.07); border: 1px solid rgba(123,189,232,0.18); border-radius: 14px; padding: 14px 18px; margin-top: 20px; }
+    .price-notice-icon { font-size: 20px; flex-shrink: 0; line-height: 1; margin-top: 1px; }
+    .price-notice-text { font-size: 12px; color: #aaa; line-height: 1.6; }
+    .price-notice-text strong { display: block; font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .06em; }
 
     /* Category column */
     .sv2-col { display: flex; flex-direction: column; gap: 16px; }
-    .sv2-col-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .18em; color: #7BBDE8; margin-bottom: 4px; }
+    .sv2-col-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .18em; color: #7BBDE8; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid rgba(123,189,232,0.2); }
 
     /* Package card with checkbox */
     .pkg-card {
@@ -178,7 +182,7 @@
     .pkg-card.selected { border-color: #7BBDE8; background: rgba(10,45,84,0.55); }
     .pkg-card.featured-pkg { background: rgba(255,255,255,0.96); color: #0a0a0a; }
     .pkg-card.featured-pkg:hover { background: #fff; }
-    .pkg-card.featured-pkg.selected { border-color: #0A4174; background: rgba(10,65,116,0.12); color: #0a0a0a; }
+    .pkg-card.featured-pkg.selected { border-color: #0A4174; border-width: 2.5px; background: #ffffff; color: #0a0a0a; box-shadow: 0 0 0 4px rgba(10,65,116,0.18); }
 
     /* Custom checkbox */
     .pkg-check {
@@ -206,9 +210,12 @@
     .pkg-card.selected:not(.featured-pkg) .pkg-check::after { border-color: #0a0a0a; }
 
     .pkg-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
-    .pkg-name { font-size: 15px; font-weight: 700; line-height: 1.2; }
-    .pkg-price { font-size: 13px; font-weight: 700; color: #7BBDE8; white-space: nowrap; flex-shrink: 0; }
-    .pkg-card.featured-pkg .pkg-price { color: #0A4174; }
+    .pkg-name { font-size: 17px; font-weight: 700; line-height: 1.2; letter-spacing: -.01em; }
+    .pkg-price { display: flex; flex-direction: column; align-items: flex-end; flex-shrink: 0; }
+    .pkg-price-main { font-size: 16px; font-weight: 800; color: #7BBDE8; white-space: nowrap; line-height: 1; }
+    .pkg-price-sub { font-size: 9px; font-weight: 500; color: #49769F; white-space: nowrap; margin-top: 3px; letter-spacing: .02em; text-align: right; }
+    .pkg-card.featured-pkg .pkg-price-main { color: #0A4174; }
+    .pkg-card.featured-pkg .pkg-price-sub { color: #49769F; }
     .pkg-badge { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; background: #0a0a0a; color: #fff; border-radius: 999px; padding: 3px 9px; margin-bottom: 6px; }
     .pkg-card.featured-pkg .pkg-badge { background: #0A4174; }
     .pkg-items { margin-top: 8px; display: flex; flex-direction: column; gap: 4px; }
@@ -291,7 +298,7 @@
       <h1>Mobile car detailing that brings your vehicle back to life.</h1>
       <p class="hero-sub">Interior refreshes, deep details, and full details for family vehicles, work trucks, and daily drivers.</p>
       <div class="hero-btns">
-        <a href="sms:+12502587505" class="btn-white">💬 Get a Quote</a>
+        <a href="sms:+12502587505" class="btn-white">📸 Get Your Price</a>
         <a href="#services" class="btn-outline">Services →</a>
       </div>
       <p class="hero-note">Send a few photos. Final price depends on size and condition.</p>
@@ -377,7 +384,13 @@
     <div class="fade-in">
       <div class="section-label">Services</div>
       <h2>Choose your detail package.</h2>
-      <p style="font-size:13px;color:#aaa;margin-top:8px;">Select one or more packages below, then tap Book Now.</p>
+      <div class="price-notice">
+        <div class="price-notice-icon">⚠️</div>
+        <div class="price-notice-text">
+          <strong>Final price depends on vehicle condition &amp; size</strong>
+          All prices shown are starting points. Heavier soiling, pet hair, larger vehicles (SUV, truck, van) or extra add-ons may adjust the quote. Send photos for an accurate price before booking.
+        </div>
+      </div>
     </div>
 
     <div class="sv2-layout fade-in">
@@ -387,12 +400,12 @@
         <div class="sv2-col-title">🧹 Interior &amp; Exterior Detailing</div>
 
         <!-- Basic -->
-        <label class="pkg-card" onclick="togglePkg(this,'Basic Interior &amp; Exterior')">
+        <label class="pkg-card" data-group="detail" onclick="togglePkg(this,'Basic Interior &amp; Exterior','detail')">
           <div class="pkg-check"></div>
           <div>
             <div class="pkg-header">
               <div class="pkg-name">Basic Interior &amp; Exterior</div>
-              <div class="pkg-price">From $109</div>
+              <div class="pkg-price"><span class="pkg-price-main">From $109</span><span class="pkg-price-sub">starting price</span></div>
             </div>
             <ul class="pkg-items">
               <li>Hand wash — two-bucket method</li>
@@ -406,13 +419,13 @@
         </label>
 
         <!-- Standard — featured -->
-        <label class="pkg-card featured-pkg" onclick="togglePkg(this,'Standard / Mid-Level Detail')">
+        <label class="pkg-card featured-pkg" data-group="detail" onclick="togglePkg(this,'Standard / Mid-Level Detail','detail')">
           <div class="pkg-check"></div>
           <div>
             <div class="pkg-badge">Most Popular</div>
             <div class="pkg-header">
               <div class="pkg-name">Standard / Mid-Level Detail</div>
-              <div class="pkg-price">From $199</div>
+              <div class="pkg-price"><span class="pkg-price-main">From $199</span><span class="pkg-price-sub">starting price</span></div>
             </div>
             <ul class="pkg-items">
               <li>Everything in Basic, plus:</li>
@@ -429,12 +442,12 @@
         </label>
 
         <!-- Premium -->
-        <label class="pkg-card" onclick="togglePkg(this,'Premium / Deluxe Detail')">
+        <label class="pkg-card" data-group="detail" onclick="togglePkg(this,'Premium / Deluxe Detail','detail')">
           <div class="pkg-check"></div>
           <div>
             <div class="pkg-header">
               <div class="pkg-name">Premium / Deluxe Detail</div>
-              <div class="pkg-price">From $299</div>
+              <div class="pkg-price"><span class="pkg-price-main">From $299</span><span class="pkg-price-sub">starting price</span></div>
             </div>
             <ul class="pkg-items">
               <li>Everything in Standard, plus:</li>
@@ -458,12 +471,12 @@
         <div class="sv2-right-top">
           <div class="sv2-col-title">✨ Paint Correction &amp; Polish</div>
 
-          <label class="pkg-card" onclick="togglePkg(this,'Gloss Enhancement Polish')">
+          <label class="pkg-card" data-group="polish" data-price-type="quote" onclick="togglePkg(this,'Gloss Enhancement Polish','polish')">
             <div class="pkg-check"></div>
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Gloss Enhancement Polish</div>
-                <div class="pkg-price">Quote on request</div>
+                <div class="pkg-price"><span class="pkg-price-main">Get Your Price</span><span class="pkg-price-sub">price on request</span></div>
               </div>
               <ul class="pkg-items">
                 <li>Wash &amp; clay-bar decontamination</li>
@@ -473,12 +486,12 @@
             </div>
           </label>
 
-          <label class="pkg-card" onclick="togglePkg(this,'Correction + Sealant')">
+          <label class="pkg-card" data-group="polish" data-price-type="quote" onclick="togglePkg(this,'Correction + Sealant','polish')">
             <div class="pkg-check"></div>
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Correction + Sealant</div>
-                <div class="pkg-price">Quote on request</div>
+                <div class="pkg-price"><span class="pkg-price-main">Get Your Price</span><span class="pkg-price-sub">price on request</span></div>
               </div>
               <ul class="pkg-items">
                 <li>Wash, clay &amp; dedicated correcting polish</li>
@@ -489,12 +502,12 @@
             </div>
           </label>
 
-          <label class="pkg-card" onclick="togglePkg(this,'Multi-Stage Paint Correction')">
+          <label class="pkg-card" data-group="polish" data-price-type="quote" onclick="togglePkg(this,'Multi-Stage Paint Correction','polish')">
             <div class="pkg-check"></div>
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Multi-Stage Paint Correction</div>
-                <div class="pkg-price">Quote on request</div>
+                <div class="pkg-price"><span class="pkg-price-main">Get Your Price</span><span class="pkg-price-sub">price on request</span></div>
               </div>
               <ul class="pkg-items">
                 <li>Extensive wash + chemical &amp; mechanical decontam.</li>
@@ -512,12 +525,12 @@
         <div class="sv2-right-bottom">
           <div class="sv2-col-title">🛡️ Ceramic Coating</div>
 
-          <label class="pkg-card" onclick="togglePkg(this,'Entry-Level Ceramic (1–2 Year)')">
+          <label class="pkg-card" data-group="ceramic" data-price-type="quote" onclick="togglePkg(this,'Entry-Level Ceramic (1–2 Year)','ceramic')">
             <div class="pkg-check"></div>
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Entry-Level Ceramic</div>
-                <div class="pkg-price">1–2 Year</div>
+                <div class="pkg-price"><span class="pkg-price-main">Get Your Price</span><span class="pkg-price-sub">1–2 year protection</span></div>
               </div>
               <ul class="pkg-items">
                 <li>Single layer after basic paint prep (wash + decontam.)</li>
@@ -526,12 +539,12 @@
             </div>
           </label>
 
-          <label class="pkg-card" onclick="togglePkg(this,'Mid-Tier Ceramic (3–5 Year)')">
+          <label class="pkg-card" data-group="ceramic" data-price-type="quote" onclick="togglePkg(this,'Mid-Tier Ceramic (3–5 Year)','ceramic')">
             <div class="pkg-check"></div>
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Mid-Tier Ceramic</div>
-                <div class="pkg-price">3–5 Year</div>
+                <div class="pkg-price"><span class="pkg-price-main">Get Your Price</span><span class="pkg-price-sub">3–5 year protection</span></div>
               </div>
               <ul class="pkg-items">
                 <li>Multiple layers; machine paint correction</li>
@@ -542,12 +555,12 @@
             </div>
           </label>
 
-          <label class="pkg-card" onclick="togglePkg(this,'Premium / Pro Ceramic (5–9 Year+)')">
+          <label class="pkg-card" data-group="ceramic" data-price-type="quote" onclick="togglePkg(this,'Premium / Pro Ceramic (5–9 Year+)','ceramic')">
             <div class="pkg-check"></div>
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Premium / Pro Ceramic</div>
-                <div class="pkg-price">5–9 Year+</div>
+                <div class="pkg-price"><span class="pkg-price-main">Get Your Price</span><span class="pkg-price-sub">5–9+ year protection</span></div>
               </div>
               <ul class="pkg-items">
                 <li>High-end ceramic or graphene coating</li>
@@ -642,35 +655,74 @@
       dots.forEach((d, i) => d.classList.toggle('active', i === Math.min(idx, dots.length-1)));
     });
   }
-  // ── Services V2 package selector ─────────────────────────────────────────
-  const selectedPkgs = new Set();
+  // ── Services V2 — radio-style selection per group ────────────────────────
+  // selectedPkgs: Map of group → { card, name, isQuote }
+  const selectedPkgs = new Map();
 
-  function togglePkg(card, name) {
-    if (selectedPkgs.has(name)) {
-      selectedPkgs.delete(name);
-      card.classList.remove('selected');
-    } else {
-      selectedPkgs.add(name);
-      card.classList.add('selected');
+  function togglePkg(card, name, group) {
+    const current = selectedPkgs.get(group);
+
+    // Deselect whatever was previously selected in this group
+    if (current) {
+      current.card.classList.remove('selected');
     }
+
+    // If clicking the already-selected card → deselect (toggle off)
+    if (current && current.name === name) {
+      selectedPkgs.delete(group);
+    } else {
+      // Select the new card
+      card.classList.add('selected');
+      const isQuote = card.dataset.priceType === 'quote';
+      selectedPkgs.set(group, { card, name, isQuote });
+    }
+
     updateBookBar();
   }
 
   function updateBookBar() {
-    const bar = document.getElementById('book-bar');
-    const btn = document.getElementById('book-now-btn');
-    const sel = document.getElementById('bar-selected');
-    if (selectedPkgs.size > 0) {
+    const bar   = document.getElementById('book-bar');
+    const btn   = document.getElementById('book-now-btn');
+    const sel   = document.getElementById('bar-selected');
+
+    const entries = Array.from(selectedPkgs.values());
+
+    if (entries.length > 0) {
       bar.classList.add('active');
-      const names = Array.from(selectedPkgs);
+
+      // Show selected package names
+      const names = entries.map(e => e.name);
       sel.textContent = names.length === 1
         ? '✓ ' + names[0]
-        : '✓ ' + names.length + ' packages selected';
-      // Build SMS link with packages
-      const msg = encodeURIComponent('Hi Max! I want to book: ' + names.join(', ') + '. Please send me a quote.');
+        : '✓ ' + names.map(n => n.split(' ').slice(0,3).join(' ')).join('  +  ');
+
+      // Determine if ANY selected package is quote-based
+      const anyQuote = entries.some(e => e.isQuote);
+
+      // Update button label & style
+      if (anyQuote) {
+        btn.textContent = '📸 Get Your Price';
+        btn.style.background = '#0A4174';
+        btn.style.borderColor = '#0A4174';
+        btn.style.color = '#fff';
+        btn.style.boxShadow = '0 0 24px rgba(10,65,116,0.5)';
+      } else {
+        btn.textContent = '💬 Book Now';
+        btn.style.background = '#7BBDE8';
+        btn.style.borderColor = '#7BBDE8';
+        btn.style.color = '#0a0a0a';
+        btn.style.boxShadow = '0 0 24px rgba(123,189,232,0.35)';
+      }
+
+      // Build SMS body
+      const action = anyQuote ? 'I would like to get a price for' : 'I want to book';
+      const msg = encodeURIComponent('Hi Max! ' + action + ': ' + names.join(', ') + '. Please let me know the next steps.');
       btn.href = 'sms:+12502587505?body=' + msg;
+
     } else {
       bar.classList.remove('active');
+      btn.textContent = '💬 Book Now';
+      btn.style.cssText = '';
       btn.href = 'sms:+12502587505';
     }
   }
