@@ -150,6 +150,125 @@
       .cta-inner { padding: 48px 40px; }
       .footer-inner-wrap { display: flex; justify-content: space-between; align-items: center; }
     }
+
+    /* ── SERVICES V2 ────────────────────────────────────────────────────── */
+    .services-v2 { padding: 56px 20px; background: linear-gradient(to bottom, rgba(0,0,0,0.78), rgba(0,0,0,0.78)), url('services-bg.jpg') center center / cover no-repeat; }
+    .services-v2 .section-inner { max-width: 1280px; margin: 0 auto; }
+
+    /* Column layout */
+    .sv2-layout { display: flex; flex-direction: column; gap: 24px; margin-top: 32px; }
+
+    /* Category column */
+    .sv2-col { display: flex; flex-direction: column; gap: 16px; }
+    .sv2-col-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .18em; color: #7BBDE8; margin-bottom: 4px; }
+
+    /* Package card with checkbox */
+    .pkg-card {
+      position: relative;
+      border: 1.5px solid rgba(255,255,255,0.08);
+      background: rgba(10,10,10,0.82);
+      border-radius: 18px;
+      padding: 18px 18px 18px 52px;
+      cursor: pointer;
+      transition: border-color .2s, background .2s, transform .15s;
+      backdrop-filter: blur(8px);
+      user-select: none;
+    }
+    .pkg-card:hover { border-color: rgba(123,189,232,0.4); background: rgba(15,15,20,0.9); transform: translateY(-1px); }
+    .pkg-card.selected { border-color: #7BBDE8; background: rgba(10,45,84,0.55); }
+    .pkg-card.featured-pkg { background: rgba(255,255,255,0.96); color: #0a0a0a; }
+    .pkg-card.featured-pkg:hover { background: #fff; }
+    .pkg-card.featured-pkg.selected { border-color: #0A4174; background: rgba(10,65,116,0.12); color: #0a0a0a; }
+
+    /* Custom checkbox */
+    .pkg-check {
+      position: absolute; left: 16px; top: 18px;
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      border: 2px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.05);
+      transition: all .2s;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .pkg-card.featured-pkg .pkg-check { border-color: rgba(0,0,0,0.2); background: rgba(0,0,0,0.05); }
+    .pkg-card.selected .pkg-check { background: #7BBDE8; border-color: #7BBDE8; }
+    .pkg-card.featured-pkg.selected .pkg-check { background: #0A4174; border-color: #0A4174; }
+    .pkg-check::after {
+      content: '';
+      display: none;
+      width: 5px; height: 9px;
+      border: 2px solid #0a0a0a;
+      border-top: none; border-left: none;
+      transform: rotate(42deg) translateY(-1px);
+    }
+    .pkg-card.selected .pkg-check::after { display: block; }
+    .pkg-card.selected:not(.featured-pkg) .pkg-check::after { border-color: #0a0a0a; }
+
+    .pkg-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+    .pkg-name { font-size: 15px; font-weight: 700; line-height: 1.2; }
+    .pkg-price { font-size: 13px; font-weight: 700; color: #7BBDE8; white-space: nowrap; flex-shrink: 0; }
+    .pkg-card.featured-pkg .pkg-price { color: #0A4174; }
+    .pkg-badge { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; background: #0a0a0a; color: #fff; border-radius: 999px; padding: 3px 9px; margin-bottom: 6px; }
+    .pkg-card.featured-pkg .pkg-badge { background: #0A4174; }
+    .pkg-items { margin-top: 8px; display: flex; flex-direction: column; gap: 4px; }
+    .pkg-items li { font-size: 12px; color: #aaa; display: flex; align-items: flex-start; gap: 6px; list-style: none; line-height: 1.4; }
+    .pkg-card.featured-pkg .pkg-items li { color: #555; }
+    .pkg-items li::before { content: "✓"; color: #7BBDE8; font-weight: 700; flex-shrink: 0; font-size: 11px; margin-top: 1px; }
+    .pkg-card.featured-pkg .pkg-items li::before { color: #0A4174; }
+
+    /* Right column split */
+    .sv2-right { display: flex; flex-direction: column; gap: 24px; }
+    .sv2-right-top, .sv2-right-bottom { display: flex; flex-direction: column; gap: 12px; }
+    .sv2-right-divider { height: 1px; background: rgba(123,189,232,0.15); margin: 4px 0; }
+
+    /* Sticky Book Now bar */
+    .book-bar {
+      position: sticky; bottom: 20px; z-index: 50;
+      margin-top: 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; flex-wrap: wrap;
+      background: rgba(10,10,12,0.92);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(123,189,232,0.15);
+      border-radius: 20px;
+      padding: 14px 18px;
+      transition: border-color .3s;
+    }
+    .book-bar.active { border-color: #7BBDE8; }
+    .book-bar-info { font-size: 13px; color: #666; }
+    .book-bar.active .book-bar-info { color: #aaa; }
+    .book-bar-selected { font-size: 13px; color: #7BBDE8; font-weight: 600; display: none; }
+    .book-bar.active .book-bar-selected { display: block; }
+    .book-now-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.25);
+      border-radius: 999px; padding: 12px 24px;
+      font-size: 14px; font-weight: 700;
+      pointer-events: none;
+      transition: all .3s;
+      white-space: nowrap;
+      text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.06);
+    }
+    .book-bar.active .book-now-btn {
+      background: #7BBDE8;
+      color: #0a0a0a;
+      pointer-events: auto;
+      border-color: #7BBDE8;
+      box-shadow: 0 0 24px rgba(123,189,232,0.35);
+    }
+
+    /* Desktop 2-col layout */
+    @media (min-width: 768px) {
+      .services-v2 { padding: 80px 40px; }
+      .sv2-layout { flex-direction: row; align-items: flex-start; gap: 28px; }
+      .sv2-col { flex: 1; }
+      .sv2-right { flex: 1; }
+      .book-bar { position: sticky; bottom: 24px; }
+    }
+
   </style>
 </head>
 <body>
@@ -252,59 +371,207 @@
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="section services-bg" id="services">
+<!-- SERVICES V2 -->
+<section class="services-v2" id="services">
   <div class="section-inner">
     <div class="fade-in">
       <div class="section-label">Services</div>
-      <h2>Choose the right level of clean.</h2>
-      <p style="font-size:13px;color:#aaa;margin-top:8px;">Swipe to explore →</p>
+      <h2>Choose your detail package.</h2>
+      <p style="font-size:13px;color:#aaa;margin-top:8px;">Select one or more packages below, then tap Book Now.</p>
     </div>
-    <div class="services-scroll">
-      <div class="scard fade-in">
-        <h3>Interior Refresh</h3>
-        <div class="scard-price">Starting at $109</div>
-        <p class="scard-desc">A light interior clean for vehicles that need a fresh reset.</p>
-        <ul>
-          <li>Vacuuming</li>
-          <li>Dust wipe-down</li>
-          <li>Dashboard & console</li>
-          <li>Cup holders & door panels</li>
-          <li>Interior/exterior windows</li>
-          <li>Light floor cleaning</li>
-        </ul>
-        <a href="sms:+12502587505" class="book-btn">💬 Book Now</a>
+
+    <div class="sv2-layout fade-in">
+
+      <!-- ── LEFT: Detailing Packages ─────────────────────────────────── -->
+      <div class="sv2-col">
+        <div class="sv2-col-title">🧹 Interior &amp; Exterior Detailing</div>
+
+        <!-- Basic -->
+        <label class="pkg-card" onclick="togglePkg(this,'Basic Interior &amp; Exterior')">
+          <div class="pkg-check"></div>
+          <div>
+            <div class="pkg-header">
+              <div class="pkg-name">Basic Interior &amp; Exterior</div>
+              <div class="pkg-price">From $109</div>
+            </div>
+            <ul class="pkg-items">
+              <li>Hand wash — two-bucket method</li>
+              <li>Wheel &amp; tire cleaning + tire dressing</li>
+              <li>Door-jamb wipe-down; exterior windows</li>
+              <li>Quick spray wax / sealant</li>
+              <li>Interior vacuuming — carpets, seats, cargo</li>
+              <li>Dashboard &amp; console wipe-down; interior glass</li>
+            </ul>
+          </div>
+        </label>
+
+        <!-- Standard — featured -->
+        <label class="pkg-card featured-pkg" onclick="togglePkg(this,'Standard / Mid-Level Detail')">
+          <div class="pkg-check"></div>
+          <div>
+            <div class="pkg-badge">Most Popular</div>
+            <div class="pkg-header">
+              <div class="pkg-name">Standard / Mid-Level Detail</div>
+              <div class="pkg-price">From $199</div>
+            </div>
+            <ul class="pkg-items">
+              <li>Everything in Basic, plus:</li>
+              <li>Clay-bar decontamination</li>
+              <li>Single-stage machine or hand polish</li>
+              <li>Higher-quality wax or synthetic sealant</li>
+              <li>Upholstery shampoo &amp; extraction (fabric)</li>
+              <li>Leather cleaning &amp; conditioning</li>
+              <li>Deep console, cup-holder &amp; vent detailing</li>
+              <li>Carpet &amp; floor-mat shampooing; odor treatment</li>
+              <li>UV protectant on dash &amp; plastics</li>
+            </ul>
+          </div>
+        </label>
+
+        <!-- Premium -->
+        <label class="pkg-card" onclick="togglePkg(this,'Premium / Deluxe Detail')">
+          <div class="pkg-check"></div>
+          <div>
+            <div class="pkg-header">
+              <div class="pkg-name">Premium / Deluxe Detail</div>
+              <div class="pkg-price">From $299</div>
+            </div>
+            <ul class="pkg-items">
+              <li>Everything in Standard, plus:</li>
+              <li>Multi-stage paint correction (70–90 % defect removal)</li>
+              <li>Iron decontamination — wheels &amp; paint</li>
+              <li>Intensive wheel cleaning incl. inner barrels &amp; calipers</li>
+              <li>Premium sealant or entry-level ceramic coating</li>
+              <li>Headlight restoration; engine-bay detailing</li>
+              <li>Ozone odor elimination; headliner cleaning</li>
+              <li>Trunk / cargo area deep clean; seat-belt cleaning</li>
+              <li>Pet-hair removal</li>
+            </ul>
+          </div>
+        </label>
       </div>
-      <div class="scard featured fade-in">
-        <div class="scard-badge">Most Popular</div>
-        <h3>Deep Interior Detail</h3>
-        <div class="scard-price">Starting at $199</div>
-        <p class="scard-desc">A deeper clean for family vehicles, work trucks, and interiors with heavier use.</p>
-        <ul>
-          <li>Deep vacuuming</li>
-          <li>Carpet & floor mat cleaning</li>
-          <li>Seat cleaning</li>
-          <li>Stain treatment</li>
-          <li>Plastics, cup holders & doors</li>
-          <li>Full interior reset</li>
-        </ul>
-        <a href="sms:+12502587505" class="book-btn">💬 Book Now</a>
-      </div>
-      <div class="scard fade-in">
-        <h3>Full Detail</h3>
-        <div class="scard-price">Starting at $299</div>
-        <p class="scard-desc">Deep interior cleaning plus a clean exterior finish.</p>
-        <ul>
-          <li>Everything in Deep Interior Detail</li>
-          <li>Exterior hand wash</li>
-          <li>Wheels & tires cleaned</li>
-          <li>Door jambs</li>
-          <li>Windows</li>
-          <li>Basic exterior protection</li>
-        </ul>
-        <a href="sms:+12502587505" class="book-btn">💬 Book Now</a>
+
+      <!-- ── RIGHT: Polish + Ceramic ──────────────────────────────────── -->
+      <div class="sv2-right">
+
+        <!-- TOP: Paint Correction / Polish -->
+        <div class="sv2-right-top">
+          <div class="sv2-col-title">✨ Paint Correction &amp; Polish</div>
+
+          <label class="pkg-card" onclick="togglePkg(this,'Gloss Enhancement Polish')">
+            <div class="pkg-check"></div>
+            <div>
+              <div class="pkg-header">
+                <div class="pkg-name">Gloss Enhancement Polish</div>
+                <div class="pkg-price">Quote on request</div>
+              </div>
+              <ul class="pkg-items">
+                <li>Wash &amp; clay-bar decontamination</li>
+                <li>One-step machine polish — lightly corrects &amp; seals</li>
+                <li>Glass cleaning; tire dressing</li>
+              </ul>
+            </div>
+          </label>
+
+          <label class="pkg-card" onclick="togglePkg(this,'Correction + Sealant')">
+            <div class="pkg-check"></div>
+            <div>
+              <div class="pkg-header">
+                <div class="pkg-name">Correction + Sealant</div>
+                <div class="pkg-price">Quote on request</div>
+              </div>
+              <ul class="pkg-items">
+                <li>Wash, clay &amp; dedicated correcting polish</li>
+                <li>Removes light-to-moderate swirls</li>
+                <li>High-quality wax, sealant or entry ceramic</li>
+                <li>Glass cleaning; door jambs; wheel &amp; tire dressing</li>
+              </ul>
+            </div>
+          </label>
+
+          <label class="pkg-card" onclick="togglePkg(this,'Multi-Stage Paint Correction')">
+            <div class="pkg-check"></div>
+            <div>
+              <div class="pkg-header">
+                <div class="pkg-name">Multi-Stage Paint Correction</div>
+                <div class="pkg-price">Quote on request</div>
+              </div>
+              <ul class="pkg-items">
+                <li>Extensive wash + chemical &amp; mechanical decontam.</li>
+                <li>Machine scrub tires; full wheel cleaning</li>
+                <li>Compound stage → polish stage → enhanced gloss</li>
+                <li>Seal with wax, sealant or ceramic; exhaust tip polish</li>
+              </ul>
+            </div>
+          </label>
+        </div>
+
+        <div class="sv2-right-divider"></div>
+
+        <!-- BOTTOM: Ceramic Coating -->
+        <div class="sv2-right-bottom">
+          <div class="sv2-col-title">🛡️ Ceramic Coating</div>
+
+          <label class="pkg-card" onclick="togglePkg(this,'Entry-Level Ceramic (1–2 Year)')">
+            <div class="pkg-check"></div>
+            <div>
+              <div class="pkg-header">
+                <div class="pkg-name">Entry-Level Ceramic</div>
+                <div class="pkg-price">1–2 Year</div>
+              </div>
+              <ul class="pkg-items">
+                <li>Single layer after basic paint prep (wash + decontam.)</li>
+                <li>Protection vs water spots; increased gloss &amp; slickness</li>
+              </ul>
+            </div>
+          </label>
+
+          <label class="pkg-card" onclick="togglePkg(this,'Mid-Tier Ceramic (3–5 Year)')">
+            <div class="pkg-check"></div>
+            <div>
+              <div class="pkg-header">
+                <div class="pkg-name">Mid-Tier Ceramic</div>
+                <div class="pkg-price">3–5 Year</div>
+              </div>
+              <ul class="pkg-items">
+                <li>Multiple layers; machine paint correction</li>
+                <li>Wheel faces &amp; glass coating</li>
+                <li>Enhanced chemical &amp; UV protection</li>
+                <li>Optional limited warranty</li>
+              </ul>
+            </div>
+          </label>
+
+          <label class="pkg-card" onclick="togglePkg(this,'Premium / Pro Ceramic (5–9 Year+)')">
+            <div class="pkg-check"></div>
+            <div>
+              <div class="pkg-header">
+                <div class="pkg-name">Premium / Pro Ceramic</div>
+                <div class="pkg-price">5–9 Year+</div>
+              </div>
+              <ul class="pkg-items">
+                <li>High-end ceramic or graphene coating</li>
+                <li>Full paint correction; wheels removed &amp; coated (barrels)</li>
+                <li>Glass coating on all windows</li>
+                <li>Optional interior ceramic on leather, vinyl &amp; fabric</li>
+                <li>Registered warranty</li>
+              </ul>
+            </div>
+          </label>
+        </div>
+
       </div>
     </div>
+
+    <!-- ── Book Now sticky bar ─────────────────────────────────────────── -->
+    <div class="book-bar" id="book-bar">
+      <div>
+        <div class="book-bar-info">Select a package to continue</div>
+        <div class="book-bar-selected" id="bar-selected"></div>
+      </div>
+      <a href="sms:+12502587505" class="book-now-btn" id="book-now-btn">💬 Book Now</a>
+    </div>
+
   </div>
 </section>
 
@@ -375,6 +642,39 @@
       dots.forEach((d, i) => d.classList.toggle('active', i === Math.min(idx, dots.length-1)));
     });
   }
+  // ── Services V2 package selector ─────────────────────────────────────────
+  const selectedPkgs = new Set();
+
+  function togglePkg(card, name) {
+    if (selectedPkgs.has(name)) {
+      selectedPkgs.delete(name);
+      card.classList.remove('selected');
+    } else {
+      selectedPkgs.add(name);
+      card.classList.add('selected');
+    }
+    updateBookBar();
+  }
+
+  function updateBookBar() {
+    const bar = document.getElementById('book-bar');
+    const btn = document.getElementById('book-now-btn');
+    const sel = document.getElementById('bar-selected');
+    if (selectedPkgs.size > 0) {
+      bar.classList.add('active');
+      const names = Array.from(selectedPkgs);
+      sel.textContent = names.length === 1
+        ? '✓ ' + names[0]
+        : '✓ ' + names.length + ' packages selected';
+      // Build SMS link with packages
+      const msg = encodeURIComponent('Hi Max! I want to book: ' + names.join(', ') + '. Please send me a quote.');
+      btn.href = 'sms:+12502587505?body=' + msg;
+    } else {
+      bar.classList.remove('active');
+      btn.href = 'sms:+12502587505';
+    }
+  }
+
 </script>
 </body>
 </html>
