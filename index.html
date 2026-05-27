@@ -277,6 +277,78 @@
     }
 
 
+
+    /* ── Add-ons Panel ─────────────────────────────────────────────────── */
+    .addons-panel {
+      display: none;
+      margin-top: 28px;
+      border: 1px solid rgba(123,189,232,0.15);
+      background: rgba(10,10,10,0.72);
+      border-radius: 22px;
+      padding: 18px;
+      backdrop-filter: blur(10px);
+    }
+    .addons-panel.visible { display: block; }
+    .addons-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .addons-note {
+      margin-top: 6px;
+      font-size: 12px;
+      color: #888;
+      line-height: 1.5;
+    }
+    .addons-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .addon-card {
+      display: grid;
+      grid-template-columns: 22px 1fr auto;
+      align-items: center;
+      gap: 12px;
+      border: 1.5px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      border-radius: 16px;
+      padding: 13px 14px;
+      cursor: pointer;
+      transition: border-color .2s, background .2s, transform .15s;
+      user-select: none;
+    }
+    .addon-card:hover { border-color: rgba(123,189,232,0.35); background: rgba(255,255,255,0.06); transform: translateY(-1px); }
+    .addon-card.selected { border-color: #7BBDE8; background: rgba(10,45,84,0.45); }
+    .addon-check {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      border: 2px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.05);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .addon-card.selected .addon-check { background: #7BBDE8; border-color: #7BBDE8; }
+    .addon-check::after {
+      content: '';
+      display: none;
+      width: 5px; height: 9px;
+      border: 2px solid #0a0a0a;
+      border-top: none; border-left: none;
+      transform: rotate(42deg) translateY(-1px);
+    }
+    .addon-card.selected .addon-check::after { display: block; }
+    .addon-name { font-size: 13px; font-weight: 800; color: #fff; line-height: 1.2; }
+    .addon-desc { font-size: 11px; color: #888; line-height: 1.45; margin-top: 3px; }
+    .addon-price { font-size: 13px; font-weight: 800; color: #7BBDE8; text-align: right; white-space: nowrap; }
+    .addon-price small { display: block; font-size: 9px; font-weight: 600; color: #49769F; margin-top: 3px; }
+
+    @media (min-width: 768px) {
+      .addons-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
     /* ── Tax badge ─────────────────────────────────────────────────────── */
     .tax-badge {
       display: inline-flex; align-items: center; gap: 4px;
@@ -305,98 +377,13 @@
     }
     .tax-tip:hover::after { opacity: 1; }
 
-    /* ── Add-ons panel (hidden until package selected) ──────────────────── */
-    .addons-panel {
-      margin-top: 28px;
-      overflow: hidden;
-      max-height: 0;
-      opacity: 0;
-      transition: max-height .5s cubic-bezier(0.4,0,0.2,1), opacity .4s ease;
-    }
-    .addons-panel.visible {
-      max-height: 1000px;
-      opacity: 1;
-    }
-    .addons-title {
-      font-size: 11px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: .18em; color: #7BBDE8;
-      border-bottom: 1px solid rgba(123,189,232,0.2);
-      padding-bottom: 8px; margin-bottom: 14px;
-    }
-    .addons-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-    .addon-card {
-      display: flex; align-items: center; gap: 12px;
-      background: rgba(10,10,10,0.75); border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 13px; padding: 12px 14px;
-      cursor: pointer; transition: border-color .2s, background .2s;
-      user-select: none;
-    }
-    .addon-card:hover { border-color: rgba(123,189,232,0.3); background: rgba(15,15,25,0.9); }
-    .addon-card.selected { border-color: #7BBDE8; background: rgba(10,45,84,0.45); }
-    .addon-check {
-      width: 18px; height: 18px; border-radius: 5px;
-      border: 1.5px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.04);
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-      transition: all .2s;
-    }
-    .addon-card.selected .addon-check { background: #7BBDE8; border-color: #7BBDE8; }
-    .addon-check::after {
-      content: ''; display: none;
-      width: 4px; height: 7px;
-      border: 1.5px solid #0a0a0a; border-top: none; border-left: none;
-      transform: rotate(42deg) translateY(-1px);
-    }
-    .addon-card.selected .addon-check::after { display: block; }
-    .addon-info { flex: 1; min-width: 0; }
-    .addon-name { font-size: 13px; font-weight: 600; color: #fff; line-height: 1.2; }
-    .addon-desc { font-size: 11px; color: #777; margin-top: 2px; line-height: 1.4; }
-    .addon-price { font-size: 13px; font-weight: 700; color: #7BBDE8; white-space: nowrap; flex-shrink: 0; text-align: right; }
-    .addon-price small { display: block; font-size: 9px; font-weight: 400; color: #49769F; margin-top: 2px; }
-
-    @media (min-width: 640px) {
-      .addons-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (min-width: 1024px) {
-      .addons-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-
-
+    
     /* ── Photo Modal ────────────────────────────────────────────────────── */
-    .photo-modal-overlay {
-      position: fixed; inset: 0; z-index: 999;
-      background: rgba(0,0,0,0.85);
-      backdrop-filter: blur(12px);
-      display: flex; align-items: flex-end;
-      opacity: 0; pointer-events: none;
-      transition: opacity .3s ease;
-    }
-    .photo-modal-overlay.open {
-      opacity: 1; pointer-events: auto;
-    }
     @media (min-width: 600px) {
-      .photo-modal-overlay { align-items: center; justify-content: center; }
-    }
+      }
 
-    .photo-modal {
-      background: #0D1117;
-      border: 1px solid rgba(123,189,232,0.2);
-      border-radius: 28px 28px 0 0;
-      width: 100%; max-width: 540px;
-      padding: 32px 24px 40px;
-      transform: translateY(40px);
-      transition: transform .35s cubic-bezier(0.22,1,0.36,1);
-      position: relative;
-    }
     @media (min-width: 600px) {
-      .photo-modal { border-radius: 28px; transform: scale(0.95); }
-    }
-    .photo-modal-overlay.open .photo-modal {
-      transform: translateY(0) scale(1);
-    }
+      }
 
     .modal-close {
       position: absolute; top: 16px; right: 18px;
@@ -484,6 +471,179 @@
 
     /* Hidden file input */
     #photo-file-input { display: none; }
+
+
+    /* ═══ PHOTO MODAL ══════════════════════════════════════════════════════ */
+    #photo-modal-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      padding: 0;
+    }
+    #photo-modal-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    @media (min-width: 600px) {
+      #photo-modal-overlay { align-items: center; }
+    }
+
+    #photo-modal {
+      background: #0D1117;
+      border: 1px solid rgba(123,189,232,0.25);
+      border-radius: 28px 28px 0 0;
+      width: 100%;
+      max-width: 520px;
+      padding: 28px 22px 44px;
+      transform: translateY(60px);
+      transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    #photo-modal-overlay.open #photo-modal {
+      transform: translateY(0);
+    }
+    @media (min-width: 600px) {
+      #photo-modal {
+        border-radius: 24px;
+        transform: scale(0.94) translateY(0);
+        max-height: 85vh;
+      }
+      #photo-modal-overlay.open #photo-modal { transform: scale(1) translateY(0); }
+    }
+
+    /* Drag handle */
+    #photo-modal::before {
+      content: '';
+      display: block;
+      width: 40px; height: 4px;
+      background: rgba(255,255,255,0.18);
+      border-radius: 2px;
+      margin: 0 auto 22px;
+    }
+    @media (min-width: 600px) { #photo-modal::before { display: none; } }
+
+    .pm-close {
+      position: absolute; top: 18px; right: 18px;
+      width: 30px; height: 30px; border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: none; color: #888; font-size: 14px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+      line-height: 1;
+    }
+    .pm-close:hover { background: rgba(255,255,255,0.15); color: #fff; }
+
+    .pm-icon { text-align: center; font-size: 40px; margin-bottom: 10px; }
+    .pm-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(18px, 5vw, 24px);
+      font-weight: 400; text-align: center;
+      color: #fff; line-height: 1.25; margin-bottom: 6px;
+    }
+    .pm-sub {
+      font-size: 13px; color: #888; text-align: center;
+      line-height: 1.6; margin-bottom: 20px;
+    }
+
+    /* 3 steps */
+    .pm-steps { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+    .pm-step {
+      display: flex; align-items: flex-start; gap: 11px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px; padding: 11px 13px;
+    }
+    .pm-step-n {
+      min-width: 22px; height: 22px; border-radius: 50%;
+      background: #0A4174; color: #7BBDE8;
+      font-size: 10px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .pm-step-t { font-size: 12px; color: #bbb; line-height: 1.5; }
+    .pm-step-t b { color: #fff; }
+
+    /* Photo preview */
+    .pm-previews {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 16px; min-height: 0;
+      transition: min-height 0.3s;
+    }
+    .pm-previews.has-photos { min-height: 80px; }
+    .pm-thumb {
+      width: 70px; height: 70px; border-radius: 10px;
+      object-fit: cover;
+      border: 2px solid #7BBDE8;
+      animation: thumbIn 0.25s ease;
+    }
+    @keyframes thumbIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    .pm-photo-count {
+      font-size: 12px; color: #7BBDE8; font-weight: 600;
+      margin-bottom: 8px; display: none; text-align: center;
+    }
+    .pm-previews.has-photos + .pm-photo-count { display: block; }
+
+    /* Buttons */
+    .pm-btn-camera {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 15px;
+      background: #7BBDE8; color: #0a0a0a;
+      border: none; border-radius: 14px;
+      font-size: 15px; font-weight: 700;
+      cursor: pointer; margin-bottom: 10px;
+      transition: background 0.2s, transform 0.1s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .pm-btn-camera:active { transform: scale(0.98); background: #5AAAD8; }
+
+    .pm-btn-skip {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 13px;
+      background: transparent;
+      color: #7BBDE8;
+      border: 1.5px solid rgba(123,189,232,0.3);
+      border-radius: 14px;
+      font-size: 14px; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .pm-btn-skip:hover { border-color: #7BBDE8; background: rgba(123,189,232,0.07); }
+
+    .pm-btn-send {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 15px;
+      background: #0A4174; color: #7BBDE8;
+      border: none; border-radius: 14px;
+      font-size: 15px; font-weight: 700;
+      cursor: pointer; margin-bottom: 10px;
+      transition: background 0.2s, transform 0.1s;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      display: none;
+    }
+    .pm-btn-send.visible { display: flex; }
+    .pm-btn-send:active { transform: scale(0.98); }
+
+    .pm-note {
+      font-size: 11px; color: #555; text-align: center;
+      margin-top: 14px; line-height: 1.55;
+    }
+    #photo-input { display: none; }
+    /* ═══════════════════════════════════════════════════════════════════════ */
 
   </style>
 </head>
@@ -597,7 +757,7 @@
         <div class="price-notice-icon">⚠️</div>
         <div class="price-notice-text">
           <strong>Final price depends on vehicle condition &amp; size</strong>
-          All prices shown are starting points. Heavier soiling, pet hair, larger vehicles (SUV, truck, van) or extra add-ons may adjust the quote. Send photos for an accurate price before booking.
+          All prices shown are starting points and do not include tax. Basic detailing services show GST only. Polish, paint correction, ceramic coating, and coating add-ons show GST + PST. Heavier soiling, pet hair, larger vehicles (SUV, truck, van), or extra add-ons may adjust the quote. Send photos for an accurate price before booking.
         </div>
       </div>
     </div>
@@ -614,7 +774,7 @@
           <div>
             <div class="pkg-header">
               <div class="pkg-name">Basic Interior &amp; Exterior</div>
-              <div class="pkg-price"><span class="pkg-price-main">From $139</span><span class="tax-badge tax-gst tax-tip" data-tip="GST only (5%) — federal tax on basic cleaning services.">+ 5% GST</span></div>
+              <div class="pkg-price"><span class="pkg-price-main">From $139</span><span class="tax-badge tax-gst tax-tip" data-tip="GST only (5%) — basic detailing service.">+ 5% GST</span></div>
             </div>
             <ul class="pkg-items">
               <li>Hand wash — two-bucket method</li>
@@ -633,7 +793,7 @@
             <div class="pkg-badge">Most Popular</div>
             <div class="pkg-header">
               <div class="pkg-name">Standard / Mid-Level Detail</div>
-              <div class="pkg-price"><span class="pkg-price-main">From $229</span><span class="tax-badge tax-gst tax-tip" data-tip="GST only (5%) — federal tax on basic cleaning services.">+ 5% GST</span></div>
+              <div class="pkg-price"><span class="pkg-price-main">From $229</span><span class="tax-badge tax-gst tax-tip" data-tip="GST only (5%) — basic detailing service.">+ 5% GST</span></div>
             </div>
             <ul class="pkg-items">
               <li>Everything in Basic, plus:</li>
@@ -652,7 +812,7 @@
           <div>
             <div class="pkg-header">
               <div class="pkg-name">Premium / Deluxe Detail</div>
-              <div class="pkg-price"><span class="pkg-price-main">From $399</span><span class="tax-badge tax-gst tax-tip" data-tip="GST only (5%) — federal tax on basic cleaning services.">+ 5% GST</span></div>
+              <div class="pkg-price"><span class="pkg-price-main">From $399</span><span class="tax-badge tax-gst tax-tip" data-tip="GST only (5%) — basic detailing service.">+ 5% GST</span></div>
             </div>
             <ul class="pkg-items">
               <li>Everything in Standard, plus:</li>
@@ -678,7 +838,7 @@
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Gloss Enhancement Polish</div>
-                <div class="pkg-price"><span class="pkg-price-main">From $299</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">GST 5% + PST 7%</span></div>
+                <div class="pkg-price"><span class="pkg-price-main">From $299</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% total — applies to polish, paint correction, ceramic, and coating services.">+ 12% Tax</span></div>
               </div>
               <ul class="pkg-items">
                 <li>Wash &amp; clay-bar decontamination</li>
@@ -693,7 +853,7 @@
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Correction + Sealant</div>
-                <div class="pkg-price"><span class="pkg-price-main">From $499</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">GST 5% + PST 7%</span></div>
+                <div class="pkg-price"><span class="pkg-price-main">From $499</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% total — applies to polish, paint correction, ceramic, and coating services.">+ 12% Tax</span></div>
               </div>
               <ul class="pkg-items">
                 <li>Wash, clay &amp; dedicated correcting polish</li>
@@ -709,7 +869,7 @@
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Multi-Stage Paint Correction</div>
-                <div class="pkg-price"><span class="pkg-price-main">From $899</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">GST 5% + PST 7%</span></div>
+                <div class="pkg-price"><span class="pkg-price-main">From $899</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% total — applies to polish, paint correction, ceramic, and coating services.">+ 12% Tax</span></div>
               </div>
               <ul class="pkg-items">
                 <li>Extensive wash + chemical &amp; mechanical decontam.</li>
@@ -732,7 +892,7 @@
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Entry-Level Ceramic</div>
-                <div class="pkg-price"><span class="pkg-price-main">From $699</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">GST 5% + PST 7%</span></div>
+                <div class="pkg-price"><span class="pkg-price-main">From $699</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% total — applies to polish, paint correction, ceramic, and coating services.">+ 12% Tax</span></div>
               </div>
               <ul class="pkg-items">
                 <li>Single layer after basic paint prep (wash + decontam.)</li>
@@ -746,7 +906,7 @@
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Mid-Tier Ceramic</div>
-                <div class="pkg-price"><span class="pkg-price-main">From $1,199</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">GST 5% + PST 7%</span></div>
+                <div class="pkg-price"><span class="pkg-price-main">From $1,199</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% total — applies to polish, paint correction, ceramic, and coating services.">+ 12% Tax</span></div>
               </div>
               <ul class="pkg-items">
                 <li>Multiple layers; machine paint correction</li>
@@ -762,7 +922,7 @@
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Premium / Pro Ceramic</div>
-                <div class="pkg-price"><span class="pkg-price-main">From $1,799</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">GST 5% + PST 7%</span></div>
+                <div class="pkg-price"><span class="pkg-price-main">From $1,799</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% total — applies to polish, paint correction, ceramic, and coating services.">+ 12% Tax</span></div>
               </div>
               <ul class="pkg-items">
                 <li>High-end ceramic or graphene coating</li>
@@ -781,52 +941,125 @@
 
     <!-- ── Add-on Services (revealed after package selected) ──────────── -->
     <div class="addons-panel" id="addons-panel">
-      <div class="addons-title">➕  Add-On Services — Optional Upgrades</div>
+      <div class="addons-title">➕ Add-On Services — Optional Upgrades</div>
+      <div class="addons-note">Add-ons are starting prices. Final price depends on vehicle size and condition.</div>
       <div class="addons-grid">
 
         <label class="addon-card" onclick="toggleAddon(this,'Pet Hair Removal','$40','gst')">
           <div class="addon-check"></div>
           <div class="addon-info">
             <div class="addon-name">🐾 Pet Hair Removal</div>
-            <div class="addon-desc">Deep extraction from seats, carpet &amp; cargo area</div>
+            <div class="addon-desc">Deep removal from seats, carpet, mats, and cargo area</div>
           </div>
           <div class="addon-price">From $40<small>+ 5% GST</small></div>
         </label>
 
-        <label class="addon-card" onclick="toggleAddon(this,'Ozone Odor Treatment','$150','gst')">
+        <label class="addon-card" onclick="toggleAddon(this,'Vomit / Biohazard Cleanup','$100','gst')">
+          <div class="addon-check"></div>
+          <div class="addon-info">
+            <div class="addon-name">🧼 Vomit / Biohazard Cleanup</div>
+            <div class="addon-desc">Special cleanup for vomit, spills, and contamination areas</div>
+          </div>
+          <div class="addon-price">From $100<small>+ 5% GST</small></div>
+        </label>
+
+        <label class="addon-card" onclick="toggleAddon(this,'Heavy Stain Extraction','$40','gst')">
+          <div class="addon-check"></div>
+          <div class="addon-info">
+            <div class="addon-name">🧽 Heavy Stain Extraction</div>
+            <div class="addon-desc">Extra extraction work for seats, carpets, and mats</div>
+          </div>
+          <div class="addon-price">From $40<small>+ 5% GST</small></div>
+        </label>
+
+        <label class="addon-card" onclick="toggleAddon(this,'Ozone Odor Treatment','$60','gst')">
           <div class="addon-check"></div>
           <div class="addon-info">
             <div class="addon-name">💨 Ozone Odor Treatment</div>
-            <div class="addon-desc">Eliminates smoke, mildew &amp; stubborn odors at the source</div>
+            <div class="addon-desc">Helps reduce smoke, mildew, pet, and stubborn odors</div>
           </div>
-          <div class="addon-price">From $150<small>+ 5% GST</small></div>
+          <div class="addon-price">From $60<small>+ 5% GST</small></div>
         </label>
 
-        <label class="addon-card" onclick="toggleAddon(this,'Headlight Restoration','$150','gst-pst')">
+        <label class="addon-card" onclick="toggleAddon(this,'Headlight Restoration','$100','gst-pst')">
           <div class="addon-check"></div>
           <div class="addon-info">
             <div class="addon-name">💡 Headlight Restoration</div>
-            <div class="addon-desc">Removes yellowing &amp; haze — restores clarity &amp; brightness</div>
+            <div class="addon-desc">Removes yellowing and haze to restore clarity</div>
+          </div>
+          <div class="addon-price">From $100<small>+ 12% Tax</small></div>
+        </label>
+
+        <label class="addon-card" onclick="toggleAddon(this,'Engine Bay Detail','$60','gst')">
+          <div class="addon-check"></div>
+          <div class="addon-info">
+            <div class="addon-name">⚙️ Engine Bay Detail</div>
+            <div class="addon-desc">Careful engine-bay cleaning and dressing</div>
+          </div>
+          <div class="addon-price">From $60<small>+ 5% GST</small></div>
+        </label>
+
+        <label class="addon-card" onclick="toggleAddon(this,'Excessive Mud / Work Truck Fee','$50','gst')">
+          <div class="addon-check"></div>
+          <div class="addon-info">
+            <div class="addon-name">🛻 Excessive Mud / Work Truck Fee</div>
+            <div class="addon-desc">Heavy dirt, mud pack, or work-site build-up</div>
+          </div>
+          <div class="addon-price">From $50<small>+ 5% GST</small></div>
+        </label>
+
+        <label class="addon-card" onclick="toggleAddon(this,'Seat Shampoo / Extraction','$30 per seat','gst')">
+          <div class="addon-check"></div>
+          <div class="addon-info">
+            <div class="addon-name">🪑 Seat Shampoo / Extraction</div>
+            <div class="addon-desc">Focused shampoo and extraction for individual seats</div>
+          </div>
+          <div class="addon-price">From $30<small>per seat + 5% GST</small></div>
+        </label>
+
+        <label class="addon-card" onclick="toggleAddon(this,'Full Carpet Extraction','$80','gst')">
+          <div class="addon-check"></div>
+          <div class="addon-info">
+            <div class="addon-name">🧴 Full Carpet Extraction</div>
+            <div class="addon-desc">Full carpet and floor-mat shampoo/extraction</div>
+          </div>
+          <div class="addon-price">From $80<small>+ 5% GST</small></div>
+        </label>
+
+        <label class="addon-card" onclick="toggleAddon(this,'Wheel Barrel Deep Clean','$60','gst')">
+          <div class="addon-check"></div>
+          <div class="addon-info">
+            <div class="addon-name">🛞 Wheel Barrel Deep Clean</div>
+            <div class="addon-desc">Deep clean inside wheel barrels and tight wheel areas</div>
+          </div>
+          <div class="addon-price">From $60<small>+ 5% GST</small></div>
+        </label>
+
+        <label class="addon-card" onclick="toggleAddon(this,'Glass Coating','$100','gst-pst')">
+          <div class="addon-check"></div>
+          <div class="addon-info">
+            <div class="addon-name">🪟 Glass Coating</div>
+            <div class="addon-desc">Hydrophobic coating for windows and improved visibility</div>
+          </div>
+          <div class="addon-price">From $100<small>+ 12% Tax</small></div>
+        </label>
+
+        <label class="addon-card" onclick="toggleAddon(this,'Wheel Face Ceramic Coating','$150','gst-pst')">
+          <div class="addon-check"></div>
+          <div class="addon-info">
+            <div class="addon-name">✨ Wheel Face Ceramic Coating</div>
+            <div class="addon-desc">Ceramic coating on visible wheel faces</div>
           </div>
           <div class="addon-price">From $150<small>+ 12% Tax</small></div>
         </label>
 
-        <label class="addon-card" onclick="toggleAddon(this,'Excessive Mud / Work Truck Fee','$85','gst')">
+        <label class="addon-card" onclick="toggleAddon(this,'Wheel-Off Ceramic Coating','$400','gst-pst')">
           <div class="addon-check"></div>
           <div class="addon-info">
-            <div class="addon-name">🛻 Excessive Mud / Work Truck Fee</div>
-            <div class="addon-desc">Heavy soiling, mud pack, or extreme work-site build-up</div>
+            <div class="addon-name">🔧 Wheel-Off Ceramic Coating</div>
+            <div class="addon-desc">Wheels removed, cleaned, and coated including barrels</div>
           </div>
-          <div class="addon-price">From $85<small>+ 5% GST</small></div>
-        </label>
-
-        <label class="addon-card" onclick="toggleAddon(this,'Glass Coating','$165','gst-pst')">
-          <div class="addon-check"></div>
-          <div class="addon-info">
-            <div class="addon-name">🪟 Glass Coating</div>
-            <div class="addon-desc">Hydrophobic nano-coating on all windows — repels water &amp; improves visibility</div>
-          </div>
-          <div class="addon-price">From $165<small>+ 12% Tax</small></div>
+          <div class="addon-price">From $400<small>+ 12% Tax</small></div>
         </label>
 
       </div>
@@ -953,61 +1186,6 @@
   let pendingSmsHref = 'sms:+12502587505';
   let pendingIsQuote = false;
 
-  function openBookModal(smsHref, isQuote) {
-    pendingSmsHref = smsHref;
-    pendingIsQuote = isQuote;
-
-    const title    = document.getElementById('modal-title');
-    const subtitle = document.getElementById('modal-subtitle');
-    const smsBtn   = document.getElementById('modal-sms-btn');
-
-    if (isQuote) {
-      title.textContent    = 'Get your price — send photos';
-      subtitle.textContent = 'To give you an accurate quote, Max needs to see your vehicle. Take a few photos below, then send them in your message.';
-    } else {
-      title.textContent    = 'One quick step before we book';
-      subtitle.textContent = 'Photos help Max prepare for your appointment and flag any extra work upfront. No surprises.';
-    }
-
-    smsBtn.href = pendingSmsHref;
-    document.getElementById('photo-preview-area').innerHTML = '';
-    document.getElementById('photo-preview-area').classList.remove('has-photos');
-    document.getElementById('photo-modal-overlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    document.getElementById('photo-modal-overlay').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function closeModalOutside(e) {
-    if (e.target === document.getElementById('photo-modal-overlay')) closeModal();
-  }
-
-  function handlePhotoSelect(input) {
-    const preview = document.getElementById('photo-preview-area');
-    preview.innerHTML = '';
-    const files = Array.from(input.files);
-    if (files.length === 0) return;
-    files.forEach(file => {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const img = document.createElement('img');
-        img.src = e.target.result;
-        img.className = 'photo-thumb';
-        preview.appendChild(img);
-      };
-      reader.readAsDataURL(file);
-    });
-    preview.classList.add('has-photos');
-    // Scroll SMS button into view
-    setTimeout(() => document.getElementById('modal-sms-btn').scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 300);
-  }
-
-  // Close modal on Escape key
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
   function updateBookBar() {
     const bar = document.getElementById('book-bar');
     const btn = document.getElementById('book-now-btn');
@@ -1022,7 +1200,7 @@
       btn.textContent = '💬 Book Now';
       btn.style.cssText = '';
       btn.href = 'sms:+12502587505';
-      window._currentSmsHref = 'sms:+12502587505';
+      window._smsHref = 'sms:+12502587505';
       sel.textContent = '';
       return;
     }
@@ -1057,68 +1235,178 @@
     pkgNames.forEach(n => smsLines.push('• ' + n));
     if (addonEntries.length) {
       smsLines.push('Add-ons:');
-      addonEntries.forEach(e => smsLines.push('• ' + e.name));
+      addonEntries.forEach(e => smsLines.push('• ' + e.name + ' — From ' + e.price + (e.taxType === 'gst-pst' ? ' + 12% Tax' : ' + 5% GST')));
     }
-    smsLines.push('Please let me know the next steps. I will send photos of my vehicle.');
+    smsLines.push('Please confirm the final price before booking. I can send photos of my vehicle.');
     btn.href = 'sms:+12502587505?body=' + encodeURIComponent(smsLines.join('\n'));
-      window._currentSmsHref = btn.href;
+      window._smsHref = btn.href;
   }
 
+  /* ══ PHOTO MODAL ══════════════════════════════════════════════════════════ */
+  (function () {
+    var overlay   = document.getElementById('photo-modal-overlay');
+    var modal     = document.getElementById('photo-modal');
+    var closeBtn  = document.getElementById('pm-close-btn');
+    var cameraBtn = document.getElementById('pm-camera-btn');
+    var fileInput = document.getElementById('photo-input');
+    var sendBtn   = document.getElementById('pm-send-btn');
+    var skipBtn   = document.getElementById('pm-skip-btn');
+    var previews  = document.getElementById('pm-previews');
+    var photoCount= document.getElementById('pm-photo-count');
+    var titleEl   = document.getElementById('pm-title');
+    var subEl     = document.getElementById('pm-sub');
+    var iconEl    = document.getElementById('pm-icon');
+
+    var currentHref = 'sms:+12502587505';
+    var photosChosen = 0;
+
+    /* ── Open ── */
+    window.MODAL = {
+      open: function (smsHref, isQuote) {
+        currentHref   = smsHref || 'sms:+12502587505';
+        photosChosen  = 0;
+        previews.innerHTML = '';
+        previews.classList.remove('has-photos');
+        photoCount.textContent = '';
+        sendBtn.classList.remove('visible');
+        sendBtn.href = currentHref;
+        skipBtn.href = currentHref;
+
+        if (isQuote) {
+          iconEl.textContent  = '💰';
+          titleEl.textContent = 'Send photos to get your price';
+          subEl.textContent   = 'Max needs to see your vehicle to give you an accurate quote. Take a few photos and send them — you'll get a price within a few hours.';
+        } else {
+          iconEl.textContent  = '📸';
+          titleEl.textContent = 'Send photos before booking';
+          subEl.textContent   = 'Photos let Max prepare for your appointment and flag any extra work upfront — no surprises on the day.';
+        }
+
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      },
+      close: function () {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    };
+
+    /* ── Close triggers ── */
+    closeBtn.addEventListener('click', function () { MODAL.close(); });
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) MODAL.close();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') MODAL.close();
+    });
+
+    /* ── Camera button → open file picker ── */
+    cameraBtn.addEventListener('click', function () {
+      fileInput.click();
+    });
+
+    /* ── File selected → show previews ── */
+    fileInput.addEventListener('change', function () {
+      var files = Array.from(fileInput.files);
+      if (!files.length) return;
+
+      photosChosen = files.length;
+      previews.innerHTML = '';
+
+      files.forEach(function (file) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          var img = document.createElement('img');
+          img.src = e.target.result;
+          img.className = 'pm-thumb';
+          img.alt = 'Vehicle photo';
+          previews.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+      });
+
+      previews.classList.add('has-photos');
+      photoCount.textContent = photosChosen + ' photo' + (photosChosen > 1 ? 's' : '') + ' selected — now send them to Max';
+
+      /* Show send button, update text */
+      sendBtn.href = currentHref;
+      sendBtn.classList.add('visible');
+      cameraBtn.textContent = '📷 Add more photos';
+
+      /* Scroll send button into view smoothly */
+      setTimeout(function () {
+        sendBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 200);
+    });
+
+    /* ── Send / skip buttons open SMS and close modal ── */
+    sendBtn.addEventListener('click', function () {
+      setTimeout(function () { MODAL.close(); }, 300);
+    });
+    skipBtn.addEventListener('click', function () {
+      setTimeout(function () { MODAL.close(); }, 300);
+    });
+
+  })();
+  /* ══════════════════════════════════════════════════════════════════════════ */
+
+  /* ── Book Now button handler ── */
   function handleBookNow() {
-    const btn = document.getElementById('book-now-btn');
-    // Read SMS href from stored variable in updateBookBar
-    const isQuote = Array.from(selectedPkgs.values()).some(e => e.isQuote);
-    openBookModal(window._currentSmsHref || 'sms:+12502587505', isQuote);
+    var isQuote = Array.from(selectedPkgs.values()).some(function(e){ return e.isQuote; });
+    MODAL.open(window._smsHref || 'sms:+12502587505', isQuote);
   }
 
 </script>
 
 <!-- ── Photo Modal ───────────────────────────────────────────────────────── -->
-<div class="photo-modal-overlay" id="photo-modal-overlay" onclick="closeModalOutside(event)">
-  <div class="photo-modal" role="dialog" aria-modal="true">
-    <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
 
-    <div class="modal-icon">📸</div>
-    <div class="modal-title" id="modal-title">One quick step before we book</div>
-    <div class="modal-subtitle" id="modal-subtitle">
-      Photos help Max give you an accurate price and prepare for your appointment.
-    </div>
+<div id="photo-modal-overlay">
+  <div id="photo-modal" role="dialog" aria-modal="true" aria-labelledby="pm-title">
 
-    <div class="modal-steps">
-      <div class="modal-step">
-        <div class="modal-step-num">1</div>
-        <div class="modal-step-text"><strong>Take or choose photos</strong> of your vehicle — exterior, interior, and any problem areas</div>
+    <button class="pm-close" id="pm-close-btn" aria-label="Close">✕</button>
+
+    <div class="pm-icon" id="pm-icon">📸</div>
+    <div class="pm-title" id="pm-title">Send photos before booking</div>
+    <div class="pm-sub" id="pm-sub">Photos let Max give you an accurate price and prepare for your appointment — no surprises on the day.</div>
+
+    <div class="pm-steps">
+      <div class="pm-step">
+        <div class="pm-step-n">1</div>
+        <div class="pm-step-t"><b>Tap the button below</b> — take a photo now or choose from your camera roll</div>
       </div>
-      <div class="modal-step">
-        <div class="modal-step-num">2</div>
-        <div class="modal-step-text"><strong>Tap "Open Message"</strong> below — your selected package is already written in the message</div>
+      <div class="pm-step">
+        <div class="pm-step-n">2</div>
+        <div class="pm-step-t"><b>Photograph your vehicle</b> — exterior, interior, and any problem areas</div>
       </div>
-      <div class="modal-step">
-        <div class="modal-step-num">3</div>
-        <div class="modal-step-text"><strong>Attach your photos</strong> to the message and hit send — Max will confirm within 24 hours</div>
+      <div class="pm-step">
+        <div class="pm-step-n">3</div>
+        <div class="pm-step-t"><b>Tap "Send to Max"</b> — your message is pre-filled with your package. Attach photos and hit send</div>
       </div>
     </div>
 
     <!-- Photo previews -->
-    <div class="photo-preview-area" id="photo-preview-area"></div>
+    <div class="pm-previews" id="pm-previews"></div>
+    <div class="pm-photo-count" id="pm-photo-count"></div>
 
-    <!-- Camera / gallery button -->
-    <button class="modal-btn-camera" onclick="document.getElementById('photo-file-input').click()">
-      📷 Take Photo or Choose from Library
+    <!-- Primary: open camera / gallery -->
+    <button class="pm-btn-camera" id="pm-camera-btn">
+      📷 Open Camera / Camera Roll
     </button>
-    <input type="file" id="photo-file-input" accept="image/*" multiple
-           onchange="handlePhotoSelect(this)" />
+    <input type="file" id="photo-input" accept="image/*" multiple />
 
-    <!-- Open SMS button -->
-    <a class="modal-btn-sms" id="modal-sms-btn" href="sms:+12502587505">
-      💬 Open Message to Max →
+    <!-- After photos chosen: send button -->
+    <a class="pm-btn-send" id="pm-send-btn" href="#">
+      ✅ Photos ready — Send to Max →
     </a>
 
-    <div class="modal-note">
-      Max will review your photos and confirm the final price before your appointment is locked in.
-    </div>
+    <!-- Skip option -->
+    <a class="pm-btn-skip" id="pm-skip-btn" href="#">
+      Skip photos — open message anyway
+    </a>
+
+    <div class="pm-note">Max will confirm your final price before the appointment is locked in.</div>
   </div>
 </div>
-
+<!-- ═════════════════════════════════════════════════════════════════════════ -->
 </body>
 </html>
