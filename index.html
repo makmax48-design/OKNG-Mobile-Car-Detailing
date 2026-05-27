@@ -697,6 +697,76 @@
       .service-area-layout { padding: 22px; }
     }
 
+
+    /* SERVICES LAYOUT FIX: left main packages, right polish/correction packages */
+    .services-layout {
+      align-items: start;
+    }
+
+    .services-layout > div {
+      min-width: 0;
+    }
+
+    .services-layout .service-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .service-card {
+      overflow: hidden;
+    }
+
+    .service-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: start;
+    }
+
+    .service-top > div:first-child {
+      min-width: 0;
+    }
+
+    .price {
+      min-width: 112px;
+      max-width: 124px;
+      text-align: right;
+      overflow-wrap: normal;
+    }
+
+    .price b {
+      font-size: clamp(17px, 1.6vw, 19px);
+      white-space: nowrap;
+      line-height: 1.05;
+    }
+
+    .price span {
+      white-space: nowrap;
+      font-size: 11px;
+      line-height: 1.25;
+    }
+
+    @media (min-width: 980px) {
+      .services-layout {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
+
+      .services-layout .service-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .service-top {
+        grid-template-columns: 1fr;
+      }
+
+      .price {
+        max-width: none;
+        min-width: 0;
+        text-align: left;
+        margin-top: 12px;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: .001ms !important;
@@ -794,7 +864,7 @@
           <div>
             <span class="eyebrow">Services</span>
             <h2>Detailing services built around your vehicle’s condition.</h2>
-            <p class="section-copy">Whether your vehicle needs a maintenance clean, a full interior reset, exterior refinement, paint polishing, or long-term protection, Northline Auto &amp; Surfaces offers professional service options based on the level of work required.</p>
+            <p class="section-copy">Interior &amp; Exterior Detailing packages are the main service options. Polishing and paint correction packages are separate upgrade services and can be selected independently when the vehicle needs exterior refinement or defect improvement.</p>
           </div>
         </div>
 
@@ -874,7 +944,7 @@
                     <div class="service-title">Gloss Enhancement Polish</div>
                     <p>A one-step polish for vehicles that need better gloss, clarity, and a cleaner finish without heavy paint correction.</p>
                   </div>
-                  <div class="price"><b>From $299</b><span>GST/PST may apply</span></div>
+                  <div class="price"><b>From $299</b><span>+ GST/PST</span></div>
                 </div>
                 <ul>
                   <li>Exterior wash and paint decontamination</li>
@@ -893,7 +963,7 @@
                     <div class="service-title">Polish + Sealant</div>
                     <p>A stronger polish package for vehicles that need more shine, smoother paint, and longer-lasting protection.</p>
                   </div>
-                  <div class="price"><b>From $399</b><span>GST/PST may apply</span></div>
+                  <div class="price"><b>From $399</b><span>+ GST/PST</span></div>
                 </div>
                 <ul>
                   <li>Exterior wash and clay-bar decontamination</li>
@@ -911,7 +981,7 @@
                     <div class="service-title">Premium Polish + Protection</div>
                     <p>A premium polishing service for vehicles that need a sharper finish, better depth, and upgraded protection.</p>
                   </div>
-                  <div class="price"><b>From $499</b><span>GST/PST may apply</span></div>
+                  <div class="price"><b>From $499</b><span>+ GST/PST</span></div>
                 </div>
                 <ul>
                   <li>Thorough exterior wash and paint preparation</li>
@@ -932,7 +1002,7 @@
                     <div class="service-title">One-Step Paint Correction</div>
                     <p>For vehicles with light swirls, dullness, or minor defects that need a cleaner corrected finish.</p>
                   </div>
-                  <div class="price"><b>From $499</b><span>GST/PST may apply</span></div>
+                  <div class="price"><b>From $499</b><span>+ GST/PST</span></div>
                 </div>
                 <ul>
                   <li>Wash and clay-bar decontamination</li>
@@ -950,7 +1020,7 @@
                     <div class="service-title">Correction + Sealant</div>
                     <p>For vehicles with visible swirls or tired paint that need correction plus durable protection after polishing.</p>
                   </div>
-                  <div class="price"><b>From $699</b><span>GST/PST may apply</span></div>
+                  <div class="price"><b>From $699</b><span>+ GST/PST</span></div>
                 </div>
                 <ul>
                   <li>Wash, clay, and paint preparation</li>
@@ -969,7 +1039,7 @@
                     <div class="service-title">Multi-Stage Paint Correction</div>
                     <p>A higher-level correction package for vehicles needing serious defect improvement and a sharper show-car style finish.</p>
                   </div>
-                  <div class="price"><b>From $899</b><span>GST/PST may apply</span></div>
+                  <div class="price"><b>From $899</b><span>+ GST/PST</span></div>
                 </div>
                 <ul>
                   <li>Extensive exterior wash and paint decontamination</li>
