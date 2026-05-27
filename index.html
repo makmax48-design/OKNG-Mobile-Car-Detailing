@@ -2,1266 +2,1270 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OKNG Mobile Detailing – Kelowna</title>
-  <meta name="description" content="Professional mobile car detailing in Kelowna." />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Northline Auto &amp; Surfaces | Professional Auto Detailing in Kelowna</title>
+  <meta name="description" content="Professional auto detailing, interior deep cleaning, exterior care, paint polishing, ceramic coating, and surface protection in Kelowna and surrounding areas. Shop appointments and mobile service available when conditions allow." />
+  <meta name="theme-color" content="#07090d" />
+
+  <meta property="og:title" content="Northline Auto &amp; Surfaces | Professional Auto Detailing in Kelowna" />
+  <meta property="og:description" content="Professional shop and mobile auto detailing in Kelowna and surrounding areas. Send photos for an accurate quote." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/northline-01.webp" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoWash",
+    "name": "Northline Auto & Surfaces",
+    "description": "Professional shop and mobile auto detailing, paint correction, polishing, ceramic coating, and surface care in Kelowna and surrounding areas.",
+    "telephone": "+12502587505",
+    "areaServed": ["Kelowna", "West Kelowna", "Lake Country", "Rutland", "Glenmore", "Lower Mission", "Upper Mission", "Black Mountain", "Downtown Kelowna"],
+    "priceRange": "$$",
+    "url": "https://example.com"
+  }
+  </script>
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #07090d;
+      --panel: #10151d;
+      --panel-2: #131a23;
+      --ink: #ffffff;
+      --muted: #a9b2bd;
+      --soft: #6f7b88;
+      --line: rgba(255,255,255,.11);
+      --blue: #7bbde8;
+      --blue-2: #0a4174;
+      --blue-3: #c9ecff;
+      --danger: #ffca6a;
+      --radius: 24px;
+      --shadow: 0 24px 70px rgba(0,0,0,.45);
+      --max: 1180px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { background: #0a0a0a; color: #fff; font-family: 'DM Sans', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(123,189,232,.18), transparent 34rem),
+        radial-gradient(circle at 85% 20%, rgba(10,65,116,.34), transparent 28rem),
+        var(--bg);
+      color: var(--ink);
+      font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, input, textarea { font: inherit; }
+    :focus-visible { outline: 3px solid rgba(123,189,232,.85); outline-offset: 4px; border-radius: 12px; }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--blue-3);
+      background: rgba(123,189,232,.1);
+      border: 1px solid rgba(123,189,232,.22);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .section { padding: 82px 0; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+    .section-copy { max-width: 640px; color: var(--muted); margin: 12px 0 0; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2 {
+      font-family: "DM Serif Display", Georgia, serif;
+      font-weight: 400;
+      letter-spacing: -.035em;
+      line-height: .98;
+    }
+    h1 { font-size: clamp(44px, 8vw, 92px); margin: 18px 0 20px; max-width: 850px; }
+    h2 { font-size: clamp(34px, 5vw, 58px); margin-bottom: 0; }
+    h3 { font-size: 20px; line-height: 1.15; margin-bottom: 10px; }
 
     /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 16px; transition: all 0.3s ease; }
-    nav.scrolled { background: rgba(10,10,10,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.07); }
-    .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
-    .nav-name { font-size: 14px; font-weight: 700; }
-    .nav-sub { font-size: 10px; color: #aaa; margin-top: 1px; }
-    .nav-btn { background: #fff; color: #0a0a0a; border-radius: 999px; padding: 9px 18px; font-size: 13px; font-weight: 700; white-space: nowrap; }
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      transition: background .25s ease, border-color .25s ease, backdrop-filter .25s ease;
+      border-bottom: 1px solid transparent;
+    }
+    .nav.scrolled {
+      background: rgba(7,9,13,.86);
+      border-bottom-color: var(--line);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 20px;
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .brand-mark {
+      width: 38px; height: 38px; border-radius: 13px;
+      background: linear-gradient(135deg, var(--blue), #fff);
+      color: #06111d;
+      display: grid; place-items: center;
+      font-weight: 900;
+      box-shadow: 0 12px 36px rgba(123,189,232,.22);
+      flex: 0 0 auto;
+    }
+    .brand-name { font-weight: 900; letter-spacing: -.02em; white-space: nowrap; }
+    .brand-sub { color: var(--soft); font-size: 12px; margin-top: 1px; }
+    .nav-links { display: none; align-items: center; gap: 18px; color: #cbd3dc; font-size: 14px; font-weight: 700; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      border-radius: 999px;
+      padding: 11px 16px;
+      color: #08111c;
+      background: #fff;
+      font-size: 14px;
+      font-weight: 900;
+      white-space: nowrap;
+      box-shadow: 0 14px 40px rgba(0,0,0,.28);
+    }
 
     /* HERO */
-    .hero {
-      min-height: 100svh;
-      display: flex; align-items: flex-end;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.80) 70%, rgba(0,0,0,0.95) 100%), url('bg1.jpg') center center / cover no-repeat;
-      padding: 0 0 40px;
+    .hero { min-height: 100svh; padding: 118px 0 56px; display: grid; align-items: center; }
+    .hero-grid { display: grid; gap: 32px; align-items: center; }
+    .hero-copy { max-width: 780px; }
+    .hero-sub {
+      max-width: 650px;
+      color: #c8d1dc;
+      font-size: clamp(17px, 2vw, 21px);
+      line-height: 1.65;
+      margin-bottom: 28px;
     }
-    .hero-inner { width: 100%; padding: 0 20px; }
-    .badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 999px; padding: 6px 14px; font-size: 11px; color: #ddd; margin-bottom: 16px; }
-    h1 { font-family: 'DM Serif Display', serif; font-size: clamp(32px, 8vw, 72px); font-weight: 400; line-height: 1.08; letter-spacing: -.02em; }
-    .hero-sub { font-size: 15px; color: #bbb; line-height: 1.7; margin-top: 14px; max-width: 500px; }
-    .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
-    .btn-white { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: #0a0a0a; border-radius: 999px; padding: 14px 24px; font-size: 15px; font-weight: 700; flex: 1; justify-content: center; max-width: 220px; }
-    .btn-outline { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid rgba(255,255,255,0.3); color: #fff; border-radius: 999px; padding: 14px 24px; font-size: 15px; font-weight: 600; flex: 1; justify-content: center; max-width: 180px; }
-    .hero-note { font-size: 12px; color: #666; margin-top: 10px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 18px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      border-radius: 999px;
+      padding: 15px 21px;
+      font-weight: 900;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform .16s ease, background .16s ease, border-color .16s ease;
+      min-height: 52px;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--blue); color: #06111d; box-shadow: 0 18px 45px rgba(123,189,232,.25); }
+    .btn-secondary { background: rgba(255,255,255,.06); color: #fff; border-color: rgba(255,255,255,.16); }
+    .btn-dark { background: #08111c; color: #fff; }
+    .btn-light { background: #fff; color: #08111c; }
+    .hero-note { color: var(--soft); font-size: 13px; max-width: 640px; margin-bottom: 0; }
 
-    /* SPECIAL OFFER */
-    .special-offer { margin-top: 24px; background: #fff; border-radius: 20px; padding: 20px; color: #0a0a0a; text-align: center; }
-    .offer-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; color: #999; margin-bottom: 6px; }
-    .offer-title { font-family: 'DM Serif Display', serif; font-size: clamp(17px, 4vw, 24px); line-height: 1.2; color: #0a0a0a; }
-    .offer-desc { font-size: 13px; color: #666; margin-top: 6px; line-height: 1.55; }
-    .offer-btns { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 14px; }
-    .btn-dark { display: inline-flex; align-items: center; gap: 7px; background: #0a0a0a; color: #fff; border-radius: 999px; padding: 12px 22px; font-size: 14px; font-weight: 700; }
-    .btn-light { display: inline-flex; align-items: center; gap: 7px; border: 1.5px solid #ddd; color: #0a0a0a; border-radius: 999px; padding: 12px 22px; font-size: 14px; font-weight: 600; }
+    .hero-card {
+      position: relative;
+      min-height: 520px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(to bottom, rgba(7,9,13,.06), rgba(7,9,13,.78)),
+        url("assets/images/northline-01.webp") center / cover no-repeat;
+      border-radius: 34px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(123,189,232,.16), transparent 30rem);
+      pointer-events: none;
+    }
+    .hero-panel {
+      position: absolute;
+      left: 18px; right: 18px; bottom: 18px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(7,9,13,.76);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 24px;
+      padding: 18px;
+    }
+    .hero-panel strong { display: block; font-size: 18px; margin-bottom: 5px; }
+    .hero-panel span { display: block; color: var(--muted); font-size: 13px; }
 
-    /* HERO PHOTO - shown below offer on mobile */
-    .hero-photo { margin-top: 20px; border-radius: 20px; overflow: hidden; }
-    .hero-photo img { width: 100%; height: 240px; object-fit: cover; }
+    .proof-strip {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 10px;
+      margin-top: 28px;
+      max-width: 720px;
+    }
+    .proof {
+      background: rgba(255,255,255,.055);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 15px;
+    }
+    .proof b { display: block; font-size: 14px; margin-bottom: 3px; }
+    .proof span { color: var(--soft); font-size: 12px; }
 
-    /* TRUST BAR */
-    .trust { background: #0f0f0f; border-top: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); }
-    .trust-inner { display: flex; overflow-x: auto; gap: 10px; padding: 16px 20px; scrollbar-width: none; -ms-overflow-style: none; }
-    .trust-inner::-webkit-scrollbar { display: none; }
-    .trust-item { display: flex; align-items: flex-start; gap: 10px; background: rgba(255,255,255,0.05); border-radius: 14px; padding: 12px 16px; min-width: 200px; flex-shrink: 0; }
-    .trust-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
-    .trust-title { font-size: 13px; font-weight: 600; }
-    .trust-desc { font-size: 11px; color: #777; margin-top: 2px; line-height: 1.5; }
+    /* PROMO */
+    .promo {
+      margin-top: -22px;
+      position: relative;
+      z-index: 3;
+    }
+    .promo-card {
+      display: grid;
+      gap: 16px;
+      align-items: center;
+      background: linear-gradient(135deg, #fff, #dff4ff);
+      color: #06111d;
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: 0 18px 70px rgba(0,0,0,.28);
+    }
+    .promo-card p { margin: 7px 0 0; color: #365066; }
+    .promo-conditions { font-size: 13px; line-height: 1.55; color: #456176 !important; max-width: 780px; }
+    .promo-card .eyebrow { background: rgba(10,65,116,.08); color: var(--blue-2); border-color: rgba(10,65,116,.16); }
 
-    /* SECTIONS */
-    .section { padding: 56px 20px; }
-    .section-inner { max-width: 1200px; margin: 0 auto; }
-    .section-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .18em; color: #555; }
-    h2 { font-family: 'DM Serif Display', serif; font-size: clamp(24px, 6vw, 48px); font-weight: 400; margin-top: 10px; line-height: 1.15; }
+    /* CARDS */
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.035));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 18px 45px rgba(0,0,0,.22);
+    }
 
-    /* ABOUT */
-    .about-bg { background: linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('bg2.jpg') center center / cover no-repeat; }
-    .about-card { background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: 22px; padding: 24px; backdrop-filter: blur(8px); margin-bottom: 20px; }
-    .about-text { font-size: 15px; color: #ccc; line-height: 1.8; display: flex; flex-direction: column; gap: 12px; }
-
-    /* GALLERY */
-    .gallery-bg { background: linear-gradient(to bottom, rgba(0,0,0,0.72), rgba(0,0,0,0.72)), url('bg3.jpg') center center / cover no-repeat; }
-    .gallery-scroll { display: flex; gap: 12px; overflow-x: auto; margin-top: 24px; padding-bottom: 8px; scrollbar-width: none; -ms-overflow-style: none; scroll-snap-type: x mandatory; }
-    .gallery-scroll::-webkit-scrollbar { display: none; }
-    .gallery-item { flex-shrink: 0; width: 72vw; max-width: 300px; border-radius: 18px; overflow: hidden; scroll-snap-align: start; }
-    .gallery-item img { width: 100%; height: 280px; object-fit: cover; display: block; }
-    .gallery-dots { display: flex; justify-content: center; gap: 6px; margin-top: 14px; }
-    .gallery-dots span { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.25); }
-    .gallery-dots span.active { background: #fff; width: 18px; border-radius: 3px; }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+    }
+    .trust-item { padding: 20px; }
+    .trust-icon { font-size: 24px; margin-bottom: 12px; }
+    .trust-item p { color: var(--muted); font-size: 14px; margin: 0; }
 
     /* SERVICES */
-    .services-bg { background: linear-gradient(to bottom, rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('services-bg.jpg') center center / cover no-repeat; }
-    .services-scroll { display: flex; gap: 14px; overflow-x: auto; margin-top: 28px; padding-bottom: 8px; scrollbar-width: none; scroll-snap-type: x mandatory; }
-    .services-scroll::-webkit-scrollbar { display: none; }
-    .scard { flex-shrink: 0; width: 80vw; max-width: 300px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); background: rgba(10,10,10,0.85); padding: 24px; backdrop-filter: blur(8px); display: flex; flex-direction: column; scroll-snap-align: start; }
-    .scard.featured { background: #fff; color: #0a0a0a; border-color: rgba(0,0,0,0.1); }
-    .scard-badge { display: inline-block; background: #0a0a0a; color: #fff; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; border-radius: 999px; padding: 4px 12px; margin-bottom: 12px; width: fit-content; }
-    .scard h3 { font-size: 20px; font-weight: 700; }
-    .scard-price { font-size: 16px; font-weight: 600; margin-top: 4px; color: #999; }
-    .scard.featured .scard-price { color: #555; }
-    .scard-desc { font-size: 13px; line-height: 1.6; margin-top: 10px; color: #777; }
-    .scard.featured .scard-desc { color: #666; }
-    .scard ul { list-style: none; margin-top: 16px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
-    .scard li { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; }
-    .scard li::before { content: "✓"; color: #aaa; flex-shrink: 0; }
-    .scard.featured li::before { color: #333; }
-    .book-btn { display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: 18px; background: #0a0a0a; color: #fff; border-radius: 999px; padding: 13px; font-size: 14px; font-weight: 700; }
-    .scard.featured .book-btn { background: #0a0a0a; color: #fff; }
+    .services-layout { display: grid; gap: 18px; }
+    .service-group-title {
+      margin: 22px 0 12px;
+      color: var(--blue-3);
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .service-card {
+      position: relative;
+      padding: 22px;
+      cursor: pointer;
+      transition: border-color .16s ease, transform .16s ease, background .16s ease;
+      min-height: 100%;
+    }
+    .service-card:hover { transform: translateY(-2px); border-color: rgba(123,189,232,.42); }
+    .service-card.selected {
+      border-color: rgba(123,189,232,.9);
+      background: linear-gradient(180deg, rgba(123,189,232,.18), rgba(10,65,116,.12));
+      box-shadow: 0 0 0 4px rgba(123,189,232,.08), 0 22px 55px rgba(0,0,0,.32);
+    }
+    .service-top { display: flex; justify-content: space-between; gap: 14px; align-items: start; }
+    .service-title { font-size: 20px; font-weight: 900; line-height: 1.15; }
+    .price { text-align: right; flex: 0 0 auto; }
+    .price b { display: block; font-size: 19px; color: var(--blue); white-space: nowrap; }
+    .price span { display: block; color: var(--soft); font-size: 11px; margin-top: 3px; font-weight: 800; }
+    .tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(123,189,232,.14);
+      color: var(--blue-3);
+      border: 1px solid rgba(123,189,232,.18);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 11px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+    .service-card p { color: var(--muted); margin: 10px 0 0; font-size: 14px; }
+    .service-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 0;
+      display: grid;
+      gap: 8px;
+      color: #c7d0db;
+      font-size: 14px;
+    }
+    .service-card li { display: grid; grid-template-columns: 18px 1fr; gap: 6px; }
+    .service-card li::before { content: "✓"; color: var(--blue); font-weight: 900; }
 
-    /* BEST FOR */
-    .bestfor-bg { background: linear-gradient(rgba(0,0,0,0.68), rgba(0,0,0,0.68)), url('bestfor-bg.jpg') center center / cover no-repeat; }
-    .bf-grid { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
-    .bf-item { display: flex; align-items: center; gap: 12px; border: 1px solid rgba(255,255,255,0.09); background: rgba(255,255,255,0.05); border-radius: 14px; padding: 14px 16px; font-size: 14px; color: #ccc; }
+    .pricing-note {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: auto 1fr;
+      padding: 17px;
+      color: var(--muted);
+      margin: 0 0 22px;
+      background: rgba(255,202,106,.075);
+      border-color: rgba(255,202,106,.18);
+    }
+    .pricing-note strong { display: block; color: #fff; margin-bottom: 3px; }
+    .pricing-note .icon { color: var(--danger); font-size: 22px; line-height: 1; }
 
-    /* CTA */
-    .cta-inner { background: #fff; color: #0a0a0a; border-radius: 24px; padding: 32px 24px; text-align: center; }
-    .cta-inner .section-label { color: #999; }
-    .cta-inner h2 { color: #0a0a0a; }
-    .cta-inner p { font-size: 14px; color: #666; margin: 12px auto 0; line-height: 1.7; max-width: 400px; }
-    .cta-btns { display: flex; flex-direction: column; gap: 10px; margin-top: 22px; }
-    .cta-btns a { justify-content: center; font-size: 15px; padding: 14px; border-radius: 14px; }
-    .cta-btns .btn-dark { border-radius: 14px; }
-    .cta-btns .btn-light { border-radius: 14px; border-color: #ddd; }
+    .addons {
+      display: none;
+      margin-top: 18px;
+      padding: 18px;
+      background: rgba(255,255,255,.045);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    .addons.visible { display: block; }
+    .addons-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 12px; }
+    .addons-head p { margin: 4px 0 0; color: var(--soft); font-size: 13px; }
+    .addon-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .addon-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 14px;
+      border: 1px solid rgba(255,255,255,.11);
+      background: rgba(7,9,13,.55);
+      border-radius: 18px;
+      cursor: pointer;
+      transition: border-color .16s ease, background .16s ease;
+    }
+    .addon-card:hover, .addon-card.selected { border-color: rgba(123,189,232,.68); }
+    .addon-card.selected { background: rgba(123,189,232,.1); }
+    .addon-card b { display: block; }
+    .addon-card span { display: block; color: var(--soft); font-size: 13px; margin-top: 2px; }
+    .addon-price { color: var(--blue); font-weight: 900; text-align: right; white-space: nowrap; }
+
+    .quote-bar {
+      position: sticky;
+      bottom: max(14px, env(safe-area-inset-bottom));
+      z-index: 50;
+      margin-top: 24px;
+      display: grid;
+      gap: 14px;
+      padding: 16px;
+      border-radius: 24px;
+      background: rgba(7,9,13,.9);
+      border: 1px solid rgba(123,189,232,.24);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 20px 70px rgba(0,0,0,.5);
+    }
+    .quote-bar small { display: block; color: var(--soft); font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+    .quote-bar strong { display: block; margin-top: 4px; }
+    .quote-bar .btn { width: 100%; }
+
+    /* GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .gallery-item {
+      position: relative;
+      min-height: 270px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(123,189,232,.12), rgba(255,255,255,.035));
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      min-height: 270px;
+      object-fit: cover;
+      transition: transform .35s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.035); }
+    .gallery-label {
+      position: absolute;
+      left: 14px; bottom: 14px;
+      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(7,9,13,.72);
+      color: #fff;
+      backdrop-filter: blur(12px);
+      border-radius: 999px;
+      padding: 8px 11px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .placeholder {
+      display: grid;
+      place-items: center;
+      min-height: 270px;
+      color: var(--muted);
+      text-align: center;
+      padding: 20px;
+      font-weight: 800;
+    }
+
+    /* PROCESS */
+    .process-grid, .area-grid, .faq-grid { display: grid; gap: 14px; }
+    .step { padding: 22px; }
+    .step-num {
+      width: 34px; height: 34px;
+      border-radius: 999px;
+      background: var(--blue);
+      color: #06111d;
+      display: grid; place-items: center;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+    .step p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .area-card { padding: 24px; }
+    .area-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .pill {
+      border: 1px solid rgba(123,189,232,.2);
+      background: rgba(123,189,232,.09);
+      color: var(--blue-3);
+      border-radius: 999px;
+      padding: 9px 12px;
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .faq-item { padding: 20px; }
+    .faq-item h3 { font-size: 17px; }
+    .faq-item p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    /* ABOUT */
+    .about-grid { display: grid; gap: 18px; align-items: center; }
+    .about-photo {
+      min-height: 420px;
+      border-radius: 32px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(to bottom, rgba(7,9,13,.18), rgba(7,9,13,.8)),
+        url("assets/images/northline-06.webp") center / cover no-repeat;
+      box-shadow: var(--shadow);
+    }
+    .about-card { padding: 28px; }
+    .about-card p { color: var(--muted); margin-bottom: 14px; }
+    .about-card p:last-child { margin-bottom: 0; }
+
+    /* FINAL CTA */
+    .final-cta {
+      background: linear-gradient(135deg, #fff, #dff4ff);
+      color: #06111d;
+      border-radius: 34px;
+      padding: 34px;
+      display: grid;
+      gap: 18px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+    .final-cta h2 { color: #06111d; }
+    .final-cta p { color: #365066; margin: 12px 0 0; max-width: 670px; }
 
     /* FOOTER */
-    footer { border-top: 1px solid rgba(255,255,255,0.07); background: #0a0a0a; padding: 28px 20px; }
-    .footer-name { font-size: 16px; font-weight: 700; }
-    .footer-sub { font-size: 12px; color: #555; margin-top: 4px; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    .footer-link { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.07); border-radius: 999px; padding: 9px 16px; font-size: 12px; font-weight: 600; color: #fff; }
-    .footer-copy { font-size: 11px; color: #444; margin-top: 16px; }
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 34px 0 92px;
+      color: var(--muted);
+    }
+    .footer-grid { display: grid; gap: 18px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-links a {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      border-radius: 999px;
+      padding: 10px 13px;
+      color: #fff;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .copy { color: var(--soft); font-size: 12px; margin: 14px 0 0; }
 
-    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.5s ease, transform 0.5s ease; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .fade-up { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-    /* DESKTOP overrides */
-    @media (min-width: 768px) {
-      .hero { align-items: center; padding: 100px 40px 60px; }
-      .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; max-width: 1200px; margin: 0 auto; }
-      .hero-photo { margin-top: 0; }
-      .hero-photo img { height: 460px; }
-      .trust-inner { justify-content: center; overflow-x: visible; flex-wrap: wrap; }
-      .trust-item { min-width: 0; flex: 1; }
-      .section { padding: 80px 40px; }
-      .about-card { margin-bottom: 0; }
-      .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
-      .gallery-scroll { display: grid; grid-template-columns: repeat(4, 1fr); overflow: visible; }
-      .gallery-item { width: auto; max-width: none; }
-      .gallery-dots { display: none; }
-      .services-scroll { display: grid; grid-template-columns: repeat(3, 1fr); overflow: visible; }
-      .scard { width: auto; max-width: none; }
-      .bf-grid-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-      .bf-grid { margin-top: 0; }
-      .cta-btns { flex-direction: row; justify-content: center; }
-      .cta-btns a { border-radius: 999px !important; flex: none; padding: 14px 28px !important; }
-      .cta-inner { padding: 48px 40px; }
-      .footer-inner-wrap { display: flex; justify-content: space-between; align-items: center; }
+    @media (min-width: 680px) {
+      .nav-links { display: flex; }
+      .hero-actions .btn { min-width: 186px; }
+      .promo-card { grid-template-columns: 1fr auto; padding: 26px; }
+      .trust-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
+      .service-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .addon-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .gallery-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .process-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
+      .faq-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .quote-bar { grid-template-columns: 1fr auto; align-items: center; }
+      .quote-bar .btn { width: auto; }
+      .footer-grid { grid-template-columns: 1fr auto; align-items: center; }
     }
 
-    /* ── SERVICES V2 ────────────────────────────────────────────────────── */
-    .services-v2 { padding: 56px 20px; background: linear-gradient(to bottom, rgba(0,0,0,0.78), rgba(0,0,0,0.78)), url('services-bg.jpg') center center / cover no-repeat; }
-    .services-v2 .section-inner { max-width: 1280px; margin: 0 auto; }
+    @media (min-width: 980px) {
+      .hero-grid { grid-template-columns: 1.08fr .92fr; }
+      .services-layout { grid-template-columns: 1.05fr .95fr; align-items: start; }
+      .gallery-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
+      .gallery-item:nth-child(1), .gallery-item:nth-child(6) { grid-column: span 2; }
+      .about-grid { grid-template-columns: .9fr 1.1fr; }
+      .final-cta { grid-template-columns: 1fr auto; padding: 44px; }
+    }
 
-    /* Column layout */
-    .sv2-layout { display: flex; flex-direction: column; gap: 24px; margin-top: 24px; }
-    .price-notice { display: flex; align-items: flex-start; gap: 12px; background: rgba(123,189,232,0.07); border: 1px solid rgba(123,189,232,0.18); border-radius: 14px; padding: 14px 18px; margin-top: 20px; }
-    .price-notice-icon { font-size: 20px; flex-shrink: 0; line-height: 1; margin-top: 1px; }
-    .price-notice-text { font-size: 12px; color: #aaa; line-height: 1.6; }
-    .price-notice-text strong { display: block; font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .06em; }
+    @media (max-width: 480px) {
+      .brand-sub { display: none; }
+      .nav-inner { min-height: 64px; }
+      .nav-cta { padding: 10px 12px; font-size: 13px; }
+      .section { padding: 66px 0; }
+      .section-head { display: block; }
+      .hero { padding-top: 96px; }
+      .hero-card { min-height: 430px; border-radius: 26px; }
+      .hero-actions .btn { width: 100%; }
+      .proof-strip { grid-template-columns: 1fr; }
+      .service-top { display: block; }
+      .price { text-align: left; margin-top: 12px; }
+      .quote-bar { left: 12px; right: 12px; }
+      footer { padding-bottom: 114px; }
+    }
 
-    /* Category column */
-    .sv2-col { display: flex; flex-direction: column; gap: 16px; }
-    .sv2-col-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .18em; color: #7BBDE8; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid rgba(123,189,232,0.2); }
 
-    /* Package card with checkbox */
-    .pkg-card {
+
+    /* POLISHED OFFER + SERVICE AREA UPDATE */
+    .promo-card {
       position: relative;
-      border: 1.5px solid rgba(255,255,255,0.08);
-      background: rgba(10,10,10,0.82);
-      border-radius: 18px;
-      padding: 18px 18px 18px 52px;
-      cursor: pointer;
-      transition: border-color .2s, background .2s, transform .15s;
-      backdrop-filter: blur(8px);
-      user-select: none;
+      overflow: hidden;
+      grid-template-columns: 1fr;
+      background:
+        radial-gradient(circle at 88% 10%, rgba(123,189,232,.34), transparent 18rem),
+        linear-gradient(135deg, #ffffff 0%, #eaf7ff 58%, #d7efff 100%);
+      border: 1px solid rgba(10,65,116,.12);
     }
-    .pkg-card:hover { border-color: rgba(123,189,232,0.4); background: rgba(15,15,20,0.9); transform: translateY(-1px); }
-    .pkg-card.selected { border-color: #7BBDE8; background: rgba(10,45,84,0.55); }
-    .pkg-card.featured-pkg { background: rgba(255,255,255,0.96); color: #0a0a0a; }
-    .pkg-card.featured-pkg:hover { background: #fff; }
-    .pkg-card.featured-pkg.selected { border-color: #0A4174; border-width: 2.5px; background: #ffffff; color: #0a0a0a; box-shadow: 0 0 0 4px rgba(10,65,116,0.18); }
-
-    /* Custom checkbox */
-    .pkg-check {
-      position: absolute; left: 16px; top: 18px;
-      width: 22px; height: 22px;
-      border-radius: 6px;
-      border: 2px solid rgba(255,255,255,0.2);
-      background: rgba(255,255,255,0.05);
-      transition: all .2s;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .pkg-card.featured-pkg .pkg-check { border-color: rgba(0,0,0,0.2); background: rgba(0,0,0,0.05); }
-    .pkg-card.selected .pkg-check { background: #7BBDE8; border-color: #7BBDE8; }
-    .pkg-card.featured-pkg.selected .pkg-check { background: #0A4174; border-color: #0A4174; }
-    .pkg-check::after {
-      content: '';
-      display: none;
-      width: 5px; height: 9px;
-      border: 2px solid #0a0a0a;
-      border-top: none; border-left: none;
-      transform: rotate(42deg) translateY(-1px);
-    }
-    .pkg-card.selected .pkg-check::after { display: block; }
-    .pkg-card.selected:not(.featured-pkg) .pkg-check::after { border-color: #0a0a0a; }
-
-    .pkg-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
-    .pkg-name { font-size: 17px; font-weight: 700; line-height: 1.2; letter-spacing: -.01em; }
-    .pkg-price { display: flex; flex-direction: column; align-items: flex-end; flex-shrink: 0; }
-    .pkg-price-main { font-size: 16px; font-weight: 800; color: #7BBDE8; white-space: nowrap; line-height: 1; }
-    .pkg-price-sub { font-size: 9px; font-weight: 500; color: #49769F; white-space: nowrap; margin-top: 3px; letter-spacing: .02em; text-align: right; }
-    .pkg-card.featured-pkg .pkg-price-main { color: #0A4174; }
-    .pkg-card.featured-pkg .pkg-price-sub { color: #49769F; }
-    .pkg-badge { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; background: #0a0a0a; color: #fff; border-radius: 999px; padding: 3px 9px; margin-bottom: 6px; }
-    .pkg-card.featured-pkg .pkg-badge { background: #0A4174; }
-    .pkg-items { margin-top: 8px; display: flex; flex-direction: column; gap: 4px; }
-    .pkg-items li { font-size: 12px; color: #aaa; display: flex; align-items: flex-start; gap: 6px; list-style: none; line-height: 1.4; }
-    .pkg-card.featured-pkg .pkg-items li { color: #555; }
-    .pkg-items li::before { content: "✓"; color: #7BBDE8; font-weight: 700; flex-shrink: 0; font-size: 11px; margin-top: 1px; }
-    .pkg-card.featured-pkg .pkg-items li::before { color: #0A4174; }
-
-    /* Right column split */
-    .sv2-right { display: flex; flex-direction: column; gap: 24px; }
-    .sv2-right-top, .sv2-right-bottom { display: flex; flex-direction: column; gap: 12px; }
-    .sv2-right-divider { height: 1px; background: rgba(123,189,232,0.15); margin: 4px 0; }
-
-    /* Sticky Book Now bar */
-    .book-bar {
-      position: sticky; bottom: 20px; z-index: 50;
-      margin-top: 32px;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 12px; flex-wrap: wrap;
-      background: rgba(10,10,12,0.92);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(123,189,232,0.15);
-      border-radius: 20px;
-      padding: 14px 18px;
-      transition: border-color .3s;
-    }
-    .book-bar.active { border-color: #7BBDE8; }
-    .book-bar-info { font-size: 13px; color: #666; }
-    .book-bar.active .book-bar-info { color: #aaa; }
-    .book-bar-selected { font-size: 13px; color: #7BBDE8; font-weight: 600; display: none; }
-    .book-bar.active .book-bar-selected { display: block; }
-    .book-now-btn {
-      display: inline-flex; align-items: center; gap: 7px;
-      background: rgba(255,255,255,0.06);
-      color: rgba(255,255,255,0.25);
-      border-radius: 999px; padding: 12px 24px;
-      font-size: 14px; font-weight: 700;
+    .promo-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(255,255,255,.0), rgba(123,189,232,.18));
       pointer-events: none;
-      transition: all .3s;
-      white-space: nowrap;
-      text-decoration: none;
-      border: 1.5px solid rgba(255,255,255,0.06);
     }
-    .book-bar.active .book-now-btn {
-      background: #7BBDE8;
-      color: #0a0a0a;
-      pointer-events: auto;
-      border-color: #7BBDE8;
-      box-shadow: 0 0 24px rgba(123,189,232,0.35);
-    }
-
-    /* Desktop 2-col layout */
-    @media (min-width: 768px) {
-      .services-v2 { padding: 80px 40px; }
-      .sv2-layout { flex-direction: row; align-items: flex-start; gap: 28px; }
-      .sv2-col { flex: 1; }
-      .sv2-right { flex: 1; }
-      .book-bar { position: sticky; bottom: 24px; }
-    }
-
-
-    /* ── Tax badge ─────────────────────────────────────────────────────── */
-    .tax-badge {
-      display: inline-flex; align-items: center; gap: 4px;
-      font-size: 9px; font-weight: 700; letter-spacing: .06em;
-      text-transform: uppercase; border-radius: 5px;
-      padding: 2px 7px; margin-top: 5px;
-    }
-    .tax-gst       { background: rgba(123,189,232,0.14); color: #7BBDE8; }
-    .tax-gst-pst   { background: rgba(78,142,162,0.18); color: #4E8EA2; }
-    .pkg-card.featured-pkg .tax-gst     { background: rgba(10,65,116,0.10); color: #0A4174; }
-    .pkg-card.featured-pkg .tax-gst-pst { background: rgba(10,65,116,0.12); color: #0A4174; }
-
-    /* ── Tax tooltip ────────────────────────────────────────────────────── */
-    .tax-tip { position: relative; cursor: default; }
-    .tax-tip::after {
-      content: attr(data-tip);
-      position: absolute; bottom: calc(100% + 8px); right: 0;
-      background: #0A4174; color: #fff;
-      font-size: 10px; font-weight: 500; line-height: 1.45;
-      padding: 8px 12px; border-radius: 10px;
-      width: 200px; white-space: normal; text-transform: none; letter-spacing: 0;
-      opacity: 0; pointer-events: none;
-      transition: opacity .2s;
-      z-index: 20;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-    }
-    .tax-tip:hover::after { opacity: 1; }
-
-    
-    /* ── Photo Modal ────────────────────────────────────────────────────── */
-    @media (min-width: 600px) {
-      }
-
-    @media (min-width: 600px) {
-      }
-
-    .modal-close {
-      position: absolute; top: 16px; right: 18px;
-      background: rgba(255,255,255,0.07); border: none; color: #aaa;
-      width: 32px; height: 32px; border-radius: 50%;
-      font-size: 16px; cursor: pointer; display: flex;
-      align-items: center; justify-content: center;
-      transition: background .2s;
-    }
-    .modal-close:hover { background: rgba(255,255,255,0.14); }
-
-    .modal-icon { font-size: 44px; text-align: center; margin-bottom: 14px; }
-    .modal-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(20px, 5vw, 26px); font-weight: 400;
-      text-align: center; line-height: 1.2; color: #fff;
-    }
-    .modal-subtitle {
-      font-size: 13px; color: #888; text-align: center;
-      margin-top: 8px; line-height: 1.6;
-    }
-
-    /* Steps */
-    .modal-steps {
-      display: flex; flex-direction: column; gap: 10px;
-      margin: 22px 0;
-    }
-    .modal-step {
-      display: flex; align-items: flex-start; gap: 12px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 14px; padding: 12px 14px;
-    }
-    .modal-step-num {
-      width: 24px; height: 24px; border-radius: 50%;
-      background: #0A4174; color: #7BBDE8;
-      font-size: 11px; font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; margin-top: 1px;
-    }
-    .modal-step-text { font-size: 13px; color: #ccc; line-height: 1.5; }
-    .modal-step-text strong { color: #fff; }
-
-    /* Photo preview area */
-    .photo-preview-area {
-      display: none; flex-wrap: wrap; gap: 8px;
-      margin-bottom: 16px;
-    }
-    .photo-preview-area.has-photos { display: flex; }
-    .photo-thumb {
-      width: 72px; height: 72px; border-radius: 10px;
-      object-fit: cover; border: 2px solid #7BBDE8;
-    }
-
-    /* Buttons */
-    .modal-btn-camera {
-      display: flex; align-items: center; justify-content: center; gap: 9px;
-      width: 100%; padding: 15px;
-      background: #7BBDE8; color: #0a0a0a;
-      border-radius: 14px; border: none;
-      font-size: 15px; font-weight: 700;
-      cursor: pointer; transition: background .2s;
-      margin-bottom: 10px;
-    }
-    .modal-btn-camera:hover { background: #5AAAD8; }
-    .modal-btn-camera:active { background: #4A9AC8; }
-
-    .modal-btn-sms {
-      display: flex; align-items: center; justify-content: center; gap: 9px;
-      width: 100%; padding: 14px;
-      background: transparent;
-      color: #7BBDE8;
-      border: 1.5px solid rgba(123,189,232,0.3);
-      border-radius: 14px;
-      font-size: 14px; font-weight: 600;
-      cursor: pointer; text-decoration: none;
-      transition: border-color .2s, background .2s;
-    }
-    .modal-btn-sms:hover { border-color: #7BBDE8; background: rgba(123,189,232,0.07); }
-
-    .modal-note {
-      font-size: 11px; color: #555; text-align: center;
-      margin-top: 14px; line-height: 1.5;
-    }
-
-    /* Hidden file input */
-    #photo-file-input { display: none; }
-
-
-    /* ═══ PHOTO MODAL ══════════════════════════════════════════════════════ */
-    #photo-modal-overlay {
-      position: fixed; inset: 0; z-index: 9999;
-      background: rgba(0,0,0,0.82);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+    .promo-content { position: relative; z-index: 1; max-width: 920px; }
+    .promo-mainline {
       display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-      padding: 0;
-    }
-    #photo-modal-overlay.open {
-      opacity: 1;
-      visibility: visible;
-    }
-    @media (min-width: 600px) {
-      #photo-modal-overlay { align-items: center; }
-    }
-
-    #photo-modal {
-      background: #0D1117;
-      border: 1px solid rgba(123,189,232,0.25);
-      border-radius: 28px 28px 0 0;
-      width: 100%;
-      max-width: 520px;
-      padding: 28px 22px 44px;
-      transform: translateY(60px);
-      transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+      gap: 22px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
       position: relative;
-      max-height: 90vh;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
+      z-index: 1;
     }
-    #photo-modal-overlay.open #photo-modal {
-      transform: translateY(0);
+    .offer-badge-big {
+      width: 132px;
+      height: 132px;
+      border-radius: 34px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: #fff;
+      background: linear-gradient(145deg, #07111d, #0a4174);
+      box-shadow: 0 24px 60px rgba(10,65,116,.28);
+      flex: 0 0 auto;
+      transform: rotate(-2deg);
     }
-    @media (min-width: 600px) {
-      #photo-modal {
-        border-radius: 24px;
-        transform: scale(0.94) translateY(0);
-        max-height: 85vh;
-      }
-      #photo-modal-overlay.open #photo-modal { transform: scale(1) translateY(0); }
-    }
-
-    /* Drag handle */
-    #photo-modal::before {
-      content: '';
+    .offer-badge-big span {
       display: block;
-      width: 40px; height: 4px;
-      background: rgba(255,255,255,0.18);
-      border-radius: 2px;
-      margin: 0 auto 22px;
+      font-size: 42px;
+      line-height: .9;
+      font-weight: 900;
+      letter-spacing: -.06em;
     }
-    @media (min-width: 600px) { #photo-modal::before { display: none; } }
+    .offer-badge-big small {
+      display: block;
+      margin-top: 6px;
+      color: var(--blue-3);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .16em;
+    }
+    .promo-conditions {
+      margin-top: 12px !important;
+      padding-top: 12px;
+      border-top: 1px solid rgba(10,65,116,.12);
+    }
+    .promo-card .btn { position: relative; z-index: 1; }
 
-    .pm-close {
-      position: absolute; top: 18px; right: 18px;
-      width: 30px; height: 30px; border-radius: 50%;
-      background: rgba(255,255,255,0.08);
-      border: none; color: #888; font-size: 14px;
-      cursor: pointer; display: flex; align-items: center; justify-content: center;
-      transition: background 0.2s;
-      line-height: 1;
+    .service-area-card {
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(123,189,232,.18), transparent 24rem),
+        linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
     }
-    .pm-close:hover { background: rgba(255,255,255,0.15); color: #fff; }
+    .service-area-layout {
+      display: grid;
+      gap: 24px;
+      padding: 28px;
+    }
+    .area-copy-block { max-width: 740px; }
+    .area-copy-block h2 { margin-top: 14px; }
+    .area-copy-block .section-copy { max-width: 760px; }
+    .area-info-panel {
+      border: 1px solid rgba(123,189,232,.18);
+      background: rgba(7,9,13,.48);
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+    }
+    .area-info-panel h3 {
+      margin: 0 0 12px;
+      color: #fff;
+      font-size: 18px;
+    }
+    .area-stat-grid {
+      display: grid;
+      gap: 10px;
+    }
+    .area-mini-card {
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.045);
+      border-radius: 18px;
+      padding: 14px;
+    }
+    .area-mini-card b { display: block; color: var(--blue-3); margin-bottom: 5px; }
+    .area-mini-card span { display: block; color: var(--muted); font-size: 13px; line-height: 1.45; }
+    .area-list { margin-top: 24px; }
+    .area-list .pill {
+      background: rgba(7,9,13,.56);
+      border-color: rgba(123,189,232,.24);
+      box-shadow: 0 10px 28px rgba(0,0,0,.14);
+    }
+    .area-list .pill::before {
+      content: "•";
+      color: var(--blue);
+      margin-right: 7px;
+      font-weight: 900;
+    }
 
-    .pm-icon { text-align: center; font-size: 40px; margin-bottom: 10px; }
-    .pm-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(18px, 5vw, 24px);
-      font-weight: 400; text-align: center;
-      color: #fff; line-height: 1.25; margin-bottom: 6px;
-    }
-    .pm-sub {
-      font-size: 13px; color: #888; text-align: center;
-      line-height: 1.6; margin-bottom: 20px;
+    @media (min-width: 780px) {
+      .promo-card { grid-template-columns: 1fr auto; align-items: center; }
+      .service-area-layout { grid-template-columns: 1.25fr .75fr; align-items: center; padding: 34px; }
+      .area-stat-grid { grid-template-columns: 1fr; }
     }
 
-    /* 3 steps */
-    .pm-steps { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
-    .pm-step {
-      display: flex; align-items: flex-start; gap: 11px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 12px; padding: 11px 13px;
+    @media (max-width: 560px) {
+      .promo-mainline { display: block; }
+      .offer-badge-big { width: 104px; height: 104px; border-radius: 26px; margin: 18px 0 0; }
+      .offer-badge-big span { font-size: 34px; }
+      .service-area-layout { padding: 22px; }
     }
-    .pm-step-n {
-      min-width: 22px; height: 22px; border-radius: 50%;
-      background: #0A4174; color: #7BBDE8;
-      font-size: 10px; font-weight: 800;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .pm-step-t { font-size: 12px; color: #bbb; line-height: 1.5; }
-    .pm-step-t b { color: #fff; }
 
-    /* Photo preview */
-    .pm-previews {
-      display: flex; flex-wrap: wrap; gap: 8px;
-      margin-bottom: 16px; min-height: 0;
-      transition: min-height 0.3s;
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+        scroll-behavior: auto !important;
+      }
     }
-    .pm-previews.has-photos { min-height: 80px; }
-    .pm-thumb {
-      width: 70px; height: 70px; border-radius: 10px;
-      object-fit: cover;
-      border: 2px solid #7BBDE8;
-      animation: thumbIn 0.25s ease;
-    }
-    @keyframes thumbIn {
-      from { opacity: 0; transform: scale(0.8); }
-      to   { opacity: 1; transform: scale(1); }
-    }
-    .pm-photo-count {
-      font-size: 12px; color: #7BBDE8; font-weight: 600;
-      margin-bottom: 8px; display: none; text-align: center;
-    }
-    .pm-previews.has-photos + .pm-photo-count { display: block; }
-
-    /* Buttons */
-    .pm-btn-camera {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      width: 100%; padding: 15px;
-      background: #7BBDE8; color: #0a0a0a;
-      border: none; border-radius: 14px;
-      font-size: 15px; font-weight: 700;
-      cursor: pointer; margin-bottom: 10px;
-      transition: background 0.2s, transform 0.1s;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .pm-btn-camera:active { transform: scale(0.98); background: #5AAAD8; }
-
-    .pm-btn-skip {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      width: 100%; padding: 13px;
-      background: transparent;
-      color: #7BBDE8;
-      border: 1.5px solid rgba(123,189,232,0.3);
-      border-radius: 14px;
-      font-size: 14px; font-weight: 600;
-      cursor: pointer; text-decoration: none;
-      transition: border-color 0.2s, background 0.2s;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .pm-btn-skip:hover { border-color: #7BBDE8; background: rgba(123,189,232,0.07); }
-
-    .pm-btn-send {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      width: 100%; padding: 15px;
-      background: #0A4174; color: #7BBDE8;
-      border: none; border-radius: 14px;
-      font-size: 15px; font-weight: 700;
-      cursor: pointer; margin-bottom: 10px;
-      transition: background 0.2s, transform 0.1s;
-      text-decoration: none;
-      -webkit-tap-highlight-color: transparent;
-      display: none;
-    }
-    .pm-btn-send.visible { display: flex; }
-    .pm-btn-send:active { transform: scale(0.98); }
-
-    .pm-note {
-      font-size: 11px; color: #555; text-align: center;
-      margin-top: 14px; line-height: 1.55;
-    }
-    #photo-input { display: none; }
-    /* ═══════════════════════════════════════════════════════════════════════ */
-
   </style>
 </head>
+
 <body>
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#top" class="brand" aria-label="Northline Auto & Surfaces home">
+        <span class="brand-mark">N</span>
+        <span>
+          <span class="brand-name">Northline Auto &amp; Surfaces</span>
+          <span class="brand-sub">Kelowna & nearby areas</span>
+        </span>
+      </a>
 
-<nav id="main-nav">
-  <div class="nav-inner">
-    <div>
-      <div class="nav-name">OKNG Mobile Detailing</div>
-      <div class="nav-sub">Kelowna & nearby areas</div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#results">Results</a>
+        <a href="#process">How It Works</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <a class="nav-cta js-quote-link" href="sms:+12502587505?body=Hi%20Northline%2C%20I%E2%80%99d%20like%20a%20quote%20for%20detailing.%0A%0AVehicle%3A%0ALocation%20%2F%20shop%20or%20mobile%20service%3A%0APreferred%20service%3A%0APreferred%20day%2Ftime%3A%0A%0AI%E2%80%99ll%20attach%20photos%20of%20the%20exterior%2C%20front%20seats%2C%20rear%20seats%2C%20floors%2C%20cargo%20area%2C%20and%20any%20problem%20spots.%20Please%20confirm%20the%20final%20price%20before%20booking.">Request a Quote</a>
     </div>
-    <a href="tel:+12502587505" class="nav-btn">📞 Call / Text</a>
-  </div>
-</nav>
+  </header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
-    <div>
-      <div class="badge">✨ Launch Special — $50 OFF first 10 bookings</div>
-      <h1>Mobile car detailing that brings your vehicle back to life.</h1>
-      <p class="hero-sub">Interior refreshes, deep details, and full details for family vehicles, work trucks, and daily drivers.</p>
-      <div class="hero-btns">
-        <a href="sms:+12502587505" class="btn-white">📸 Get Your Price</a>
-        <a href="#services" class="btn-outline">Services →</a>
-      </div>
-      <p class="hero-note">Send a few photos. Final price depends on size and condition.</p>
-      <div class="special-offer fade-in">
-        <div class="offer-label">Launch Special</div>
-        <div class="offer-title">Get $50 OFF Deep Interior or Full Detail.</div>
-        <div class="offer-desc">First 10 bookings only. Send photos for a fair quote.</div>
-        <div class="offer-btns">
-          <a href="sms:+12502587505" class="btn-dark">💬 Message to Book</a>
-          <a href="mailto:youremail@example.com" class="btn-light">✉️ Email</a>
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy fade-up">
+          <span class="eyebrow">Mobile &amp; Shop Detailing · Kelowna &amp; Surrounding Areas</span>
+          <h1>Professional auto detailing for vehicles that deserve more than a basic wash.</h1>
+          <p class="hero-sub">Northline Auto &amp; Surfaces provides high-quality auto detailing, interior deep cleaning, exterior care, paint polishing, ceramic coating, and surface protection services in Kelowna and surrounding areas. Visit our shop or book mobile service when location and conditions allow.</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary js-quote-link" href="sms:+12502587505?body=Hi%20Northline%2C%20I%E2%80%99d%20like%20a%20quote%20for%20detailing.%0A%0AVehicle%3A%0ALocation%20%2F%20shop%20or%20mobile%20service%3A%0APreferred%20service%3A%0APreferred%20day%2Ftime%3A%0A%0AI%E2%80%99ll%20attach%20photos%20of%20the%20exterior%2C%20front%20seats%2C%20rear%20seats%2C%20floors%2C%20cargo%20area%2C%20and%20any%20problem%20spots.%20Please%20confirm%20the%20final%20price%20before%20booking.">Request a Quote</a>
+            <a class="btn btn-secondary" href="#services">View Services</a>
+          </div>
+
+          <p class="hero-note">Send photos of your vehicle for an accurate quote. Final pricing is confirmed before your appointment.</p>
+
+          <div class="proof-strip">
+            <div class="proof"><b>Mobile &amp; Shop Service</b><span>Visit the shop or book mobile detailing when location, parking, weather, and access allow.</span></div>
+            <div class="proof"><b>Clear Photo-Based Quotes</b><span>Send photos before booking so pricing is accurate, fair, and confirmed before work begins.</span></div>
+            <div class="proof"><b>Interior, Exterior &amp; Paint Care</b><span>Carpets, seats, trim, wheels, glass, paint polishing, and ceramic protection.</span></div>
+            <div class="proof"><b>Professional Finish</b><span>Clean communication, careful workmanship, and results built to look sharp in person.</span></div>
+          </div>
+        </div>
+
+        <div class="hero-card fade-up" role="img" aria-label="Professional detailing work by Northline Auto & Surfaces">
+          <div class="hero-panel">
+            <strong>Detailed properly. Finished professionally.</strong>
+            <span>Interior, exterior, paint correction, polishing, ceramic coating, and protection services available at our shop or through mobile service.</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="hero-photo fade-in">
-      <img src="hero-photo.jpg" alt="Mobile car detailing Kelowna" />
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- TRUST BAR -->
-<div class="trust">
-  <div class="trust-inner">
-    <div class="trust-item">
-      <div class="trust-icon">📍</div>
-      <div><div class="trust-title">Mobile Service</div><div class="trust-desc">I come to your home or driveway.</div></div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon">🚗</div>
-      <div><div class="trust-title">Family & Work Vehicles</div><div class="trust-desc">Built for real mess: crumbs, mud, pet hair.</div></div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon">🛡️</div>
-      <div><div class="trust-title">Honest Quotes</div><div class="trust-desc">Fair pricing based on size and condition.</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section class="section about-bg">
-  <div class="section-inner about-grid">
-    <div class="about-card fade-in">
-      <div class="section-label">About Max</div>
-      <h2>A local young business owner building from the ground up.</h2>
-    </div>
-    <div class="about-text fade-in">
-      <p>My name is Max. I moved to Canada from Ukraine 3 years ago and recently graduated from high school here in Kelowna.</p>
-      <p>I'm building my own small business to create a better future and support my family. My father is currently serving in Ukraine, so this business means more to me than just work.</p>
-      <p>I take every job seriously and want every customer to feel confident recommending my work.</p>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section class="section gallery-bg">
-  <div class="section-inner">
-    <div class="fade-in">
-      <div class="section-label">Before / After</div>
-      <h2>Real results, real vehicles.</h2>
-      <p style="font-size:13px;color:#aaa;margin-top:8px;">Swipe to see the transformation →</p>
-    </div>
-    <div class="gallery-scroll" id="gallery-scroll">
-      <div class="gallery-item fade-in"><img src="g1.jpg" alt="Before and after" /></div>
-      <div class="gallery-item fade-in"><img src="g2.jpg" alt="Before and after" /></div>
-      <div class="gallery-item fade-in"><img src="g3.jpg" alt="Before and after" /></div>
-      <div class="gallery-item fade-in"><img src="g4.webp" alt="Before and after" /></div>
-      <div class="gallery-item fade-in"><img src="r1.jpg" alt="Detailing work" /></div>
-      <div class="gallery-item fade-in"><img src="r2.webp" alt="Detailing work" /></div>
-      <div class="gallery-item fade-in"><img src="r3.jpg" alt="Detailing work" /></div>
-      <div class="gallery-item fade-in"><img src="r4.jpg" alt="Detailing work" /></div>
-      <div class="gallery-item fade-in"><img src="r5.jpg" alt="Detailing work" /></div>
-      <div class="gallery-item fade-in"><img src="r6.jpg" alt="Detailing work" /></div>
-      <div class="gallery-item fade-in"><img src="r7.jpg" alt="Detailing work" /></div>
-    </div>
-    <div class="gallery-dots">
-      <span class="active"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES V2 -->
-<section class="services-v2" id="services">
-  <div class="section-inner">
-    <div class="fade-in">
-      <div class="section-label">Services</div>
-      <h2>Choose your detail package.</h2>
-      <div class="price-notice">
-        <div class="price-notice-icon">⚠️</div>
-        <div class="price-notice-text">
-          <strong>Final price depends on vehicle condition &amp; size</strong>
-          All prices shown are starting points. Heavier soiling, pet hair, larger vehicles (SUV, truck, van) or extra add-ons may adjust the quote. Send photos for an accurate price before booking.
+    <section class="promo">
+      <div class="wrap">
+        <div class="promo-card fade-up">
+          <div class="promo-mainline">
+            <div class="promo-content">
+              <span class="eyebrow">New Client Offer</span>
+              <h3 style="font-size:clamp(28px,4.4vw,44px);margin:12px 0 0;letter-spacing:-.04em;">New clients receive 30% off their first three detailing appointments.</h3>
+              <p>Book any Interior &amp; Exterior Detailing package, Paint Correction &amp; Protection package, or Polish Service with Northline Auto &amp; Surfaces and receive 30% off your first three eligible detailing appointments as a new client.</p>
+              <p class="promo-conditions">Offer available for new clients only. Discount must be mentioned before booking. Add-ons, taxes, travel fees, and specialty work may be quoted separately.</p>
+            </div>
+            <div class="offer-badge-big" aria-label="30 percent off"><div><span>30%</span><small>OFF</small></div></div>
+          </div>
+          <a class="btn btn-dark js-quote-link" href="sms:+12502587505?body=Hi%20Northline%2C%20I%E2%80%99d%20like%20a%20quote%20for%20detailing.%0A%0AVehicle%3A%0ALocation%20%2F%20shop%20or%20mobile%20service%3A%0APreferred%20service%3A%0APreferred%20day%2Ftime%3A%0A%0AI%E2%80%99ll%20attach%20photos%20of%20the%20exterior%2C%20front%20seats%2C%20rear%20seats%2C%20floors%2C%20cargo%20area%2C%20and%20any%20problem%20spots.%20Please%20confirm%20the%20final%20price%20before%20booking.">Claim New Client Offer</a>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="sv2-layout fade-in">
+    <section class="section" aria-label="Trust signals">
+      <div class="wrap trust-grid">
+        <div class="card trust-item fade-up"><div class="trust-icon">📍</div><h3>Mobile &amp; Shop Service</h3><p>Visit our shop or book mobile detailing when your location, parking, weather, and access allow.</p></div>
+        <div class="card trust-item fade-up"><div class="trust-icon">💬</div><h3>Clear Photo-Based Quotes</h3><p>Send photos before booking so pricing is accurate, fair, and confirmed before the work begins.</p></div>
+        <div class="card trust-item fade-up"><div class="trust-icon">🧼</div><h3>Interior, Exterior &amp; Paint Care</h3><p>From carpets, seats, and trim to wheels, glass, paint polishing, and ceramic protection.</p></div>
+        <div class="card trust-item fade-up"><div class="trust-icon">🛡️</div><h3>Professional Finish</h3><p>Clean communication, careful workmanship, and results built to look sharp in person.</p></div>
+      </div>
+    </section>
 
-      <!-- ── LEFT: Detailing Packages ─────────────────────────────────── -->
-      <div class="sv2-col">
-        <div class="sv2-col-title">🧹 Interior &amp; Exterior Detailing</div>
-
-        <!-- Basic -->
-        <label class="pkg-card" data-group="detail" onclick="togglePkg(this,'Basic Interior &amp; Exterior','detail')">
-          <div class="pkg-check"></div>
+    <section class="section" id="services">
+      <div class="wrap">
+        <div class="section-head fade-up">
           <div>
-            <div class="pkg-header">
-              <div class="pkg-name">Basic Interior &amp; Exterior</div>
-              <div class="pkg-price"><span class="pkg-price-main">From $139</span><span class="tax-badge tax-gst tax-tip" data-tip="GST only (5%) — federal tax on basic cleaning services.">+ 5% GST</span></div>
-            </div>
-            <ul class="pkg-items">
-              <li>Hand wash — two-bucket method</li>
-              <li>Wheel &amp; tire cleaning + tire dressing</li>
-              <li>Door-jamb wipe-down &amp; exterior windows</li>
-              <li>Interior vacuuming — carpets, seats, cargo area</li>
-              <li>Dashboard &amp; console wipe-down; interior glass</li>
-            </ul>
+            <span class="eyebrow">Services</span>
+            <h2>Detailing services built around your vehicle’s condition.</h2>
+            <p class="section-copy">Whether your vehicle needs a maintenance clean, a full interior reset, exterior refinement, paint polishing, or long-term protection, Northline Auto &amp; Surfaces offers professional service options based on the level of work required.</p>
           </div>
-        </label>
-
-        <!-- Standard — featured -->
-        <label class="pkg-card featured-pkg" data-group="detail" onclick="togglePkg(this,'Standard / Mid-Level Detail','detail')">
-          <div class="pkg-check"></div>
-          <div>
-            <div class="pkg-badge">Most Popular</div>
-            <div class="pkg-header">
-              <div class="pkg-name">Standard / Mid-Level Detail</div>
-              <div class="pkg-price"><span class="pkg-price-main">From $229</span><span class="tax-badge tax-gst tax-tip" data-tip="GST only (5%) — federal tax on basic cleaning services.">+ 5% GST</span></div>
-            </div>
-            <ul class="pkg-items">
-              <li>Everything in Basic, plus:</li>
-              <li>Upholstery shampoo &amp; extraction (fabric seats)</li>
-              <li>Leather cleaning &amp; conditioning</li>
-              <li>Deep console, cup-holder &amp; vent detailing</li>
-              <li>Carpet &amp; floor-mat shampooing; basic odor treatment</li>
-              <li>Pet hair removal</li>
-            </ul>
-          </div>
-        </label>
-
-        <!-- Premium -->
-        <label class="pkg-card" data-group="detail" onclick="togglePkg(this,'Premium / Deluxe Detail','detail')">
-          <div class="pkg-check"></div>
-          <div>
-            <div class="pkg-header">
-              <div class="pkg-name">Premium / Deluxe Detail</div>
-              <div class="pkg-price"><span class="pkg-price-main">From $399</span><span class="tax-badge tax-gst tax-tip" data-tip="GST only (5%) — federal tax on basic cleaning services.">+ 5% GST</span></div>
-            </div>
-            <ul class="pkg-items">
-              <li>Everything in Standard, plus:</li>
-              <li>Intensive wheel cleaning — inner barrels &amp; calipers</li>
-              <li>Headlight restoration &amp; engine-bay detailing</li>
-              <li>Ozone odor elimination &amp; headliner cleaning</li>
-              <li>Trunk / cargo area deep clean &amp; seat-belt cleaning</li>
-              <li>Pet hair removal</li>
-            </ul>
-          </div>
-        </label>
-      </div>
-
-      <!-- ── RIGHT: Polish + Ceramic ──────────────────────────────────── -->
-      <div class="sv2-right">
-
-        <!-- TOP: Paint Correction / Polish -->
-        <div class="sv2-right-top">
-          <div class="sv2-col-title">✨ Paint Correction &amp; Polish</div>
-
-          <label class="pkg-card" data-group="polish" data-price-type="quote" onclick="togglePkg(this,'Gloss Enhancement Polish','polish')">
-            <div class="pkg-check"></div>
-            <div>
-              <div class="pkg-header">
-                <div class="pkg-name">Gloss Enhancement Polish</div>
-                <div class="pkg-price"><span class="pkg-price-main">From $299</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">GST 5% + PST 7%</span></div>
-              </div>
-              <ul class="pkg-items">
-                <li>Wash &amp; clay-bar decontamination</li>
-                <li>One-step machine polish — lightly corrects &amp; seals</li>
-                <li>Glass cleaning; tire dressing</li>
-              </ul>
-            </div>
-          </label>
-
-          <label class="pkg-card" data-group="polish" data-price-type="quote" onclick="togglePkg(this,'Correction + Sealant','polish')">
-            <div class="pkg-check"></div>
-            <div>
-              <div class="pkg-header">
-                <div class="pkg-name">Correction + Sealant</div>
-                <div class="pkg-price"><span class="pkg-price-main">From $499</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">GST 5% + PST 7%</span></div>
-              </div>
-              <ul class="pkg-items">
-                <li>Wash, clay &amp; dedicated correcting polish</li>
-                <li>Removes light-to-moderate swirls</li>
-                <li>High-quality wax, sealant or entry ceramic</li>
-                <li>Glass cleaning; door jambs; wheel &amp; tire dressing</li>
-              </ul>
-            </div>
-          </label>
-
-          <label class="pkg-card" data-group="polish" data-price-type="quote" onclick="togglePkg(this,'Multi-Stage Paint Correction','polish')">
-            <div class="pkg-check"></div>
-            <div>
-              <div class="pkg-header">
-                <div class="pkg-name">Multi-Stage Paint Correction</div>
-                <div class="pkg-price"><span class="pkg-price-main">From $899</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">GST 5% + PST 7%</span></div>
-              </div>
-              <ul class="pkg-items">
-                <li>Extensive wash + chemical &amp; mechanical decontam.</li>
-                <li>Machine scrub tires; full wheel cleaning</li>
-                <li>Compound stage → polish stage → enhanced gloss</li>
-                <li>Seal with wax, sealant or ceramic; exhaust tip polish</li>
-              </ul>
-            </div>
-          </label>
         </div>
 
-        <div class="sv2-right-divider"></div>
-
-        <!-- BOTTOM: Ceramic Coating -->
-        <div class="sv2-right-bottom">
-          <div class="sv2-col-title">🛡️ Ceramic Coating</div>
-
-          <label class="pkg-card" data-group="ceramic" data-price-type="quote" onclick="togglePkg(this,'Entry-Level Ceramic (1–2 Year)','ceramic')">
-            <div class="pkg-check"></div>
-            <div>
-              <div class="pkg-header">
-                <div class="pkg-name">Entry-Level Ceramic</div>
-                <div class="pkg-price"><span class="pkg-price-main">From $699</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">GST 5% + PST 7%</span></div>
-              </div>
-              <ul class="pkg-items">
-                <li>Single layer after basic paint prep (wash + decontam.)</li>
-                <li>Protection vs water spots; increased gloss &amp; slickness</li>
-              </ul>
-            </div>
-          </label>
-
-          <label class="pkg-card" data-group="ceramic" data-price-type="quote" onclick="togglePkg(this,'Mid-Tier Ceramic (3–5 Year)','ceramic')">
-            <div class="pkg-check"></div>
-            <div>
-              <div class="pkg-header">
-                <div class="pkg-name">Mid-Tier Ceramic</div>
-                <div class="pkg-price"><span class="pkg-price-main">From $1,199</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">GST 5% + PST 7%</span></div>
-              </div>
-              <ul class="pkg-items">
-                <li>Multiple layers; machine paint correction</li>
-                <li>Wheel faces &amp; glass coating</li>
-                <li>Enhanced chemical &amp; UV protection</li>
-                <li>Optional limited warranty</li>
-              </ul>
-            </div>
-          </label>
-
-          <label class="pkg-card" data-group="ceramic" data-price-type="quote" onclick="togglePkg(this,'Premium / Pro Ceramic (5–9 Year+)','ceramic')">
-            <div class="pkg-check"></div>
-            <div>
-              <div class="pkg-header">
-                <div class="pkg-name">Premium / Pro Ceramic</div>
-                <div class="pkg-price"><span class="pkg-price-main">From $1,799</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">GST 5% + PST 7%</span></div>
-              </div>
-              <ul class="pkg-items">
-                <li>High-end ceramic or graphene coating</li>
-                <li>Full paint correction; wheels removed &amp; coated (barrels)</li>
-                <li>Glass coating on all windows</li>
-                <li>Optional interior ceramic on leather, vinyl &amp; fabric</li>
-                <li>Registered warranty</li>
-              </ul>
-            </div>
-          </label>
+        <div class="card pricing-note fade-up">
+          <div class="icon">⚠️</div>
+          <div>
+            <strong>Every vehicle is different.</strong>
+            Prices shown are starting points. Final pricing depends on vehicle size, condition, selected service, and additional work required. Heavy pet hair, staining, mud, salt, smoke odor, neglected interiors, and paint condition may affect the final quote. Photos are requested before booking to keep pricing clear and accurate.
+          </div>
         </div>
 
+        <div class="services-layout">
+          <div>
+            <div class="service-group-title">Interior &amp; Exterior Detailing</div>
+            <div class="service-grid">
+              <article class="card service-card fade-up" data-type="package" data-group="detail" data-name="Basic Interior &amp; Exterior" data-price="From $139 + GST">
+                <div class="service-top">
+                  <div>
+                    <div class="service-title">Basic Interior &amp; Exterior</div>
+                    <p>A professional maintenance detail for vehicles that need a clean refresh inside and out.</p>
+                  </div>
+                  <div class="price"><b>From $139</b><span>+ GST</span></div>
+                </div>
+                <ul>
+                  <li>Exterior hand wash</li>
+                  <li>Wheel and tire cleaning</li>
+                  <li>Interior vacuum</li>
+                  <li>Dashboard, console, and panel wipe-down</li>
+                  <li>Interior and exterior glass cleaning</li>
+                </ul>
+              </article>
+
+              <article class="card service-card fade-up" data-type="package" data-group="detail" data-name="Deep Interior + Exterior" data-price="From $229 + GST">
+                <span class="tag">Most Popular</span>
+                <div class="service-top">
+                  <div>
+                    <div class="service-title">Deep Interior + Exterior</div>
+                    <p>A deeper detail for daily drivers, family vehicles, and interiors that need more than a surface clean.</p>
+                  </div>
+                  <div class="price"><b>From $229</b><span>+ GST</span></div>
+                </div>
+                <ul>
+                  <li>Everything in Basic Interior &amp; Exterior</li>
+                  <li>Seat and carpet shampoo/extraction</li>
+                  <li>Detailed cleaning of cupholders, vents, trim, and console areas</li>
+                  <li>Leather cleaning and conditioning where applicable</li>
+                  <li>Deeper floor, mat, and cargo-area cleaning</li>
+                </ul>
+              </article>
+
+              <article class="card service-card fade-up" data-type="package" data-group="detail" data-name="Premium Deluxe Detail" data-price="From $399 + GST">
+                <div class="service-top">
+                  <div>
+                    <div class="service-title">Premium Deluxe Detail</div>
+                    <p>A complete interior and exterior reset for vehicles that need serious attention and a more thorough finish.</p>
+                  </div>
+                  <div class="price"><b>From $399</b><span>+ GST</span></div>
+                </div>
+                <ul>
+                  <li>Everything in Deep Interior + Exterior</li>
+                  <li>Trunk or cargo-area deep clean</li>
+                  <li>Seat-belt cleaning</li>
+                  <li>Engine-bay detail</li>
+                  <li>Intensive wheel cleaning</li>
+                  <li>Problem-area focus and odor treatment options</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+
+          <div>
+            <div class="service-group-title">Paint Correction &amp; Protection / Polish Services</div>
+            <div class="service-grid">
+              <article class="card service-card fade-up" data-type="package" data-group="paint" data-name="Gloss Enhancement Polish" data-price="From $299">
+                <div class="service-top">
+                  <div>
+                    <div class="service-title">Gloss Enhancement Polish</div>
+                    <p>A paint refinement service designed to improve gloss, clarity, and overall exterior appearance.</p>
+                  </div>
+                  <div class="price"><b>From $299</b><span>GST/PST may apply</span></div>
+                </div>
+                <ul>
+                  <li>Exterior wash and paint decontamination</li>
+                  <li>Clay-bar treatment</li>
+                  <li>One-step machine polish</li>
+                  <li>Light swirl and haze improvement</li>
+                  <li>Gloss enhancement finish</li>
+                </ul>
+              </article>
+
+              <article class="card service-card fade-up" data-type="package" data-group="paint" data-name="Correction + Sealant" data-price="From $499">
+                <div class="service-top">
+                  <div>
+                    <div class="service-title">Correction + Sealant</div>
+                    <p>For vehicles with visible swirls, dullness, oxidation, or tired paint that needs a stronger improvement process.</p>
+                  </div>
+                  <div class="price"><b>From $499</b><span>GST/PST may apply</span></div>
+                </div>
+                <ul>
+                  <li>Wash, clay, and paint preparation</li>
+                  <li>Machine polishing</li>
+                  <li>Light-to-moderate defect improvement</li>
+                  <li>Sealant or wax protection</li>
+                  <li>Improved gloss, depth, and paint clarity</li>
+                </ul>
+              </article>
+
+              <article class="card service-card fade-up" data-type="package" data-group="ceramic" data-name="Ceramic Coating" data-price="From $699">
+                <span class="tag">Quote Required</span>
+                <div class="service-top">
+                  <div>
+                    <div class="service-title">Ceramic Coating</div>
+                    <p>Longer-term paint protection for vehicles that need proper prep, correction, and durable surface protection.</p>
+                  </div>
+                  <div class="price"><b>From $699</b><span>GST/PST may apply</span></div>
+                </div>
+                <ul>
+                  <li>Paint inspection</li>
+                  <li>Wash and chemical decontamination</li>
+                  <li>Clay-bar treatment</li>
+                  <li>Correction level based on paint condition</li>
+                  <li>Ceramic coating package based on protection goals</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="addons fade-up" id="addons">
+          <div class="addons-head">
+            <div>
+              <h3>Optional Add-ons</h3>
+              <p>Add only what your vehicle actually needs.</p>
+            </div>
+          </div>
+
+          <div class="addon-grid">
+            <div class="addon-card" data-type="addon" data-name="Pet Hair Removal" data-price="From $40"><div><b>🐾 Pet Hair Removal</b><span>Targeted removal from seats, carpets, mats, and cargo areas.</span></div><div class="addon-price">From $40</div></div>
+            <div class="addon-card" data-type="addon" data-name="Ozone Odor Treatment" data-price="From $150"><div><b>💨 Ozone Odor Treatment</b><span>For smoke, mildew, food smells, and other stubborn interior odors.</span></div><div class="addon-price">From $150</div></div>
+            <div class="addon-card" data-type="addon" data-name="Headlight Restoration" data-price="From $150"><div><b>💡 Headlight Restoration</b><span>Restores clarity to cloudy, yellowed, or faded headlights.</span></div><div class="addon-price">From $150</div></div>
+            <div class="addon-card" data-type="addon" data-name="Heavy Mud / Work Vehicle Cleaning" data-price="From $85"><div><b>🛻 Heavy Mud / Work Vehicle Cleaning</b><span>For vehicles with excessive dirt, mud, dust, gravel, or job-site buildup.</span></div><div class="addon-price">From $85</div></div>
+            <div class="addon-card" data-type="addon" data-name="Glass Coating" data-price="From $165"><div><b>🪟 Glass Coating</b><span>Hydrophobic glass protection for improved water behavior and easier maintenance.</span></div><div class="addon-price">From $165</div></div>
+          </div>
+        </div>
+
+        <div class="quote-bar" id="quote-bar" aria-live="polite">
+          <div>
+            <small>Selected services</small>
+            <strong id="selection-summary">Choose a package to build your quote text.</strong>
+          </div>
+          <a class="btn btn-primary" id="quote-link" href="sms:+12502587505?body=Hi%20Northline%2C%20I%E2%80%99d%20like%20a%20quote%20for%20detailing.%0A%0AVehicle%3A%0ALocation%20%2F%20shop%20or%20mobile%20service%3A%0APreferred%20service%3A%0APreferred%20day%2Ftime%3A%0A%0AI%E2%80%99ll%20attach%20photos%20of%20the%20exterior%2C%20front%20seats%2C%20rear%20seats%2C%20floors%2C%20cargo%20area%2C%20and%20any%20problem%20spots.%20Please%20confirm%20the%20final%20price%20before%20booking.">Request a Quote</a>
+        </div>
       </div>
-    </div>
+    </section>
 
-
-    <!-- ── Add-on Services (revealed after package selected) ──────────── -->
-    <div class="addons-panel" id="addons-panel">
-      <div class="addons-title">➕  Add-On Services — Optional Upgrades</div>
-      <div class="addons-grid">
-
-        <label class="addon-card" onclick="toggleAddon(this,'Pet Hair Removal','$40','gst')">
-          <div class="addon-check"></div>
-          <div class="addon-info">
-            <div class="addon-name">🐾 Pet Hair Removal</div>
-            <div class="addon-desc">Deep extraction from seats, carpet &amp; cargo area</div>
+    <section class="section" id="results">
+      <div class="wrap">
+        <div class="section-head fade-up">
+          <div>
+            <span class="eyebrow">Results</span>
+            <h2>Clean results. Sharp presentation. Noticeable difference.</h2>
+            <p class="section-copy">Northline Auto &amp; Surfaces focuses on the details that make a vehicle feel cleaner, newer, and better maintained — from interior surfaces and carpets to wheels, trim, paint gloss, glass, and final presentation.</p>
           </div>
-          <div class="addon-price">From $40<small>+ 5% GST</small></div>
-        </label>
+        </div>
 
-        <label class="addon-card" onclick="toggleAddon(this,'Ozone Odor Treatment','$150','gst')">
-          <div class="addon-check"></div>
-          <div class="addon-info">
-            <div class="addon-name">💨 Ozone Odor Treatment</div>
-            <div class="addon-desc">Eliminates smoke, mildew &amp; stubborn odors at the source</div>
-          </div>
-          <div class="addon-price">From $150<small>+ 5% GST</small></div>
-        </label>
-
-        <label class="addon-card" onclick="toggleAddon(this,'Headlight Restoration','$150','gst-pst')">
-          <div class="addon-check"></div>
-          <div class="addon-info">
-            <div class="addon-name">💡 Headlight Restoration</div>
-            <div class="addon-desc">Removes yellowing &amp; haze — restores clarity &amp; brightness</div>
-          </div>
-          <div class="addon-price">From $150<small>+ 12% Tax</small></div>
-        </label>
-
-        <label class="addon-card" onclick="toggleAddon(this,'Excessive Mud / Work Truck Fee','$85','gst')">
-          <div class="addon-check"></div>
-          <div class="addon-info">
-            <div class="addon-name">🛻 Excessive Mud / Work Truck Fee</div>
-            <div class="addon-desc">Heavy soiling, mud pack, or extreme work-site build-up</div>
-          </div>
-          <div class="addon-price">From $85<small>+ 5% GST</small></div>
-        </label>
-
-        <label class="addon-card" onclick="toggleAddon(this,'Glass Coating','$165','gst-pst')">
-          <div class="addon-check"></div>
-          <div class="addon-info">
-            <div class="addon-name">🪟 Glass Coating</div>
-            <div class="addon-desc">Hydrophobic nano-coating on all windows — repels water &amp; improves visibility</div>
-          </div>
-          <div class="addon-price">From $165<small>+ 12% Tax</small></div>
-        </label>
-
+        <div class="gallery-grid">
+          <figure class="gallery-item fade-up"><img src="assets/images/northline-01.webp" alt="Clean premium vehicle interior after detailing" loading="lazy" onerror="imageFallback(this)"><figcaption class="gallery-label">Interior Finish</figcaption></figure>
+          <figure class="gallery-item fade-up"><img src="assets/images/northline-02.webp" alt="Exterior foam wash during mobile detailing" loading="lazy" onerror="imageFallback(this)"><figcaption class="gallery-label">Foam Wash</figcaption></figure>
+          <figure class="gallery-item fade-up"><img src="assets/images/northline-03.webp" alt="Front bumper and headlight exterior wash detail" loading="lazy" onerror="imageFallback(this)"><figcaption class="gallery-label">Exterior Prep</figcaption></figure>
+          <figure class="gallery-item fade-up"><img src="assets/images/northline-04.webp" alt="Clean leather interior detail" loading="lazy" onerror="imageFallback(this)"><figcaption class="gallery-label">Leather Interior</figcaption></figure>
+          <figure class="gallery-item fade-up"><img src="assets/images/northline-05.webp" alt="Detailing brushes and spray bottles organized for service" loading="lazy" onerror="imageFallback(this)"><figcaption class="gallery-label">Tools Ready</figcaption></figure>
+          <figure class="gallery-item fade-up"><img src="assets/images/northline-06.webp" alt="Wheel and tire brush cleaning detail" loading="lazy" onerror="imageFallback(this)"><figcaption class="gallery-label">Wheel Detail</figcaption></figure>
+          <figure class="gallery-item fade-up"><img src="assets/images/northline-07.webp" alt="Interior steering wheel and dashboard wipe down" loading="lazy" onerror="imageFallback(this)"><figcaption class="gallery-label">Cabin Wipe Down</figcaption></figure>
+          <figure class="gallery-item fade-up"><img src="assets/images/northline-08.webp" alt="Door panel brush detailing process" loading="lazy" onerror="imageFallback(this)"><figcaption class="gallery-label">Door Panel Detail</figcaption></figure>
+          <figure class="gallery-item fade-up"><img src="assets/images/northline-09.webp" alt="Footwell before and after detailing result" loading="lazy" onerror="imageFallback(this)"><figcaption class="gallery-label">Footwell Before / After</figcaption></figure>
+          <figure class="gallery-item fade-up"><img src="assets/images/northline-10.webp" alt="Interior trim before and after detailing result" loading="lazy" onerror="imageFallback(this)"><figcaption class="gallery-label">Interior Trim Before / After</figcaption></figure>
+          <figure class="gallery-item fade-up"><img src="assets/images/northline-11.webp" alt="Mercedes exterior covered in foam during a wash" loading="lazy" onerror="imageFallback(this)"><figcaption class="gallery-label">Luxury Foam Wash</figcaption></figure>
+          <figure class="gallery-item fade-up"><img src="assets/images/northline-12.webp" alt="Blue Nissan Skyline parked at sunset with a glossy finish" loading="lazy" onerror="imageFallback(this)"><figcaption class="gallery-label">Showcase Finish</figcaption></figure>
+          <figure class="gallery-item fade-up"><img src="assets/images/northline-13.webp" alt="Detail brush cleaning a blue vehicle door sill" loading="lazy" onerror="imageFallback(this)"><figcaption class="gallery-label">Door Jamb Detail</figcaption></figure>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- ── Book Now sticky bar ─────────────────────────────────────────── -->
-    <div class="book-bar" id="book-bar">
+    <section class="section" id="process">
+      <div class="wrap">
+        <div class="section-head fade-up">
+          <div>
+            <span class="eyebrow">How It Works</span>
+            <h2>A simple process from quote to finished detail.</h2>
+          </div>
+        </div>
+
+        <div class="process-grid">
+          <div class="card step fade-up"><div class="step-num">1</div><h3>Select Your Service</h3><p>Choose the package that best matches your vehicle’s needs.</p></div>
+          <div class="card step fade-up"><div class="step-num">2</div><h3>Send Vehicle Photos</h3><p>Send photos of the exterior, seats, floors, trunk or cargo area, and any problem areas.</p></div>
+          <div class="card step fade-up"><div class="step-num">3</div><h3>Confirm the Quote</h3><p>Your vehicle’s condition is reviewed and pricing is confirmed before booking.</p></div>
+          <div class="card step fade-up"><div class="step-num">4</div><h3>Visit the Shop or Book Mobile Service</h3><p>Bring your vehicle to our shop or book mobile service when location, parking, weather, and access are suitable.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap area-grid">
+        <div class="card area-card service-area-card fade-up">
+          <div class="service-area-layout">
+            <div class="area-copy-block">
+              <span class="eyebrow">Service Area</span>
+              <h2>Serving Kelowna and surrounding communities.</h2>
+              <p class="section-copy">Northline Auto &amp; Surfaces serves Kelowna, West Kelowna, Lake Country, and nearby areas. Shop appointments and mobile detailing availability depend on schedule, service type, weather, parking, and safe working access.</p>
+              <div class="area-list" aria-label="Areas served">
+                <span class="pill">Kelowna</span>
+                <span class="pill">West Kelowna</span>
+                <span class="pill">Lake Country</span>
+                <span class="pill">Rutland</span>
+                <span class="pill">Glenmore</span>
+                <span class="pill">Lower Mission</span>
+                <span class="pill">Upper Mission</span>
+                <span class="pill">Black Mountain</span>
+                <span class="pill">Downtown Kelowna</span>
+              </div>
+            </div>
+            <aside class="area-info-panel" aria-label="Service availability details">
+              <h3>Booking availability</h3>
+              <div class="area-stat-grid">
+                <div class="area-mini-card"><b>Shop Appointments</b><span>Best for larger details, polishing, coating, and weather-sensitive work.</span></div>
+                <div class="area-mini-card"><b>Mobile Service</b><span>Available when parking, weather, access, and working space are suitable.</span></div>
+                <div class="area-mini-card"><b>Quote First</b><span>Send photos and location details so pricing and service type are confirmed upfront.</span></div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="wrap about-grid">
+        <div class="about-photo fade-up" role="img" aria-label="Detailing work by Northline Auto & Surfaces"></div>
+        <div class="card about-card fade-up">
+          <span class="eyebrow">About Northline</span>
+          <h2 style="margin:14px 0 18px;">Local detailing with a focus on quality, presentation, and trust.</h2>
+          <p>Northline Auto &amp; Surfaces is a local auto detailing and surface-care business serving Kelowna and nearby areas. We offer both shop-based and mobile detailing services, giving clients a convenient way to get their vehicle cleaned, corrected, protected, and professionally finished.</p>
+          <p>Every vehicle is different, which is why quotes are based on photos and condition. A lightly used sedan, a family SUV, and a heavily used work truck all require different levels of time, product, and attention.</p>
+          <p>Our goal is not to rush through a quick clean. Our goal is to provide a professional detailing experience with careful prep, clean results, honest communication, and a finish that makes your vehicle look properly cared for.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="section-head fade-up">
+          <div>
+            <span class="eyebrow">FAQ</span>
+            <h2>Questions people ask before booking.</h2>
+          </div>
+        </div>
+
+        <div class="faq-grid">
+          <div class="card faq-item fade-up"><h3>Do I need to send photos before booking?</h3><p>Yes. Photos help confirm the vehicle’s size, condition, and problem areas so your quote is accurate before the appointment.</p></div>
+          <div class="card faq-item fade-up"><h3>Do you offer mobile detailing and shop appointments?</h3><p>Yes. Northline Auto &amp; Surfaces offers both shop-based appointments and mobile detailing when location, parking, weather, and access are suitable.</p></div>
+          <div class="card faq-item fade-up"><h3>Why are prices listed as starting prices?</h3><p>Vehicle size, condition, and required labour can vary. Heavy pet hair, stains, mud, salt, smoke odor, and neglected interiors may require additional time.</p></div>
+          <div class="card faq-item fade-up"><h3>How does the 30% new client offer work?</h3><p>New clients receive 30% off their first three eligible detailing appointments when booking an Interior &amp; Exterior Detailing package, Paint Correction &amp; Protection package, or Polish Service.</p></div>
+          <div class="card faq-item fade-up"><h3>Can I book ceramic coating or paint correction immediately?</h3><p>You can request it, but paint services require a condition review first. The final quote depends on paint condition, vehicle size, and the level of correction or protection needed.</p></div>
+          <div class="card faq-item fade-up"><h3>Do you clean work trucks or heavily used vehicles?</h3><p>Yes. Heavily used vehicles can be detailed, but excessive mud, debris, pet hair, staining, or job-site buildup may affect the final price.</p></div>
+          <div class="card faq-item fade-up"><h3>Can you detail at condos or workplaces?</h3><p>Usually, as long as there is permission, safe access, and enough room to work. Send the location details when requesting your quote.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="final-cta fade-up">
+          <div>
+            <span class="eyebrow">Request a Quote</span>
+            <h2 style="margin-top:14px;">Ready to get your vehicle detailed properly?</h2>
+            <p>Send your vehicle make and model, location, preferred service, and photos of the vehicle’s condition. Northline Auto &amp; Surfaces will review everything and confirm your quote before booking.</p>
+          </div>
+          <a class="btn btn-dark js-quote-link" href="sms:+12502587505?body=Hi%20Northline%2C%20I%E2%80%99d%20like%20a%20quote%20for%20detailing.%0A%0AVehicle%3A%0ALocation%20%2F%20shop%20or%20mobile%20service%3A%0APreferred%20service%3A%0APreferred%20day%2Ftime%3A%0A%0AI%E2%80%99ll%20attach%20photos%20of%20the%20exterior%2C%20front%20seats%2C%20rear%20seats%2C%20floors%2C%20cargo%20area%2C%20and%20any%20problem%20spots.%20Please%20confirm%20the%20final%20price%20before%20booking.">Text Northline Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
       <div>
-        <div class="book-bar-info">Select a package to continue</div>
-        <div class="book-bar-selected" id="bar-selected"></div>
+        <div class="brand" style="margin-bottom:10px;">
+          <span class="brand-mark">N</span>
+          <span>
+            <span class="brand-name">Northline Auto &amp; Surfaces</span>
+            <span class="brand-sub">Auto detailing in Kelowna &amp; surrounding areas</span>
+          </span>
+        </div>
+        <p class="copy">© 2026 Northline Auto &amp; Surfaces. Auto detailing, paint correction, polishing, ceramic coating, and surface-care services in Kelowna and surrounding areas. Starting prices shown; final quote depends on vehicle size, condition, selected services, and required labour.</p>
       </div>
-      <button class="book-now-btn" id="book-now-btn" onclick="handleBookNow()">💬 Book Now</button>
-    </div>
-
-  </div>
-</section>
-
-<!-- BEST FOR -->
-<section class="section bestfor-bg">
-  <div class="section-inner">
-    <div class="bf-grid-wrap">
-      <div class="fade-in">
-        <div class="section-label">Best For</div>
-        <h2>Built for real vehicles with real everyday mess.</h2>
-      </div>
-      <div class="bf-grid">
-        <div class="bf-item fade-in">🚗 Family vehicles with crumbs, stains, and everyday mess</div>
-        <div class="bf-item fade-in">🛻 Work trucks with dust, mud, and job-site dirt</div>
-        <div class="bf-item fade-in">✨ Daily drivers that need a fresh, clean feel again</div>
-        <div class="bf-item fade-in">⭐ Vehicles being prepared for sale</div>
+      <div class="footer-links">
+        <a href="tel:+12502587505">📞 Call</a>
+        <a class="js-quote-link" href="sms:+12502587505?body=Hi%20Northline%2C%20I%E2%80%99d%20like%20a%20quote%20for%20detailing.%0A%0AVehicle%3A%0ALocation%20%2F%20shop%20or%20mobile%20service%3A%0APreferred%20service%3A%0APreferred%20day%2Ftime%3A%0A%0AI%E2%80%99ll%20attach%20photos%20of%20the%20exterior%2C%20front%20seats%2C%20rear%20seats%2C%20floors%2C%20cargo%20area%2C%20and%20any%20problem%20spots.%20Please%20confirm%20the%20final%20price%20before%20booking.">💬 Text</a>
+        <a href="https://instagram.com/northlineautoandsurfaces" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://facebook.com/northlineautoandsurfaces" target="_blank" rel="noopener">Facebook</a>
       </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- CTA -->
-<section class="section">
-  <div class="cta-inner fade-in">
-    <div class="section-label">Launch Special</div>
-    <h2>Get $50 OFF Deep Interior or Full Detail.</h2>
-    <p>Available for the first 10 bookings. Send photos of your vehicle for a fair quote.</p>
-    <div class="cta-btns">
-      <a href="sms:+12502587505" class="btn-dark">💬 Message to Book</a>
-      <a href="mailto:youremail@example.com" class="btn-light">✉️ Email Me</a>
-    </div>
-  </div>
-</section>
+  <script>
+    const PHONE = "+12502587505";
+    const selectedPackages = new Map();
+    const selectedAddons = new Map();
 
-<footer>
-  <div class="footer-inner-wrap">
-    <div>
-      <div class="footer-name">OKNG Mobile Detailing</div>
-      <div class="footer-sub">Serving Kelowna and nearby areas.</div>
-    </div>
-    <div class="footer-links">
-      <a href="tel:+12502587505" class="footer-link">📞 Phone</a>
-      <a href="mailto:youremail@example.com" class="footer-link">✉️ Email</a>
-      <a href="https://instagram.com/okngdetailing" target="_blank" class="footer-link">Instagram</a>
-      <a href="https://facebook.com/okngdetailing" target="_blank" class="footer-link">Facebook</a>
-    </div>
-  </div>
-  <div class="footer-copy">© 2025 OKNG Mobile Detailing. All rights reserved.</div>
-</footer>
+    const nav = document.getElementById("nav");
+    const addons = document.getElementById("addons");
+    const summary = document.getElementById("selection-summary");
+    const quoteLink = document.getElementById("quote-link");
 
-<script>
-  // Nav scroll
-  const nav = document.getElementById('main-nav');
-  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
-
-  // Fade in
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08, rootMargin: '-20px' });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  // Gallery dots
-  const scroll = document.getElementById('gallery-scroll');
-  const dots = document.querySelectorAll('.gallery-dots span');
-  if (scroll && dots.length) {
-    scroll.addEventListener('scroll', () => {
-      const idx = Math.round(scroll.scrollLeft / scroll.offsetWidth * (dots.length));
-      dots.forEach((d, i) => d.classList.toggle('active', i === Math.min(idx, dots.length-1)));
-    });
-  }
-  // ── Services V2 — radio-style + add-ons ────────────────────────────────
-  const selectedPkgs  = new Map();   // group → { card, name, isQuote }
-  const selectedAddons = new Map();  // name  → { card, price, taxType }
-
-  // ── Quote packages (need photos) ─────────────────────────────────────────
-  const QUOTE_GROUPS = new Set(['polish','ceramic']);
-
-  function togglePkg(card, name, group) {
-    const current = selectedPkgs.get(group);
-    if (current) current.card.classList.remove('selected');
-
-    if (current && current.name === name) {
-      selectedPkgs.delete(group);
-    } else {
-      card.classList.add('selected');
-      const isQuote = QUOTE_GROUPS.has(group);
-      selectedPkgs.set(group, { card, name, isQuote });
+    function smsUrl(body) {
+      return "sms:" + PHONE + "?body=" + encodeURIComponent(body);
     }
 
-    // Show add-ons panel once at least one package is selected
-    document.getElementById('addons-panel').classList.toggle(
-      'visible', selectedPkgs.size > 0
-    );
-
-    updateBookBar();
-  }
-
-  function toggleAddon(card, name, price, taxType) {
-    if (selectedAddons.has(name)) {
-      selectedAddons.delete(name);
-      card.classList.remove('selected');
-    } else {
-      selectedAddons.set(name, { card, price, taxType });
-      card.classList.add('selected');
-    }
-    updateBookBar();
-  }
-
-  // ── Photo Modal logic ───────────────────────────────────────────────────
-  let pendingSmsHref = 'sms:+12502587505';
-  let pendingIsQuote = false;
-
-  function updateBookBar() {
-    const bar = document.getElementById('book-bar');
-    const btn = document.getElementById('book-now-btn');
-    const sel = document.getElementById('bar-selected');
-
-    const pkgEntries   = Array.from(selectedPkgs.values());
-    const addonEntries = Array.from(selectedAddons.values());
-    const total        = pkgEntries.length + addonEntries.length;
-
-    if (total === 0) {
-      bar.classList.remove('active');
-      btn.textContent = '💬 Book Now';
-      btn.style.cssText = '';
-      btn.href = 'sms:+12502587505';
-      window._smsHref = 'sms:+12502587505';
-      sel.textContent = '';
-      return;
+    function defaultMessage() {
+      return [
+        "Hi Northline, I’d like a quote for detailing.",
+        "",
+        "Vehicle:",
+        "Location / shop or mobile service:",
+        "Preferred service:",
+        "Preferred day/time:",
+        "",
+        "I’ll attach photos of the exterior, front seats, rear seats, floors, cargo area, and any problem spots. Please confirm the final price before booking."
+      ].join("
+");
     }
 
-    bar.classList.add('active');
+    function buildMessage() {
+      const packages = Array.from(selectedPackages.values());
+      const addonsList = Array.from(selectedAddons.values());
 
-    // Build label
-    const pkgNames   = pkgEntries.map(e => e.name);
-    const addonNames = addonEntries.map(e => e.price + ' – ' + e.name.split('/')[0].trim() + (e.taxType === 'gst-pst' ? ' (+12%)' : ' (+GST)'));
-    const allLines   = pkgNames.concat(addonEntries.length ? ['Add-ons: ' + addonEntries.map(e => e.name.split(' ').slice(0,3).join(' ')).join(', ')] : []);
-    sel.textContent  = '✓ ' + (pkgNames.length === 1 && addonEntries.length === 0 ? pkgNames[0] : pkgNames.slice(0,2).join(' + ') + (addonEntries.length ? ' + ' + addonEntries.length + ' add-on' + (addonEntries.length > 1 ? 's' : '') : ''));
+      if (!packages.length && !addonsList.length) return defaultMessage();
 
-    // Button style
-    const anyQuote = pkgEntries.some(e => e.isQuote);
-    if (anyQuote) {
-      btn.textContent = '📸 Get Your Price';
-      btn.style.background   = '#0A4174';
-      btn.style.borderColor  = '#0A4174';
-      btn.style.color        = '#fff';
-      btn.style.boxShadow    = '0 0 24px rgba(10,65,116,0.5)';
-    } else {
-      btn.textContent = '💬 Book Now';
-      btn.style.background   = '#7BBDE8';
-      btn.style.borderColor  = '#7BBDE8';
-      btn.style.color        = '#0a0a0a';
-      btn.style.boxShadow    = '0 0 24px rgba(123,189,232,0.35)';
-    }
+      const lines = [
+        "Hi Northline, I’d like a quote for detailing.",
+        "",
+        "Selected package(s):"
+      ];
 
-    // SMS body
-    const action = anyQuote ? 'get pricing for' : 'book';
-    let smsLines = ['Hi Max! I would like to ' + action + ':'];
-    pkgNames.forEach(n => smsLines.push('• ' + n));
-    if (addonEntries.length) {
-      smsLines.push('Add-ons:');
-      addonEntries.forEach(e => smsLines.push('• ' + e.name));
-    }
-    smsLines.push('Please let me know the next steps. I will send photos of my vehicle.');
-    btn.href = 'sms:+12502587505?body=' + encodeURIComponent(smsLines.join('\n'));
-      window._smsHref = btn.href;
-  }
+      packages.forEach(item => lines.push("• " + item.name + " — " + item.price));
 
-  /* ══ PHOTO MODAL ══════════════════════════════════════════════════════════ */
-  (function () {
-    var overlay   = document.getElementById('photo-modal-overlay');
-    var modal     = document.getElementById('photo-modal');
-    var closeBtn  = document.getElementById('pm-close-btn');
-    var cameraBtn = document.getElementById('pm-camera-btn');
-    var fileInput = document.getElementById('photo-input');
-    var sendBtn   = document.getElementById('pm-send-btn');
-    var skipBtn   = document.getElementById('pm-skip-btn');
-    var previews  = document.getElementById('pm-previews');
-    var photoCount= document.getElementById('pm-photo-count');
-    var titleEl   = document.getElementById('pm-title');
-    var subEl     = document.getElementById('pm-sub');
-    var iconEl    = document.getElementById('pm-icon');
-
-    var currentHref = 'sms:+12502587505';
-    var photosChosen = 0;
-
-    /* ── Open ── */
-    window.MODAL = {
-      open: function (smsHref, isQuote) {
-        currentHref   = smsHref || 'sms:+12502587505';
-        photosChosen  = 0;
-        previews.innerHTML = '';
-        previews.classList.remove('has-photos');
-        photoCount.textContent = '';
-        sendBtn.classList.remove('visible');
-        sendBtn.href = currentHref;
-        skipBtn.href = currentHref;
-
-        if (isQuote) {
-          iconEl.textContent  = '💰';
-          titleEl.textContent = 'Send photos to get your price';
-          subEl.textContent   = 'Max needs to see your vehicle to give you an accurate quote. Take a few photos and send them — you'll get a price within a few hours.';
-        } else {
-          iconEl.textContent  = '📸';
-          titleEl.textContent = 'Send photos before booking';
-          subEl.textContent   = 'Photos let Max prepare for your appointment and flag any extra work upfront — no surprises on the day.';
-        }
-
-        overlay.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      },
-      close: function () {
-        overlay.classList.remove('open');
-        document.body.style.overflow = '';
+      if (addonsList.length) {
+        lines.push("");
+        lines.push("Add-ons:");
+        addonsList.forEach(item => lines.push("• " + item.name + " — " + item.price));
       }
-    };
 
-    /* ── Close triggers ── */
-    closeBtn.addEventListener('click', function () { MODAL.close(); });
-    overlay.addEventListener('click', function (e) {
-      if (e.target === overlay) MODAL.close();
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') MODAL.close();
-    });
+      lines.push("");
+      lines.push("Vehicle:");
+      lines.push("Location / shop or mobile service:");
+      lines.push("Preferred day/time:");
+      lines.push("");
+      lines.push("I’ll attach photos of the exterior, front seats, rear seats, floors, cargo area, and any problem spots.");
+      lines.push("Please confirm the final price before booking.");
 
-    /* ── Camera button → open file picker ── */
-    cameraBtn.addEventListener('click', function () {
-      fileInput.click();
-    });
+      return lines.join("\n");
+    }
 
-    /* ── File selected → show previews ── */
-    fileInput.addEventListener('change', function () {
-      var files = Array.from(fileInput.files);
-      if (!files.length) return;
+    function updateQuoteBar() {
+      const packages = Array.from(selectedPackages.values());
+      const addonsList = Array.from(selectedAddons.values());
 
-      photosChosen = files.length;
-      previews.innerHTML = '';
+      addons.classList.toggle("visible", packages.length > 0);
 
-      files.forEach(function (file) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-          var img = document.createElement('img');
-          img.src = e.target.result;
-          img.className = 'pm-thumb';
-          img.alt = 'Vehicle photo';
-          previews.appendChild(img);
-        };
-        reader.readAsDataURL(file);
+      if (!packages.length && !addonsList.length) {
+        summary.textContent = "Choose a package to build your quote text.";
+      } else {
+        const packageNames = packages.map(item => item.name);
+        const addonText = addonsList.length ? " + " + addonsList.length + " add-on" + (addonsList.length > 1 ? "s" : "") : "";
+        summary.textContent = packageNames.join(" + ") + addonText;
+      }
+
+      const href = smsUrl(buildMessage());
+      quoteLink.href = href;
+      document.querySelectorAll(".js-quote-link").forEach(link => {
+        if (!link.dataset.keepDefault) link.href = href;
+      });
+    }
+
+    function togglePackage(card) {
+      const group = card.dataset.group;
+      const existing = selectedPackages.get(group);
+
+      document.querySelectorAll('.service-card[data-group="' + group + '"]').forEach(el => {
+        el.classList.remove("selected");
+        el.setAttribute("aria-pressed", "false");
       });
 
-      previews.classList.add('has-photos');
-      photoCount.textContent = photosChosen + ' photo' + (photosChosen > 1 ? 's' : '') + ' selected — now send them to Max';
+      if (existing && existing.el === card) {
+        selectedPackages.delete(group);
+      } else {
+        card.classList.add("selected");
+        card.setAttribute("aria-pressed", "true");
+        selectedPackages.set(group, {
+          el: card,
+          name: card.dataset.name,
+          price: card.dataset.price
+        });
+      }
 
-      /* Show send button, update text */
-      sendBtn.href = currentHref;
-      sendBtn.classList.add('visible');
-      cameraBtn.textContent = '📷 Add more photos';
+      updateQuoteBar();
+    }
 
-      /* Scroll send button into view smoothly */
-      setTimeout(function () {
-        sendBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }, 200);
+    function toggleAddon(card) {
+      const name = card.dataset.name;
+      if (selectedAddons.has(name)) {
+        selectedAddons.delete(name);
+        card.classList.remove("selected");
+        card.setAttribute("aria-pressed", "false");
+      } else {
+        selectedAddons.set(name, {
+          el: card,
+          name,
+          price: card.dataset.price
+        });
+        card.classList.add("selected");
+        card.setAttribute("aria-pressed", "true");
+      }
+      updateQuoteBar();
+    }
+
+    document.querySelectorAll(".service-card").forEach(card => {
+      card.setAttribute("role", "button");
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("aria-pressed", "false");
+      card.addEventListener("click", () => togglePackage(card));
+      card.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          togglePackage(card);
+        }
+      });
     });
 
-    /* ── Send / skip buttons open SMS and close modal ── */
-    sendBtn.addEventListener('click', function () {
-      setTimeout(function () { MODAL.close(); }, 300);
+    document.querySelectorAll(".addon-card").forEach(card => {
+      card.setAttribute("role", "button");
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("aria-pressed", "false");
+      card.addEventListener("click", () => toggleAddon(card));
+      card.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          toggleAddon(card);
+        }
+      });
     });
-    skipBtn.addEventListener('click', function () {
-      setTimeout(function () { MODAL.close(); }, 300);
-    });
 
-  })();
-  /* ══════════════════════════════════════════════════════════════════════════ */
+    window.addEventListener("scroll", () => {
+      nav.classList.toggle("scrolled", window.scrollY > 30);
+    }, { passive: true });
 
-  /* ── Book Now button handler ── */
-  function handleBookNow() {
-    var isQuote = Array.from(selectedPkgs.values()).some(function(e){ return e.isQuote; });
-    MODAL.open(window._smsHref || 'sms:+12502587505', isQuote);
-  }
+    const fadeObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -30px 0px" });
 
-</script>
+    document.querySelectorAll(".fade-up").forEach(el => fadeObserver.observe(el));
 
-<!-- ── Photo Modal ───────────────────────────────────────────────────────── -->
+    function imageFallback(img) {
+      const parent = img.closest(".gallery-item");
+      const label = parent?.querySelector(".gallery-label")?.textContent || "Add your real photo here";
+      img.remove();
+      if (parent && !parent.querySelector(".placeholder")) {
+        const ph = document.createElement("div");
+        ph.className = "placeholder";
+        ph.textContent = label + " — replace this with your real detailing photo";
+        parent.prepend(ph);
+      }
+    }
 
-<div id="photo-modal-overlay">
-  <div id="photo-modal" role="dialog" aria-modal="true" aria-labelledby="pm-title">
-
-    <button class="pm-close" id="pm-close-btn" aria-label="Close">✕</button>
-
-    <div class="pm-icon" id="pm-icon">📸</div>
-    <div class="pm-title" id="pm-title">Send photos before booking</div>
-    <div class="pm-sub" id="pm-sub">Photos let Max give you an accurate price and prepare for your appointment — no surprises on the day.</div>
-
-    <div class="pm-steps">
-      <div class="pm-step">
-        <div class="pm-step-n">1</div>
-        <div class="pm-step-t"><b>Tap the button below</b> — take a photo now or choose from your camera roll</div>
-      </div>
-      <div class="pm-step">
-        <div class="pm-step-n">2</div>
-        <div class="pm-step-t"><b>Photograph your vehicle</b> — exterior, interior, and any problem areas</div>
-      </div>
-      <div class="pm-step">
-        <div class="pm-step-n">3</div>
-        <div class="pm-step-t"><b>Tap "Send to Max"</b> — your message is pre-filled with your package. Attach photos and hit send</div>
-      </div>
-    </div>
-
-    <!-- Photo previews -->
-    <div class="pm-previews" id="pm-previews"></div>
-    <div class="pm-photo-count" id="pm-photo-count"></div>
-
-    <!-- Primary: open camera / gallery -->
-    <button class="pm-btn-camera" id="pm-camera-btn">
-      📷 Open Camera / Camera Roll
-    </button>
-    <input type="file" id="photo-input" accept="image/*" multiple />
-
-    <!-- After photos chosen: send button -->
-    <a class="pm-btn-send" id="pm-send-btn" href="#">
-      ✅ Photos ready — Send to Max →
-    </a>
-
-    <!-- Skip option -->
-    <a class="pm-btn-skip" id="pm-skip-btn" href="#">
-      Skip photos — open message anyway
-    </a>
-
-    <div class="pm-note">Max will confirm your final price before the appointment is locked in.</div>
-  </div>
-</div>
-<!-- ═════════════════════════════════════════════════════════════════════════ -->
+    updateQuoteBar();
+  </script>
 </body>
 </html>
