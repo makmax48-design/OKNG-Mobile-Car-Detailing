@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Northline Auto &amp; Surface – Premium Mobile Detailing Kelowna</title>
-  <meta name="description" content="Professional mobile auto detailing, paint correction, and ceramic coating services in Kelowna, BC." />
+  <title>OKNG Mobile Detailing – Kelowna</title>
+  <meta name="description" content="Professional mobile car detailing in Kelowna." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
@@ -276,78 +276,6 @@
       .book-bar { position: sticky; bottom: 24px; }
     }
 
-
-
-    /* ── Add-ons Panel ─────────────────────────────────────────────────── */
-    .addons-panel {
-      display: none;
-      margin-top: 28px;
-      border: 1px solid rgba(123,189,232,0.15);
-      background: rgba(10,10,10,0.72);
-      border-radius: 22px;
-      padding: 18px;
-      backdrop-filter: blur(10px);
-    }
-    .addons-panel.visible { display: block; }
-    .addons-title {
-      font-size: 14px;
-      font-weight: 800;
-      color: #fff;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-    .addons-note {
-      margin-top: 6px;
-      font-size: 12px;
-      color: #888;
-      line-height: 1.5;
-    }
-    .addons-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin-top: 14px;
-    }
-    .addon-card {
-      display: grid;
-      grid-template-columns: 22px 1fr auto;
-      align-items: center;
-      gap: 12px;
-      border: 1.5px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.04);
-      border-radius: 16px;
-      padding: 13px 14px;
-      cursor: pointer;
-      transition: border-color .2s, background .2s, transform .15s;
-      user-select: none;
-    }
-    .addon-card:hover { border-color: rgba(123,189,232,0.35); background: rgba(255,255,255,0.06); transform: translateY(-1px); }
-    .addon-card.selected { border-color: #7BBDE8; background: rgba(10,45,84,0.45); }
-    .addon-check {
-      width: 22px; height: 22px;
-      border-radius: 6px;
-      border: 2px solid rgba(255,255,255,0.2);
-      background: rgba(255,255,255,0.05);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .addon-card.selected .addon-check { background: #7BBDE8; border-color: #7BBDE8; }
-    .addon-check::after {
-      content: '';
-      display: none;
-      width: 5px; height: 9px;
-      border: 2px solid #0a0a0a;
-      border-top: none; border-left: none;
-      transform: rotate(42deg) translateY(-1px);
-    }
-    .addon-card.selected .addon-check::after { display: block; }
-    .addon-name { font-size: 13px; font-weight: 800; color: #fff; line-height: 1.2; }
-    .addon-desc { font-size: 11px; color: #888; line-height: 1.45; margin-top: 3px; }
-    .addon-price { font-size: 13px; font-weight: 800; color: #7BBDE8; text-align: right; white-space: nowrap; }
-    .addon-price small { display: block; font-size: 9px; font-weight: 600; color: #49769F; margin-top: 3px; }
-
-    @media (min-width: 768px) {
-      .addons-grid { grid-template-columns: repeat(2, 1fr); }
-    }
 
     /* ── Tax badge ─────────────────────────────────────────────────────── */
     .tax-badge {
@@ -645,63 +573,6 @@
     #photo-input { display: none; }
     /* ═══════════════════════════════════════════════════════════════════════ */
 
-
-    /* ── Professional polish overrides ─────────────────────────────────── */
-    :root {
-      --brand: #7BBDE8;
-      --brand-dark: #0A4174;
-      --ink: #f7f7f3;
-      --muted: #a7a7a7;
-      --panel: rgba(12,14,16,0.86);
-      --line: rgba(255,255,255,0.10);
-      --gold: #d7b46a;
-    }
-    body { background: radial-gradient(circle at top, #111821 0%, #090909 48%, #050505 100%); }
-    nav { padding: 10px 16px; }
-    nav.scrolled { background: rgba(6,8,10,0.86); box-shadow: 0 12px 40px rgba(0,0,0,0.35); }
-    .nav-inner { height: 58px; border: 1px solid rgba(255,255,255,0.08); border-radius: 999px; padding: 0 10px 0 18px; background: rgba(10,10,10,0.35); backdrop-filter: blur(18px); }
-    .nav-name { letter-spacing: .02em; }
-    .nav-sub { color: #7f8790; }
-    .nav-btn { background: linear-gradient(135deg, #fff 0%, #dbefff 100%); box-shadow: 0 10px 30px rgba(123,189,232,0.22); }
-    .hero { background-position: center; }
-    .badge { color: #eaf6ff; border-color: rgba(123,189,232,0.28); background: rgba(10,65,116,0.26); }
-    h1, h2 { letter-spacing: -.035em; }
-    .hero-sub { color: #d2d7dc; max-width: 580px; }
-    .btn-white, .btn-dark, .book-now-btn { box-shadow: 0 14px 38px rgba(0,0,0,0.26); }
-    .btn-outline, .btn-light { backdrop-filter: blur(12px); }
-    .hero-metrics { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; margin-top: 18px; max-width: 520px; }
-    .hero-metrics div { border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.055); border-radius: 16px; padding: 12px; backdrop-filter: blur(10px); }
-    .hero-metrics strong { display: block; font-size: 13px; color: #fff; }
-    .hero-metrics span { display: block; font-size: 11px; color: #8f9aa3; margin-top: 3px; line-height: 1.35; }
-    .special-offer { background: linear-gradient(135deg, #ffffff 0%, #eef7ff 100%); box-shadow: 0 22px 60px rgba(0,0,0,0.26); border: 1px solid rgba(255,255,255,0.45); }
-    .trust { background: #080b0e; }
-    .trust-item { border: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.035)); }
-    .section-label { color: var(--brand); }
-    .about-card, .pkg-card, .addons-panel, .book-bar, .cta-inner { box-shadow: 0 24px 70px rgba(0,0,0,0.28); }
-    .services-v2 { background: linear-gradient(to bottom, rgba(2,4,7,0.85), rgba(6,8,10,0.88)), url('services-bg.jpg') center center / cover no-repeat; }
-    .pkg-card { border-color: rgba(255,255,255,0.10); background: linear-gradient(180deg, rgba(16,18,20,0.92), rgba(8,9,10,0.92)); }
-    .pkg-card.selected { background: linear-gradient(180deg, rgba(10,65,116,0.60), rgba(8,15,22,0.92)); }
-    .pkg-card.featured-pkg { background: linear-gradient(135deg, #ffffff 0%, #f2f7fb 100%); }
-    .pkg-price-main { color: #a9d7ff; }
-    .tax-badge { border: 1px solid rgba(123,189,232,0.18); }
-    .process-bg { background: linear-gradient(180deg, #080b0e 0%, #0a0a0a 100%); }
-    .process-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 24px; }
-    .process-card { border: 1px solid rgba(255,255,255,0.09); background: rgba(255,255,255,0.045); border-radius: 18px; padding: 20px; }
-    .process-card span { display: inline-flex; color: var(--brand); font-weight: 800; font-size: 11px; letter-spacing: .14em; margin-bottom: 12px; }
-    .process-card h3 { font-size: 17px; margin-bottom: 6px; }
-    .process-card p { font-size: 13px; color: #8f8f8f; line-height: 1.55; }
-    .cta-inner { background: linear-gradient(135deg, #ffffff 0%, #eaf5ff 100%); }
-    footer { background: #050607; }
-    @media (min-width: 768px) {
-      .process-grid { grid-template-columns: repeat(4, 1fr); }
-      .hero-metrics { gap: 10px; }
-    }
-    @media (max-width: 520px) {
-      .hero-metrics { grid-template-columns: 1fr; }
-      .nav-inner { padding-left: 14px; }
-      .nav-btn { padding: 8px 13px; font-size: 12px; }
-    }
-
   </style>
 </head>
 <body>
@@ -709,8 +580,8 @@
 <nav id="main-nav">
   <div class="nav-inner">
     <div>
-      <div class="nav-name">Northline Auto &amp; Surface</div>
-      <div class="nav-sub">Mobile detailing • Kelowna, BC</div>
+      <div class="nav-name">OKNG Mobile Detailing</div>
+      <div class="nav-sub">Kelowna & nearby areas</div>
     </div>
     <a href="tel:+12502587505" class="nav-btn">📞 Call / Text</a>
   </div>
@@ -720,26 +591,21 @@
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <div class="badge">✨ Professional Mobile Detailing • Kelowna, BC</div>
-      <h1>Premium mobile detailing for vehicles that deserve a cleaner finish.</h1>
-      <p class="hero-sub">Interior and exterior detailing, paint correction, and ceramic protection — built for daily drivers, family SUVs, and work vehicles.</p>
+      <div class="badge">✨ Launch Special — $50 OFF first 10 bookings</div>
+      <h1>Mobile car detailing that brings your vehicle back to life.</h1>
+      <p class="hero-sub">Interior refreshes, deep details, and full details for family vehicles, work trucks, and daily drivers.</p>
       <div class="hero-btns">
         <a href="sms:+12502587505" class="btn-white">📸 Get Your Price</a>
         <a href="#services" class="btn-outline">Services →</a>
       </div>
-      <p class="hero-note">Send a few photos for an accurate quote. Final pricing depends on vehicle size, condition, and selected services.</p>
-      <div class="hero-metrics fade-in">
-        <div><strong>Mobile</strong><span>We come to you</span></div>
-        <div><strong>Paint Care</strong><span>Polish &amp; correction</span></div>
-        <div><strong>Protection</strong><span>Ceramic options</span></div>
-      </div>
+      <p class="hero-note">Send a few photos. Final price depends on size and condition.</p>
       <div class="special-offer fade-in">
         <div class="offer-label">Launch Special</div>
-        <div class="offer-title">Launch offer: $50 OFF Deep Interior or Full Detail.</div>
-        <div class="offer-desc">Limited to the first 10 bookings. Clear quotes before work begins.</div>
+        <div class="offer-title">Get $50 OFF Deep Interior or Full Detail.</div>
+        <div class="offer-desc">First 10 bookings only. Send photos for a fair quote.</div>
         <div class="offer-btns">
-          <a href="sms:+12502587505" class="btn-dark">💬 Request a Quote</a>
-          <a href="mailto:northlineautoandsurface@gmail.com" class="btn-light">✉️ Email</a>
+          <a href="sms:+12502587505" class="btn-dark">💬 Message to Book</a>
+          <a href="mailto:youremail@example.com" class="btn-light">✉️ Email</a>
         </div>
       </div>
     </div>
@@ -754,15 +620,15 @@
   <div class="trust-inner">
     <div class="trust-item">
       <div class="trust-icon">📍</div>
-      <div><div class="trust-title">Mobile Service</div><div class="trust-desc">We come to your home, driveway, or workplace.</div></div>
+      <div><div class="trust-title">Mobile Service</div><div class="trust-desc">I come to your home or driveway.</div></div>
     </div>
     <div class="trust-item">
       <div class="trust-icon">🚗</div>
-      <div><div class="trust-title">Family & Work Vehicles</div><div class="trust-desc">Interior, exterior, correction, and ceramic options.</div></div>
+      <div><div class="trust-title">Family & Work Vehicles</div><div class="trust-desc">Built for real mess: crumbs, mud, pet hair.</div></div>
     </div>
     <div class="trust-item">
       <div class="trust-icon">🛡️</div>
-      <div><div class="trust-title">Clear Quotes</div><div class="trust-desc">Pricing confirmed before the appointment is locked in.</div></div>
+      <div><div class="trust-title">Honest Quotes</div><div class="trust-desc">Fair pricing based on size and condition.</div></div>
     </div>
   </div>
 </div>
@@ -771,13 +637,13 @@
 <section class="section about-bg">
   <div class="section-inner about-grid">
     <div class="about-card fade-in">
-      <div class="section-label">About Northline</div>
-      <h2>Clean work, clear pricing, and a professional finish.</h2>
+      <div class="section-label">About Max</div>
+      <h2>A local young business owner building from the ground up.</h2>
     </div>
     <div class="about-text fade-in">
-      <p>Northline Auto &amp; Surface is built around honest service, careful detailing, and simple communication from quote to final delivery.</p>
-      <p>Every vehicle is inspected before work begins so the service matches the condition, paint, interior materials, and customer expectations.</p>
-      <p>Our goal is straightforward: make the vehicle feel cleaner, sharper, and better protected — without confusing packages or surprise pricing.</p>
+      <p>My name is Max. I moved to Canada from Ukraine 3 years ago and recently graduated from high school here in Kelowna.</p>
+      <p>I'm building my own small business to create a better future and support my family. My father is currently serving in Ukraine, so this business means more to me than just work.</p>
+      <p>I take every job seriously and want every customer to feel confident recommending my work.</p>
     </div>
   </div>
 </section>
@@ -814,12 +680,12 @@
   <div class="section-inner">
     <div class="fade-in">
       <div class="section-label">Services</div>
-      <h2>Professional packages, simple pricing.</h2>
+      <h2>Choose your detail package.</h2>
       <div class="price-notice">
         <div class="price-notice-icon">⚠️</div>
         <div class="price-notice-text">
           <strong>Final price depends on vehicle condition &amp; size</strong>
-          All prices shown are starting points and do not include tax. Basic detailing services show GST only. Polish, paint correction, ceramic coating, and coating add-ons show GST + PST. Heavier soiling, pet hair, larger vehicles (SUV, truck, van), or extra add-ons may adjust the quote. Send photos for an accurate price before booking.
+          All prices shown are starting points. Heavier soiling, pet hair, larger vehicles (SUV, truck, van) or extra add-ons may adjust the quote. Send photos for an accurate price before booking.
         </div>
       </div>
     </div>
@@ -836,7 +702,7 @@
           <div>
             <div class="pkg-header">
               <div class="pkg-name">Basic Interior &amp; Exterior</div>
-              <div class="pkg-price"><span class="pkg-price-main">From $139</span><span class="tax-badge tax-gst tax-tip" data-tip="GST only (5%) — basic detailing service.">+ 5% GST</span></div>
+              <div class="pkg-price"><span class="pkg-price-main">From $139</span><span class="tax-badge tax-gst tax-tip" data-tip="GST only (5%) — federal tax on basic cleaning services.">+ 5% GST</span></div>
             </div>
             <ul class="pkg-items">
               <li>Hand wash — two-bucket method</li>
@@ -855,7 +721,7 @@
             <div class="pkg-badge">Most Popular</div>
             <div class="pkg-header">
               <div class="pkg-name">Standard / Mid-Level Detail</div>
-              <div class="pkg-price"><span class="pkg-price-main">From $229</span><span class="tax-badge tax-gst tax-tip" data-tip="GST only (5%) — basic detailing service.">+ 5% GST</span></div>
+              <div class="pkg-price"><span class="pkg-price-main">From $229</span><span class="tax-badge tax-gst tax-tip" data-tip="GST only (5%) — federal tax on basic cleaning services.">+ 5% GST</span></div>
             </div>
             <ul class="pkg-items">
               <li>Everything in Basic, plus:</li>
@@ -874,7 +740,7 @@
           <div>
             <div class="pkg-header">
               <div class="pkg-name">Premium / Deluxe Detail</div>
-              <div class="pkg-price"><span class="pkg-price-main">From $399</span><span class="tax-badge tax-gst tax-tip" data-tip="GST only (5%) — basic detailing service.">+ 5% GST</span></div>
+              <div class="pkg-price"><span class="pkg-price-main">From $399</span><span class="tax-badge tax-gst tax-tip" data-tip="GST only (5%) — federal tax on basic cleaning services.">+ 5% GST</span></div>
             </div>
             <ul class="pkg-items">
               <li>Everything in Standard, plus:</li>
@@ -900,7 +766,7 @@
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Gloss Enhancement Polish</div>
-                <div class="pkg-price"><span class="pkg-price-main">From $299</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% total — applies to polish, paint correction, ceramic, and coating services.">+ 12% Tax</span></div>
+                <div class="pkg-price"><span class="pkg-price-main">From $299</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">GST 5% + PST 7%</span></div>
               </div>
               <ul class="pkg-items">
                 <li>Wash &amp; clay-bar decontamination</li>
@@ -915,7 +781,7 @@
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Correction + Sealant</div>
-                <div class="pkg-price"><span class="pkg-price-main">From $499</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% total — applies to polish, paint correction, ceramic, and coating services.">+ 12% Tax</span></div>
+                <div class="pkg-price"><span class="pkg-price-main">From $499</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">GST 5% + PST 7%</span></div>
               </div>
               <ul class="pkg-items">
                 <li>Wash, clay &amp; dedicated correcting polish</li>
@@ -931,7 +797,7 @@
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Multi-Stage Paint Correction</div>
-                <div class="pkg-price"><span class="pkg-price-main">From $899</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% total — applies to polish, paint correction, ceramic, and coating services.">+ 12% Tax</span></div>
+                <div class="pkg-price"><span class="pkg-price-main">From $899</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">GST 5% + PST 7%</span></div>
               </div>
               <ul class="pkg-items">
                 <li>Extensive wash + chemical &amp; mechanical decontam.</li>
@@ -954,7 +820,7 @@
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Entry-Level Ceramic</div>
-                <div class="pkg-price"><span class="pkg-price-main">From $699</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% total — applies to polish, paint correction, ceramic, and coating services.">+ 12% Tax</span></div>
+                <div class="pkg-price"><span class="pkg-price-main">From $699</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">GST 5% + PST 7%</span></div>
               </div>
               <ul class="pkg-items">
                 <li>Single layer after basic paint prep (wash + decontam.)</li>
@@ -968,7 +834,7 @@
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Mid-Tier Ceramic</div>
-                <div class="pkg-price"><span class="pkg-price-main">From $1,199</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% total — applies to polish, paint correction, ceramic, and coating services.">+ 12% Tax</span></div>
+                <div class="pkg-price"><span class="pkg-price-main">From $1,199</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">GST 5% + PST 7%</span></div>
               </div>
               <ul class="pkg-items">
                 <li>Multiple layers; machine paint correction</li>
@@ -984,7 +850,7 @@
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Premium / Pro Ceramic</div>
-                <div class="pkg-price"><span class="pkg-price-main">From $1,799</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% total — applies to polish, paint correction, ceramic, and coating services.">+ 12% Tax</span></div>
+                <div class="pkg-price"><span class="pkg-price-main">From $1,799</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">GST 5% + PST 7%</span></div>
               </div>
               <ul class="pkg-items">
                 <li>High-end ceramic or graphene coating</li>
@@ -1003,125 +869,52 @@
 
     <!-- ── Add-on Services (revealed after package selected) ──────────── -->
     <div class="addons-panel" id="addons-panel">
-      <div class="addons-title">➕ Add-On Services — Optional Upgrades</div>
-      <div class="addons-note">Add-ons are starting prices. Final price depends on vehicle size and condition.</div>
+      <div class="addons-title">➕  Add-On Services — Optional Upgrades</div>
       <div class="addons-grid">
 
         <label class="addon-card" onclick="toggleAddon(this,'Pet Hair Removal','$40','gst')">
           <div class="addon-check"></div>
           <div class="addon-info">
             <div class="addon-name">🐾 Pet Hair Removal</div>
-            <div class="addon-desc">Deep removal from seats, carpet, mats, and cargo area</div>
+            <div class="addon-desc">Deep extraction from seats, carpet &amp; cargo area</div>
           </div>
           <div class="addon-price">From $40<small>+ 5% GST</small></div>
         </label>
 
-        <label class="addon-card" onclick="toggleAddon(this,'Vomit / Biohazard Cleanup','$100','gst')">
-          <div class="addon-check"></div>
-          <div class="addon-info">
-            <div class="addon-name">🧼 Vomit / Biohazard Cleanup</div>
-            <div class="addon-desc">Special cleanup for vomit, spills, and contamination areas</div>
-          </div>
-          <div class="addon-price">From $100<small>+ 5% GST</small></div>
-        </label>
-
-        <label class="addon-card" onclick="toggleAddon(this,'Heavy Stain Extraction','$40','gst')">
-          <div class="addon-check"></div>
-          <div class="addon-info">
-            <div class="addon-name">🧽 Heavy Stain Extraction</div>
-            <div class="addon-desc">Extra extraction work for seats, carpets, and mats</div>
-          </div>
-          <div class="addon-price">From $40<small>+ 5% GST</small></div>
-        </label>
-
-        <label class="addon-card" onclick="toggleAddon(this,'Ozone Odor Treatment','$60','gst')">
+        <label class="addon-card" onclick="toggleAddon(this,'Ozone Odor Treatment','$150','gst')">
           <div class="addon-check"></div>
           <div class="addon-info">
             <div class="addon-name">💨 Ozone Odor Treatment</div>
-            <div class="addon-desc">Helps reduce smoke, mildew, pet, and stubborn odors</div>
+            <div class="addon-desc">Eliminates smoke, mildew &amp; stubborn odors at the source</div>
           </div>
-          <div class="addon-price">From $60<small>+ 5% GST</small></div>
+          <div class="addon-price">From $150<small>+ 5% GST</small></div>
         </label>
 
-        <label class="addon-card" onclick="toggleAddon(this,'Headlight Restoration','$100','gst-pst')">
+        <label class="addon-card" onclick="toggleAddon(this,'Headlight Restoration','$150','gst-pst')">
           <div class="addon-check"></div>
           <div class="addon-info">
             <div class="addon-name">💡 Headlight Restoration</div>
-            <div class="addon-desc">Removes yellowing and haze to restore clarity</div>
-          </div>
-          <div class="addon-price">From $100<small>+ 12% Tax</small></div>
-        </label>
-
-        <label class="addon-card" onclick="toggleAddon(this,'Engine Bay Detail','$60','gst')">
-          <div class="addon-check"></div>
-          <div class="addon-info">
-            <div class="addon-name">⚙️ Engine Bay Detail</div>
-            <div class="addon-desc">Careful engine-bay cleaning and dressing</div>
-          </div>
-          <div class="addon-price">From $60<small>+ 5% GST</small></div>
-        </label>
-
-        <label class="addon-card" onclick="toggleAddon(this,'Excessive Mud / Work Truck Fee','$50','gst')">
-          <div class="addon-check"></div>
-          <div class="addon-info">
-            <div class="addon-name">🛻 Excessive Mud / Work Truck Fee</div>
-            <div class="addon-desc">Heavy dirt, mud pack, or work-site build-up</div>
-          </div>
-          <div class="addon-price">From $50<small>+ 5% GST</small></div>
-        </label>
-
-        <label class="addon-card" onclick="toggleAddon(this,'Seat Shampoo / Extraction','$30 per seat','gst')">
-          <div class="addon-check"></div>
-          <div class="addon-info">
-            <div class="addon-name">🪑 Seat Shampoo / Extraction</div>
-            <div class="addon-desc">Focused shampoo and extraction for individual seats</div>
-          </div>
-          <div class="addon-price">From $30<small>per seat + 5% GST</small></div>
-        </label>
-
-        <label class="addon-card" onclick="toggleAddon(this,'Full Carpet Extraction','$80','gst')">
-          <div class="addon-check"></div>
-          <div class="addon-info">
-            <div class="addon-name">🧴 Full Carpet Extraction</div>
-            <div class="addon-desc">Full carpet and floor-mat shampoo/extraction</div>
-          </div>
-          <div class="addon-price">From $80<small>+ 5% GST</small></div>
-        </label>
-
-        <label class="addon-card" onclick="toggleAddon(this,'Wheel Barrel Deep Clean','$60','gst')">
-          <div class="addon-check"></div>
-          <div class="addon-info">
-            <div class="addon-name">🛞 Wheel Barrel Deep Clean</div>
-            <div class="addon-desc">Deep clean inside wheel barrels and tight wheel areas</div>
-          </div>
-          <div class="addon-price">From $60<small>+ 5% GST</small></div>
-        </label>
-
-        <label class="addon-card" onclick="toggleAddon(this,'Glass Coating','$100','gst-pst')">
-          <div class="addon-check"></div>
-          <div class="addon-info">
-            <div class="addon-name">🪟 Glass Coating</div>
-            <div class="addon-desc">Hydrophobic coating for windows and improved visibility</div>
-          </div>
-          <div class="addon-price">From $100<small>+ 12% Tax</small></div>
-        </label>
-
-        <label class="addon-card" onclick="toggleAddon(this,'Wheel Face Ceramic Coating','$150','gst-pst')">
-          <div class="addon-check"></div>
-          <div class="addon-info">
-            <div class="addon-name">✨ Wheel Face Ceramic Coating</div>
-            <div class="addon-desc">Ceramic coating on visible wheel faces</div>
+            <div class="addon-desc">Removes yellowing &amp; haze — restores clarity &amp; brightness</div>
           </div>
           <div class="addon-price">From $150<small>+ 12% Tax</small></div>
         </label>
 
-        <label class="addon-card" onclick="toggleAddon(this,'Wheel-Off Ceramic Coating','$400','gst-pst')">
+        <label class="addon-card" onclick="toggleAddon(this,'Excessive Mud / Work Truck Fee','$85','gst')">
           <div class="addon-check"></div>
           <div class="addon-info">
-            <div class="addon-name">🔧 Wheel-Off Ceramic Coating</div>
-            <div class="addon-desc">Wheels removed, cleaned, and coated including barrels</div>
+            <div class="addon-name">🛻 Excessive Mud / Work Truck Fee</div>
+            <div class="addon-desc">Heavy soiling, mud pack, or extreme work-site build-up</div>
           </div>
-          <div class="addon-price">From $400<small>+ 12% Tax</small></div>
+          <div class="addon-price">From $85<small>+ 5% GST</small></div>
+        </label>
+
+        <label class="addon-card" onclick="toggleAddon(this,'Glass Coating','$165','gst-pst')">
+          <div class="addon-check"></div>
+          <div class="addon-info">
+            <div class="addon-name">🪟 Glass Coating</div>
+            <div class="addon-desc">Hydrophobic nano-coating on all windows — repels water &amp; improves visibility</div>
+          </div>
+          <div class="addon-price">From $165<small>+ 12% Tax</small></div>
         </label>
 
       </div>
@@ -1136,23 +929,6 @@
       <button class="book-now-btn" id="book-now-btn" onclick="handleBookNow()">💬 Book Now</button>
     </div>
 
-  </div>
-</section>
-
-
-<!-- PROCESS -->
-<section class="section process-bg">
-  <div class="section-inner">
-    <div class="fade-in">
-      <div class="section-label">How It Works</div>
-      <h2>A cleaner booking process.</h2>
-    </div>
-    <div class="process-grid">
-      <div class="process-card fade-in"><span>01</span><h3>Select a package</h3><p>Choose the service that matches your vehicle and goals.</p></div>
-      <div class="process-card fade-in"><span>02</span><h3>Send vehicle photos</h3><p>Photos help us confirm condition, size, and any add-ons needed.</p></div>
-      <div class="process-card fade-in"><span>03</span><h3>Approve the quote</h3><p>We confirm the final price before locking in the appointment.</p></div>
-      <div class="process-card fade-in"><span>04</span><h3>We detail your vehicle</h3><p>Professional mobile service at your home, driveway, or workplace.</p></div>
-    </div>
   </div>
 </section>
 
@@ -1178,11 +954,11 @@
 <section class="section">
   <div class="cta-inner fade-in">
     <div class="section-label">Launch Special</div>
-    <h2>Launch offer: $50 OFF Deep Interior or Full Detail.</h2>
+    <h2>Get $50 OFF Deep Interior or Full Detail.</h2>
     <p>Available for the first 10 bookings. Send photos of your vehicle for a fair quote.</p>
     <div class="cta-btns">
-      <a href="sms:+12502587505" class="btn-dark">💬 Request a Quote</a>
-      <a href="mailto:northlineautoandsurface@gmail.com" class="btn-light">✉️ Email Us</a>
+      <a href="sms:+12502587505" class="btn-dark">💬 Message to Book</a>
+      <a href="mailto:youremail@example.com" class="btn-light">✉️ Email Me</a>
     </div>
   </div>
 </section>
@@ -1190,69 +966,18 @@
 <footer>
   <div class="footer-inner-wrap">
     <div>
-      <div class="footer-name">Northline Auto &amp; Surface</div>
-      <div class="footer-sub">Premium mobile detailing in Kelowna and nearby areas.</div>
+      <div class="footer-name">OKNG Mobile Detailing</div>
+      <div class="footer-sub">Serving Kelowna and nearby areas.</div>
     </div>
     <div class="footer-links">
       <a href="tel:+12502587505" class="footer-link">📞 Phone</a>
-      <a href="mailto:northlineautoandsurface@gmail.com" class="footer-link">✉️ Email</a>
-      <a href="https://instagram.com/northlineautoandsurface" target="_blank" class="footer-link">Instagram</a>
-      <a href="https://facebook.com/northlineautoandsurface" target="_blank" class="footer-link">Facebook</a>
+      <a href="mailto:youremail@example.com" class="footer-link">✉️ Email</a>
+      <a href="https://instagram.com/okngdetailing" target="_blank" class="footer-link">Instagram</a>
+      <a href="https://facebook.com/okngdetailing" target="_blank" class="footer-link">Facebook</a>
     </div>
   </div>
-  <div class="footer-copy">© 2026 Northline Auto &amp; Surface. All rights reserved.</div>
+  <div class="footer-copy">© 2025 OKNG Mobile Detailing. All rights reserved.</div>
 </footer>
-
-<!-- ── Photo Modal ───────────────────────────────────────────────────────── -->
-
-<div id="photo-modal-overlay">
-  <div id="photo-modal" role="dialog" aria-modal="true" aria-labelledby="pm-title">
-
-    <button class="pm-close" id="pm-close-btn" aria-label="Close">✕</button>
-
-    <div class="pm-icon" id="pm-icon">📸</div>
-    <div class="pm-title" id="pm-title">Send photos before booking</div>
-    <div class="pm-sub" id="pm-sub">Photos let Max give you an accurate price and prepare for your appointment — no surprises on the day.</div>
-
-    <div class="pm-steps">
-      <div class="pm-step">
-        <div class="pm-step-n">1</div>
-        <div class="pm-step-t"><b>Tap the button below</b> — take a photo now or choose from your camera roll</div>
-      </div>
-      <div class="pm-step">
-        <div class="pm-step-n">2</div>
-        <div class="pm-step-t"><b>Photograph your vehicle</b> — exterior, interior, and any problem areas</div>
-      </div>
-      <div class="pm-step">
-        <div class="pm-step-n">3</div>
-        <div class="pm-step-t"><b>Tap "Send to Max"</b> — your message is pre-filled with your package. Attach photos and hit send</div>
-      </div>
-    </div>
-
-    <!-- Photo previews -->
-    <div class="pm-previews" id="pm-previews"></div>
-    <div class="pm-photo-count" id="pm-photo-count"></div>
-
-    <!-- Primary: open camera / gallery -->
-    <button class="pm-btn-camera" id="pm-camera-btn">
-      📷 Open Camera / Camera Roll
-    </button>
-    <input type="file" id="photo-input" accept="image/*" multiple />
-
-    <!-- After photos chosen: send button -->
-    <a class="pm-btn-send" id="pm-send-btn" href="#">
-      ✅ Photos ready — Send to Max →
-    </a>
-
-    <!-- Skip option -->
-    <a class="pm-btn-skip" id="pm-skip-btn" href="#">
-      Skip photos — open message anyway
-    </a>
-
-    <div class="pm-note">Max will confirm your final price before the appointment is locked in.</div>
-  </div>
-</div>
-<!-- ═════════════════════════════════════════════════════════════════════════ -->
 
 <script>
   // Nav scroll
@@ -1365,9 +1090,9 @@
     pkgNames.forEach(n => smsLines.push('• ' + n));
     if (addonEntries.length) {
       smsLines.push('Add-ons:');
-      addonEntries.forEach(e => smsLines.push('• ' + e.name + ' — From ' + e.price + (e.taxType === 'gst-pst' ? ' + 12% Tax' : ' + 5% GST')));
+      addonEntries.forEach(e => smsLines.push('• ' + e.name));
     }
-    smsLines.push('Please confirm the final price before booking. I can send photos of my vehicle.');
+    smsLines.push('Please let me know the next steps. I will send photos of my vehicle.');
     btn.href = 'sms:+12502587505?body=' + encodeURIComponent(smsLines.join('\n'));
       window._smsHref = btn.href;
   }
@@ -1488,6 +1213,55 @@
 
 </script>
 
+<!-- ── Photo Modal ───────────────────────────────────────────────────────── -->
 
+<div id="photo-modal-overlay">
+  <div id="photo-modal" role="dialog" aria-modal="true" aria-labelledby="pm-title">
+
+    <button class="pm-close" id="pm-close-btn" aria-label="Close">✕</button>
+
+    <div class="pm-icon" id="pm-icon">📸</div>
+    <div class="pm-title" id="pm-title">Send photos before booking</div>
+    <div class="pm-sub" id="pm-sub">Photos let Max give you an accurate price and prepare for your appointment — no surprises on the day.</div>
+
+    <div class="pm-steps">
+      <div class="pm-step">
+        <div class="pm-step-n">1</div>
+        <div class="pm-step-t"><b>Tap the button below</b> — take a photo now or choose from your camera roll</div>
+      </div>
+      <div class="pm-step">
+        <div class="pm-step-n">2</div>
+        <div class="pm-step-t"><b>Photograph your vehicle</b> — exterior, interior, and any problem areas</div>
+      </div>
+      <div class="pm-step">
+        <div class="pm-step-n">3</div>
+        <div class="pm-step-t"><b>Tap "Send to Max"</b> — your message is pre-filled with your package. Attach photos and hit send</div>
+      </div>
+    </div>
+
+    <!-- Photo previews -->
+    <div class="pm-previews" id="pm-previews"></div>
+    <div class="pm-photo-count" id="pm-photo-count"></div>
+
+    <!-- Primary: open camera / gallery -->
+    <button class="pm-btn-camera" id="pm-camera-btn">
+      📷 Open Camera / Camera Roll
+    </button>
+    <input type="file" id="photo-input" accept="image/*" multiple />
+
+    <!-- After photos chosen: send button -->
+    <a class="pm-btn-send" id="pm-send-btn" href="#">
+      ✅ Photos ready — Send to Max →
+    </a>
+
+    <!-- Skip option -->
+    <a class="pm-btn-skip" id="pm-skip-btn" href="#">
+      Skip photos — open message anyway
+    </a>
+
+    <div class="pm-note">Max will confirm your final price before the appointment is locked in.</div>
+  </div>
+</div>
+<!-- ═════════════════════════════════════════════════════════════════════════ -->
 </body>
 </html>
