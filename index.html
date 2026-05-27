@@ -767,6 +767,149 @@
       }
     }
 
+
+    /* MOBILE-FIRST PACKAGE FLOW */
+    .mobile-service-flow {
+      display: none;
+      margin: 0 0 18px;
+      padding: 14px;
+      border-radius: 22px;
+      border: 1px solid rgba(123,189,232,.18);
+      background: rgba(255,255,255,.045);
+      box-shadow: 0 16px 38px rgba(0,0,0,.18);
+    }
+
+    .flow-progress {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .flow-step {
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(7,9,13,.7);
+      color: var(--muted);
+      border-radius: 16px;
+      padding: 10px 8px;
+      font-weight: 900;
+      font-size: 12px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .flow-step span {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.08);
+      color: var(--blue-3);
+    }
+
+    .flow-step.active {
+      color: #06111d;
+      background: var(--blue);
+      border-color: rgba(123,189,232,.9);
+      box-shadow: 0 14px 34px rgba(123,189,232,.18);
+    }
+
+    .flow-step.active span {
+      background: #06111d;
+      color: #fff;
+    }
+
+    .flow-step.locked {
+      opacity: .55;
+      cursor: not-allowed;
+    }
+
+    .flow-help {
+      margin: 12px 2px 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .service-substep-panel {
+      display: block;
+    }
+
+    .skip-step-btn {
+      width: 100%;
+      margin-top: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.055);
+      color: #fff;
+      border-radius: 18px;
+      padding: 14px 16px;
+      font-weight: 900;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .skip-step-btn:hover {
+      border-color: rgba(123,189,232,.45);
+      background: rgba(123,189,232,.1);
+    }
+
+    .quote-bar.blocked {
+      border-color: rgba(255,202,106,.34);
+    }
+
+    .quote-bar.blocked .btn {
+      opacity: .55;
+      cursor: not-allowed;
+    }
+
+    @media (max-width: 760px) {
+      .mobile-service-flow {
+        display: block;
+        position: sticky;
+        top: 72px;
+        z-index: 30;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+      }
+
+      .services-layout {
+        display: block;
+      }
+
+      .service-step-panel,
+      .service-substep-panel {
+        display: none;
+      }
+
+      .service-step-panel.active,
+      .service-substep-panel.active {
+        display: block;
+      }
+
+      .service-step-panel[data-service-panel="paint-polish"].active {
+        display: block;
+      }
+
+      .service-group-title {
+        margin-top: 10px;
+      }
+
+      .service-group-title-spaced {
+        margin-top: 10px;
+        padding-top: 0;
+        border-top: 0;
+      }
+
+      .quote-bar {
+        position: sticky;
+        bottom: max(10px, env(safe-area-inset-bottom));
+        margin-top: 18px;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: .001ms !important;
@@ -876,8 +1019,17 @@
           </div>
         </div>
 
-        <div class="services-layout">
-          <div>
+        <div class="mobile-service-flow fade-up" aria-label="Mobile package steps">
+          <div class="flow-progress">
+            <button class="flow-step active" type="button" data-flow-target="detail"><span>1</span>Detail</button>
+            <button class="flow-step locked" type="button" data-flow-target="paint"><span>2</span>Paint</button>
+            <button class="flow-step locked" type="button" data-flow-target="polish"><span>3</span>Polish</button>
+          </div>
+          <p class="flow-help" id="flow-help">Step 1: choose one Interior &amp; Exterior Detailing package. Paint Correction and Polishing are optional next steps.</p>
+        </div>
+
+        <div class="services-layout" id="services-layout">
+          <div class="service-step-panel active" data-service-panel="detail">
             <div class="service-group-title">Interior &amp; Exterior Detailing</div>
             <div class="service-grid">
               <article class="card service-card fade-up" data-type="package" data-group="detail" data-name="Basic Interior &amp; Exterior" data-price="From $139 + GST">
@@ -935,121 +1087,127 @@
             </div>
           </div>
 
-          <div>
-            <div class="service-group-title">Polishing Packages</div>
-            <div class="service-grid">
-              <article class="card service-card fade-up" data-type="package" data-group="polish" data-name="Gloss Enhancement Polish" data-price="From $299">
-                <div class="service-top">
-                  <div>
-                    <div class="service-title">Gloss Enhancement Polish</div>
-                    <p>A one-step polish for vehicles that need better gloss, clarity, and a cleaner finish without heavy paint correction.</p>
+          <div class="service-step-panel" data-service-panel="paint-polish">
+            <div class="service-substep-panel active" data-service-panel="paint">
+              <div class="service-group-title">Paint Correction Packages</div>
+              <div class="service-grid">
+                <article class="card service-card fade-up" data-type="package" data-group="paint-correction" data-name="One-Step Paint Correction" data-price="From $499">
+                  <div class="service-top">
+                    <div>
+                      <div class="service-title">One-Step Paint Correction</div>
+                      <p>For vehicles with light swirls, dullness, or minor paint defects that need a cleaner corrected finish.</p>
+                    </div>
+                    <div class="price"><b>From $499</b><span>+ GST/PST</span></div>
                   </div>
-                  <div class="price"><b>From $299</b><span>+ GST/PST</span></div>
-                </div>
-                <ul>
-                  <li>Exterior wash and paint decontamination</li>
-                  <li>Clay-bar treatment</li>
-                  <li>One-step machine polish</li>
-                  <li>Light haze improvement</li>
-                  <li>Temporary sealant protection</li>
-                  <li>Glass cleaning and tire dressing</li>
-                </ul>
-              </article>
+                  <ul>
+                    <li>Wash and clay-bar decontamination</li>
+                    <li>Dedicated correcting polish</li>
+                    <li>Light-to-moderate swirl improvement</li>
+                    <li>Improved gloss and paint clarity</li>
+                    <li>Glass cleaning and tire dressing</li>
+                  </ul>
+                </article>
 
-              <article class="card service-card fade-up" data-type="package" data-group="polish" data-name="Polish + Sealant" data-price="From $399">
-                <span class="tag">Popular Polish</span>
-                <div class="service-top">
-                  <div>
-                    <div class="service-title">Polish + Sealant</div>
-                    <p>A stronger polish package for vehicles that need more shine, smoother paint, and longer-lasting protection.</p>
+                <article class="card service-card fade-up" data-type="package" data-group="paint-correction" data-name="Correction + Sealant" data-price="From $699">
+                  <span class="tag">Most Popular Correction</span>
+                  <div class="service-top">
+                    <div>
+                      <div class="service-title">Correction + Sealant</div>
+                      <p>For vehicles with visible swirls or tired paint that need correction plus durable protection after polishing.</p>
+                    </div>
+                    <div class="price"><b>From $699</b><span>+ GST/PST</span></div>
                   </div>
-                  <div class="price"><b>From $399</b><span>+ GST/PST</span></div>
-                </div>
-                <ul>
-                  <li>Exterior wash and clay-bar decontamination</li>
-                  <li>Machine polish for improved gloss</li>
-                  <li>Minor swirl and haze improvement</li>
-                  <li>Paint sealant or wax protection</li>
-                  <li>Door jamb wipe-down</li>
-                  <li>Glass cleaning, wheel faces, and tire dressing</li>
-                </ul>
-              </article>
+                  <ul>
+                    <li>Wash, clay, and paint preparation</li>
+                    <li>Machine correction polish</li>
+                    <li>Light-to-moderate defect improvement</li>
+                    <li>High-quality wax, sealant, or entry ceramic protection</li>
+                    <li>Door jamb wipe-down</li>
+                    <li>Wheel and tire dressing</li>
+                  </ul>
+                </article>
 
-              <article class="card service-card fade-up" data-type="package" data-group="polish" data-name="Premium Polish + Protection" data-price="From $499">
-                <div class="service-top">
-                  <div>
-                    <div class="service-title">Premium Polish + Protection</div>
-                    <p>A premium polishing service for vehicles that need a sharper finish, better depth, and upgraded protection.</p>
+                <article class="card service-card fade-up" data-type="package" data-group="paint-correction" data-name="Multi-Stage Paint Correction" data-price="From $899">
+                  <span class="tag">Best Finish</span>
+                  <div class="service-top">
+                    <div>
+                      <div class="service-title">Multi-Stage Paint Correction</div>
+                      <p>A higher-level correction package for vehicles needing serious defect improvement and a sharper show-car style finish.</p>
+                    </div>
+                    <div class="price"><b>From $899</b><span>+ GST/PST</span></div>
                   </div>
-                  <div class="price"><b>From $499</b><span>+ GST/PST</span></div>
-                </div>
-                <ul>
-                  <li>Thorough exterior wash and paint preparation</li>
-                  <li>Chemical and mechanical decontamination</li>
-                  <li>Machine polish for gloss and clarity</li>
-                  <li>Higher-quality sealant, wax, or entry ceramic option</li>
-                  <li>Wheel and tire detail</li>
-                  <li>Final finish inspection</li>
-                </ul>
-              </article>
+                  <ul>
+                    <li>Extensive exterior wash and paint decontamination</li>
+                    <li>Chemical and mechanical decontamination</li>
+                    <li>Machine compounding stage for heavier defects</li>
+                    <li>Refining polish stage to enhance gloss</li>
+                    <li>Seal paint with wax, sealant, or ceramic option</li>
+                    <li>Finishing touches including exhaust tip polishing</li>
+                  </ul>
+                </article>
+              </div>
+              <button class="skip-step-btn" type="button" data-skip-step="paint">I don’t want paint correction</button>
             </div>
 
-            <div class="service-group-title service-group-title-spaced">Paint Correction Packages</div>
-            <div class="service-grid">
-              <article class="card service-card fade-up" data-type="package" data-group="paint-correction" data-name="One-Step Paint Correction" data-price="From $499">
-                <div class="service-top">
-                  <div>
-                    <div class="service-title">One-Step Paint Correction</div>
-                    <p>For vehicles with light swirls, dullness, or minor defects that need a cleaner corrected finish.</p>
+            <div class="service-substep-panel" data-service-panel="polish">
+              <div class="service-group-title service-group-title-spaced">Polishing Packages</div>
+              <div class="service-grid">
+                <article class="card service-card fade-up" data-type="package" data-group="polish" data-name="Gloss Enhancement Polish" data-price="From $299">
+                  <div class="service-top">
+                    <div>
+                      <div class="service-title">Gloss Enhancement Polish</div>
+                      <p>A one-step polish for vehicles that need better gloss, clarity, and a cleaner finish without heavy paint correction.</p>
+                    </div>
+                    <div class="price"><b>From $299</b><span>+ GST/PST</span></div>
                   </div>
-                  <div class="price"><b>From $499</b><span>+ GST/PST</span></div>
-                </div>
-                <ul>
-                  <li>Wash and clay-bar decontamination</li>
-                  <li>Dedicated correcting polish</li>
-                  <li>Light-to-moderate swirl improvement</li>
-                  <li>Improved gloss and paint clarity</li>
-                  <li>Glass cleaning and tire dressing</li>
-                </ul>
-              </article>
+                  <ul>
+                    <li>Exterior wash and paint decontamination</li>
+                    <li>Clay-bar treatment</li>
+                    <li>One-step machine polish</li>
+                    <li>Light haze improvement</li>
+                    <li>Temporary sealant protection</li>
+                    <li>Glass cleaning and tire dressing</li>
+                  </ul>
+                </article>
 
-              <article class="card service-card fade-up" data-type="package" data-group="paint-correction" data-name="Correction + Sealant" data-price="From $699">
-                <span class="tag">Most Popular Correction</span>
-                <div class="service-top">
-                  <div>
-                    <div class="service-title">Correction + Sealant</div>
-                    <p>For vehicles with visible swirls or tired paint that need correction plus durable protection after polishing.</p>
+                <article class="card service-card fade-up" data-type="package" data-group="polish" data-name="Polish + Sealant" data-price="From $399">
+                  <span class="tag">Popular Polish</span>
+                  <div class="service-top">
+                    <div>
+                      <div class="service-title">Polish + Sealant</div>
+                      <p>A stronger polish package for vehicles that need more shine, smoother paint, and longer-lasting protection.</p>
+                    </div>
+                    <div class="price"><b>From $399</b><span>+ GST/PST</span></div>
                   </div>
-                  <div class="price"><b>From $699</b><span>+ GST/PST</span></div>
-                </div>
-                <ul>
-                  <li>Wash, clay, and paint preparation</li>
-                  <li>Machine correction polish</li>
-                  <li>Light-to-moderate defect improvement</li>
-                  <li>High-quality wax, sealant, or entry ceramic protection</li>
-                  <li>Door jamb wipe-down</li>
-                  <li>Wheel and tire dressing</li>
-                </ul>
-              </article>
+                  <ul>
+                    <li>Exterior wash and clay-bar decontamination</li>
+                    <li>Machine polish for improved gloss</li>
+                    <li>Minor swirl and haze improvement</li>
+                    <li>Paint sealant or wax protection</li>
+                    <li>Door jamb wipe-down</li>
+                    <li>Glass cleaning, wheel faces, and tire dressing</li>
+                  </ul>
+                </article>
 
-              <article class="card service-card fade-up" data-type="package" data-group="paint-correction" data-name="Multi-Stage Paint Correction" data-price="From $899">
-                <span class="tag">Best Finish</span>
-                <div class="service-top">
-                  <div>
-                    <div class="service-title">Multi-Stage Paint Correction</div>
-                    <p>A higher-level correction package for vehicles needing serious defect improvement and a sharper show-car style finish.</p>
+                <article class="card service-card fade-up" data-type="package" data-group="polish" data-name="Premium Polish + Protection" data-price="From $499">
+                  <div class="service-top">
+                    <div>
+                      <div class="service-title">Premium Polish + Protection</div>
+                      <p>A premium polishing service for vehicles that need a sharper finish, better depth, and upgraded protection.</p>
+                    </div>
+                    <div class="price"><b>From $499</b><span>+ GST/PST</span></div>
                   </div>
-                  <div class="price"><b>From $899</b><span>+ GST/PST</span></div>
-                </div>
-                <ul>
-                  <li>Extensive exterior wash and paint decontamination</li>
-                  <li>Chemical and mechanical decontamination</li>
-                  <li>Machine compounding stage for heavier defects</li>
-                  <li>Refining polish stage to enhance gloss</li>
-                  <li>Seal paint with wax, sealant, or ceramic option</li>
-                  <li>Finishing touches including exhaust tip polishing</li>
-                </ul>
-              </article>
+                  <ul>
+                    <li>Thorough exterior wash and paint preparation</li>
+                    <li>Chemical and mechanical decontamination</li>
+                    <li>Machine polish for gloss and clarity</li>
+                    <li>Higher-quality sealant, wax, or entry ceramic option</li>
+                    <li>Wheel and tire detail</li>
+                    <li>Final finish inspection</li>
+                  </ul>
+                </article>
+              </div>
+              <button class="skip-step-btn" type="button" data-skip-step="polish">I don’t want polishing</button>
             </div>
           </div>
         </div>
@@ -1238,9 +1396,55 @@
     const addons = document.getElementById("addons");
     const summary = document.getElementById("selection-summary");
     const quoteLink = document.getElementById("quote-link");
+    const quoteBar = document.getElementById("quote-bar");
+    const flowSteps = document.querySelectorAll(".flow-step");
+    const servicePanels = document.querySelectorAll(".service-step-panel");
+    const serviceSubPanels = document.querySelectorAll(".service-substep-panel");
+    const flowHelp = document.getElementById("flow-help");
+    let currentServiceStep = "detail";
 
     function smsUrl(body) {
       return "sms:" + PHONE + "?body=" + encodeURIComponent(body);
+    }
+
+    function hasDetailPackage() {
+      return selectedPackages.has("detail");
+    }
+
+    function setServiceStep(step) {
+      if ((step === "paint" || step === "polish") && !hasDetailPackage()) {
+        step = "detail";
+      }
+
+      currentServiceStep = step;
+
+      flowSteps.forEach(btn => {
+        const target = btn.dataset.flowTarget;
+        const locked = (target === "paint" || target === "polish") && !hasDetailPackage();
+        btn.classList.toggle("active", target === currentServiceStep);
+        btn.classList.toggle("locked", locked);
+        btn.setAttribute("aria-disabled", locked ? "true" : "false");
+      });
+
+      servicePanels.forEach(panel => {
+        const name = panel.dataset.servicePanel;
+        const show = currentServiceStep === "detail" ? name === "detail" : name === "paint-polish";
+        panel.classList.toggle("active", show);
+      });
+
+      serviceSubPanels.forEach(panel => {
+        panel.classList.toggle("active", panel.dataset.servicePanel === currentServiceStep);
+      });
+
+      if (!flowHelp) return;
+
+      if (currentServiceStep === "detail") {
+        flowHelp.textContent = "Step 1: choose one Interior & Exterior Detailing package. This is required before requesting a quote.";
+      } else if (currentServiceStep === "paint") {
+        flowHelp.textContent = "Step 2: choose one Paint Correction package, or skip this step at the bottom.";
+      } else {
+        flowHelp.textContent = "Step 3: choose one Polishing package, or skip this step at the bottom.";
+      }
     }
 
     function defaultMessage() {
@@ -1293,21 +1497,28 @@
       const packages = Array.from(selectedPackages.values());
       const addonsList = Array.from(selectedAddons.values());
 
-      addons.classList.toggle("visible", packages.length > 0);
+      const detailRequired = !hasDetailPackage();
+      addons.classList.toggle("visible", hasDetailPackage());
 
-      if (!packages.length && !addonsList.length) {
-        summary.textContent = "Choose a package to build your quote text.";
+      if (detailRequired) {
+        summary.textContent = "Choose one Interior & Exterior Detailing package first.";
+        quoteBar.classList.add("blocked");
+        quoteLink.dataset.blocked = "true";
       } else {
         const packageNames = packages.map(item => item.name);
         const addonText = addonsList.length ? " + " + addonsList.length + " add-on" + (addonsList.length > 1 ? "s" : "") : "";
         summary.textContent = packageNames.join(" + ") + addonText;
+        quoteBar.classList.remove("blocked");
+        quoteLink.dataset.blocked = "false";
       }
 
       const href = smsUrl(buildMessage());
-      quoteLink.href = href;
+      quoteLink.href = detailRequired ? "#services" : href;
       document.querySelectorAll(".js-quote-link").forEach(link => {
-        if (!link.dataset.keepDefault) link.href = href;
+        if (!link.dataset.keepDefault) link.href = detailRequired ? "#services" : href;
       });
+
+      setServiceStep(currentServiceStep);
     }
 
     function togglePackage(card) {
@@ -1332,6 +1543,14 @@
       }
 
       updateQuoteBar();
+
+      if (group === "detail" && selectedPackages.has("detail") && window.matchMedia("(max-width: 760px)").matches) {
+        setTimeout(() => setServiceStep("paint"), 120);
+      }
+
+      if (group === "paint-correction" && selectedPackages.has("paint-correction") && window.matchMedia("(max-width: 760px)").matches) {
+        setTimeout(() => setServiceStep("polish"), 120);
+      }
     }
 
     function toggleAddon(card) {
@@ -1378,6 +1597,52 @@
       });
     });
 
+    flowSteps.forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (btn.getAttribute("aria-disabled") === "true") {
+          setServiceStep("detail");
+          document.getElementById("services").scrollIntoView({ behavior: "smooth", block: "start" });
+          return;
+        }
+        setServiceStep(btn.dataset.flowTarget);
+      });
+    });
+
+    document.querySelectorAll(".skip-step-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const step = btn.dataset.skipStep;
+
+        if (step === "paint") {
+          document.querySelectorAll('.service-card[data-group="paint-correction"]').forEach(card => {
+            card.classList.remove("selected");
+            card.setAttribute("aria-pressed", "false");
+          });
+          selectedPackages.delete("paint-correction");
+          setServiceStep("polish");
+        }
+
+        if (step === "polish") {
+          document.querySelectorAll('.service-card[data-group="polish"]').forEach(card => {
+            card.classList.remove("selected");
+            card.setAttribute("aria-pressed", "false");
+          });
+          selectedPackages.delete("polish");
+          updateQuoteBar();
+          quoteBar.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+
+        updateQuoteBar();
+      });
+    });
+
+    quoteLink.addEventListener("click", event => {
+      if (quoteLink.dataset.blocked === "true") {
+        event.preventDefault();
+        setServiceStep("detail");
+        document.getElementById("services").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+
     window.addEventListener("scroll", () => {
       nav.classList.toggle("scrolled", window.scrollY > 30);
     }, { passive: true });
@@ -1405,6 +1670,7 @@
       }
     }
 
+    setServiceStep("detail");
     updateQuoteBar();
   </script>
 </body>
