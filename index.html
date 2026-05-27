@@ -364,6 +364,127 @@
       .addons-grid { grid-template-columns: repeat(3, 1fr); }
     }
 
+
+    /* ── Photo Modal ────────────────────────────────────────────────────── */
+    .photo-modal-overlay {
+      position: fixed; inset: 0; z-index: 999;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(12px);
+      display: flex; align-items: flex-end;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s ease;
+    }
+    .photo-modal-overlay.open {
+      opacity: 1; pointer-events: auto;
+    }
+    @media (min-width: 600px) {
+      .photo-modal-overlay { align-items: center; justify-content: center; }
+    }
+
+    .photo-modal {
+      background: #0D1117;
+      border: 1px solid rgba(123,189,232,0.2);
+      border-radius: 28px 28px 0 0;
+      width: 100%; max-width: 540px;
+      padding: 32px 24px 40px;
+      transform: translateY(40px);
+      transition: transform .35s cubic-bezier(0.22,1,0.36,1);
+      position: relative;
+    }
+    @media (min-width: 600px) {
+      .photo-modal { border-radius: 28px; transform: scale(0.95); }
+    }
+    .photo-modal-overlay.open .photo-modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close {
+      position: absolute; top: 16px; right: 18px;
+      background: rgba(255,255,255,0.07); border: none; color: #aaa;
+      width: 32px; height: 32px; border-radius: 50%;
+      font-size: 16px; cursor: pointer; display: flex;
+      align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .modal-close:hover { background: rgba(255,255,255,0.14); }
+
+    .modal-icon { font-size: 44px; text-align: center; margin-bottom: 14px; }
+    .modal-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(20px, 5vw, 26px); font-weight: 400;
+      text-align: center; line-height: 1.2; color: #fff;
+    }
+    .modal-subtitle {
+      font-size: 13px; color: #888; text-align: center;
+      margin-top: 8px; line-height: 1.6;
+    }
+
+    /* Steps */
+    .modal-steps {
+      display: flex; flex-direction: column; gap: 10px;
+      margin: 22px 0;
+    }
+    .modal-step {
+      display: flex; align-items: flex-start; gap: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px; padding: 12px 14px;
+    }
+    .modal-step-num {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: #0A4174; color: #7BBDE8;
+      font-size: 11px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .modal-step-text { font-size: 13px; color: #ccc; line-height: 1.5; }
+    .modal-step-text strong { color: #fff; }
+
+    /* Photo preview area */
+    .photo-preview-area {
+      display: none; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 16px;
+    }
+    .photo-preview-area.has-photos { display: flex; }
+    .photo-thumb {
+      width: 72px; height: 72px; border-radius: 10px;
+      object-fit: cover; border: 2px solid #7BBDE8;
+    }
+
+    /* Buttons */
+    .modal-btn-camera {
+      display: flex; align-items: center; justify-content: center; gap: 9px;
+      width: 100%; padding: 15px;
+      background: #7BBDE8; color: #0a0a0a;
+      border-radius: 14px; border: none;
+      font-size: 15px; font-weight: 700;
+      cursor: pointer; transition: background .2s;
+      margin-bottom: 10px;
+    }
+    .modal-btn-camera:hover { background: #5AAAD8; }
+    .modal-btn-camera:active { background: #4A9AC8; }
+
+    .modal-btn-sms {
+      display: flex; align-items: center; justify-content: center; gap: 9px;
+      width: 100%; padding: 14px;
+      background: transparent;
+      color: #7BBDE8;
+      border: 1.5px solid rgba(123,189,232,0.3);
+      border-radius: 14px;
+      font-size: 14px; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      transition: border-color .2s, background .2s;
+    }
+    .modal-btn-sms:hover { border-color: #7BBDE8; background: rgba(123,189,232,0.07); }
+
+    .modal-note {
+      font-size: 11px; color: #555; text-align: center;
+      margin-top: 14px; line-height: 1.5;
+    }
+
+    /* Hidden file input */
+    #photo-file-input { display: none; }
+
   </style>
 </head>
 <body>
@@ -717,7 +838,7 @@
         <div class="book-bar-info">Select a package to continue</div>
         <div class="book-bar-selected" id="bar-selected"></div>
       </div>
-      <a href="sms:+12502587505" class="book-now-btn" id="book-now-btn">💬 Book Now</a>
+      <button class="book-now-btn" id="book-now-btn" onclick="handleBookNow()">💬 Book Now</button>
     </div>
 
   </div>
@@ -828,6 +949,65 @@
     updateBookBar();
   }
 
+  // ── Photo Modal logic ───────────────────────────────────────────────────
+  let pendingSmsHref = 'sms:+12502587505';
+  let pendingIsQuote = false;
+
+  function openBookModal(smsHref, isQuote) {
+    pendingSmsHref = smsHref;
+    pendingIsQuote = isQuote;
+
+    const title    = document.getElementById('modal-title');
+    const subtitle = document.getElementById('modal-subtitle');
+    const smsBtn   = document.getElementById('modal-sms-btn');
+
+    if (isQuote) {
+      title.textContent    = 'Get your price — send photos';
+      subtitle.textContent = 'To give you an accurate quote, Max needs to see your vehicle. Take a few photos below, then send them in your message.';
+    } else {
+      title.textContent    = 'One quick step before we book';
+      subtitle.textContent = 'Photos help Max prepare for your appointment and flag any extra work upfront. No surprises.';
+    }
+
+    smsBtn.href = pendingSmsHref;
+    document.getElementById('photo-preview-area').innerHTML = '';
+    document.getElementById('photo-preview-area').classList.remove('has-photos');
+    document.getElementById('photo-modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('photo-modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closeModalOutside(e) {
+    if (e.target === document.getElementById('photo-modal-overlay')) closeModal();
+  }
+
+  function handlePhotoSelect(input) {
+    const preview = document.getElementById('photo-preview-area');
+    preview.innerHTML = '';
+    const files = Array.from(input.files);
+    if (files.length === 0) return;
+    files.forEach(file => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = document.createElement('img');
+        img.src = e.target.result;
+        img.className = 'photo-thumb';
+        preview.appendChild(img);
+      };
+      reader.readAsDataURL(file);
+    });
+    preview.classList.add('has-photos');
+    // Scroll SMS button into view
+    setTimeout(() => document.getElementById('modal-sms-btn').scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 300);
+  }
+
+  // Close modal on Escape key
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
   function updateBookBar() {
     const bar = document.getElementById('book-bar');
     const btn = document.getElementById('book-now-btn');
@@ -842,6 +1022,7 @@
       btn.textContent = '💬 Book Now';
       btn.style.cssText = '';
       btn.href = 'sms:+12502587505';
+      window._currentSmsHref = 'sms:+12502587505';
       sel.textContent = '';
       return;
     }
@@ -880,8 +1061,64 @@
     }
     smsLines.push('Please let me know the next steps. I will send photos of my vehicle.');
     btn.href = 'sms:+12502587505?body=' + encodeURIComponent(smsLines.join('\n'));
+      window._currentSmsHref = btn.href;
+  }
+
+  function handleBookNow() {
+    const btn = document.getElementById('book-now-btn');
+    // Read SMS href from stored variable in updateBookBar
+    const isQuote = Array.from(selectedPkgs.values()).some(e => e.isQuote);
+    openBookModal(window._currentSmsHref || 'sms:+12502587505', isQuote);
   }
 
 </script>
+
+<!-- ── Photo Modal ───────────────────────────────────────────────────────── -->
+<div class="photo-modal-overlay" id="photo-modal-overlay" onclick="closeModalOutside(event)">
+  <div class="photo-modal" role="dialog" aria-modal="true">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+
+    <div class="modal-icon">📸</div>
+    <div class="modal-title" id="modal-title">One quick step before we book</div>
+    <div class="modal-subtitle" id="modal-subtitle">
+      Photos help Max give you an accurate price and prepare for your appointment.
+    </div>
+
+    <div class="modal-steps">
+      <div class="modal-step">
+        <div class="modal-step-num">1</div>
+        <div class="modal-step-text"><strong>Take or choose photos</strong> of your vehicle — exterior, interior, and any problem areas</div>
+      </div>
+      <div class="modal-step">
+        <div class="modal-step-num">2</div>
+        <div class="modal-step-text"><strong>Tap "Open Message"</strong> below — your selected package is already written in the message</div>
+      </div>
+      <div class="modal-step">
+        <div class="modal-step-num">3</div>
+        <div class="modal-step-text"><strong>Attach your photos</strong> to the message and hit send — Max will confirm within 24 hours</div>
+      </div>
+    </div>
+
+    <!-- Photo previews -->
+    <div class="photo-preview-area" id="photo-preview-area"></div>
+
+    <!-- Camera / gallery button -->
+    <button class="modal-btn-camera" onclick="document.getElementById('photo-file-input').click()">
+      📷 Take Photo or Choose from Library
+    </button>
+    <input type="file" id="photo-file-input" accept="image/*" multiple
+           onchange="handlePhotoSelect(this)" />
+
+    <!-- Open SMS button -->
+    <a class="modal-btn-sms" id="modal-sms-btn" href="sms:+12502587505">
+      💬 Open Message to Max →
+    </a>
+
+    <div class="modal-note">
+      Max will review your photos and confirm the final price before your appointment is locked in.
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
