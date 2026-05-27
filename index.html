@@ -1203,6 +1203,57 @@
   <div class="footer-copy">© 2026 Northline Auto &amp; Surface. All rights reserved.</div>
 </footer>
 
+<!-- ── Photo Modal ───────────────────────────────────────────────────────── -->
+
+<div id="photo-modal-overlay">
+  <div id="photo-modal" role="dialog" aria-modal="true" aria-labelledby="pm-title">
+
+    <button class="pm-close" id="pm-close-btn" aria-label="Close">✕</button>
+
+    <div class="pm-icon" id="pm-icon">📸</div>
+    <div class="pm-title" id="pm-title">Send photos before booking</div>
+    <div class="pm-sub" id="pm-sub">Photos let Max give you an accurate price and prepare for your appointment — no surprises on the day.</div>
+
+    <div class="pm-steps">
+      <div class="pm-step">
+        <div class="pm-step-n">1</div>
+        <div class="pm-step-t"><b>Tap the button below</b> — take a photo now or choose from your camera roll</div>
+      </div>
+      <div class="pm-step">
+        <div class="pm-step-n">2</div>
+        <div class="pm-step-t"><b>Photograph your vehicle</b> — exterior, interior, and any problem areas</div>
+      </div>
+      <div class="pm-step">
+        <div class="pm-step-n">3</div>
+        <div class="pm-step-t"><b>Tap "Send to Max"</b> — your message is pre-filled with your package. Attach photos and hit send</div>
+      </div>
+    </div>
+
+    <!-- Photo previews -->
+    <div class="pm-previews" id="pm-previews"></div>
+    <div class="pm-photo-count" id="pm-photo-count"></div>
+
+    <!-- Primary: open camera / gallery -->
+    <button class="pm-btn-camera" id="pm-camera-btn">
+      📷 Open Camera / Camera Roll
+    </button>
+    <input type="file" id="photo-input" accept="image/*" multiple />
+
+    <!-- After photos chosen: send button -->
+    <a class="pm-btn-send" id="pm-send-btn" href="#">
+      ✅ Photos ready — Send to Max →
+    </a>
+
+    <!-- Skip option -->
+    <a class="pm-btn-skip" id="pm-skip-btn" href="#">
+      Skip photos — open message anyway
+    </a>
+
+    <div class="pm-note">Max will confirm your final price before the appointment is locked in.</div>
+  </div>
+</div>
+<!-- ═════════════════════════════════════════════════════════════════════════ -->
+
 <script>
   // Nav scroll
   const nav = document.getElementById('main-nav');
@@ -1437,55 +1488,6 @@
 
 </script>
 
-<!-- ── Photo Modal ───────────────────────────────────────────────────────── -->
 
-<div id="photo-modal-overlay">
-  <div id="photo-modal" role="dialog" aria-modal="true" aria-labelledby="pm-title">
-
-    <button class="pm-close" id="pm-close-btn" aria-label="Close">✕</button>
-
-    <div class="pm-icon" id="pm-icon">📸</div>
-    <div class="pm-title" id="pm-title">Send photos before booking</div>
-    <div class="pm-sub" id="pm-sub">Photos let Max give you an accurate price and prepare for your appointment — no surprises on the day.</div>
-
-    <div class="pm-steps">
-      <div class="pm-step">
-        <div class="pm-step-n">1</div>
-        <div class="pm-step-t"><b>Tap the button below</b> — take a photo now or choose from your camera roll</div>
-      </div>
-      <div class="pm-step">
-        <div class="pm-step-n">2</div>
-        <div class="pm-step-t"><b>Photograph your vehicle</b> — exterior, interior, and any problem areas</div>
-      </div>
-      <div class="pm-step">
-        <div class="pm-step-n">3</div>
-        <div class="pm-step-t"><b>Tap "Send to Max"</b> — your message is pre-filled with your package. Attach photos and hit send</div>
-      </div>
-    </div>
-
-    <!-- Photo previews -->
-    <div class="pm-previews" id="pm-previews"></div>
-    <div class="pm-photo-count" id="pm-photo-count"></div>
-
-    <!-- Primary: open camera / gallery -->
-    <button class="pm-btn-camera" id="pm-camera-btn">
-      📷 Open Camera / Camera Roll
-    </button>
-    <input type="file" id="photo-input" accept="image/*" multiple />
-
-    <!-- After photos chosen: send button -->
-    <a class="pm-btn-send" id="pm-send-btn" href="#">
-      ✅ Photos ready — Send to Max →
-    </a>
-
-    <!-- Skip option -->
-    <a class="pm-btn-skip" id="pm-skip-btn" href="#">
-      Skip photos — open message anyway
-    </a>
-
-    <div class="pm-note">Max will confirm your final price before the appointment is locked in.</div>
-  </div>
-</div>
-<!-- ═════════════════════════════════════════════════════════════════════════ -->
 </body>
 </html>
