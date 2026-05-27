@@ -276,6 +276,94 @@
       .book-bar { position: sticky; bottom: 24px; }
     }
 
+
+    /* ── Tax badge ─────────────────────────────────────────────────────── */
+    .tax-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 9px; font-weight: 700; letter-spacing: .06em;
+      text-transform: uppercase; border-radius: 5px;
+      padding: 2px 7px; margin-top: 5px;
+    }
+    .tax-gst       { background: rgba(123,189,232,0.14); color: #7BBDE8; }
+    .tax-gst-pst   { background: rgba(78,142,162,0.18); color: #4E8EA2; }
+    .pkg-card.featured-pkg .tax-gst     { background: rgba(10,65,116,0.10); color: #0A4174; }
+    .pkg-card.featured-pkg .tax-gst-pst { background: rgba(10,65,116,0.12); color: #0A4174; }
+
+    /* ── Tax tooltip ────────────────────────────────────────────────────── */
+    .tax-tip { position: relative; cursor: default; }
+    .tax-tip::after {
+      content: attr(data-tip);
+      position: absolute; bottom: calc(100% + 8px); right: 0;
+      background: #0A4174; color: #fff;
+      font-size: 10px; font-weight: 500; line-height: 1.45;
+      padding: 8px 12px; border-radius: 10px;
+      width: 200px; white-space: normal; text-transform: none; letter-spacing: 0;
+      opacity: 0; pointer-events: none;
+      transition: opacity .2s;
+      z-index: 20;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .tax-tip:hover::after { opacity: 1; }
+
+    /* ── Add-ons panel (hidden until package selected) ──────────────────── */
+    .addons-panel {
+      margin-top: 28px;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height .5s cubic-bezier(0.4,0,0.2,1), opacity .4s ease;
+    }
+    .addons-panel.visible {
+      max-height: 1000px;
+      opacity: 1;
+    }
+    .addons-title {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .18em; color: #7BBDE8;
+      border-bottom: 1px solid rgba(123,189,232,0.2);
+      padding-bottom: 8px; margin-bottom: 14px;
+    }
+    .addons-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .addon-card {
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(10,10,10,0.75); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 13px; padding: 12px 14px;
+      cursor: pointer; transition: border-color .2s, background .2s;
+      user-select: none;
+    }
+    .addon-card:hover { border-color: rgba(123,189,232,0.3); background: rgba(15,15,25,0.9); }
+    .addon-card.selected { border-color: #7BBDE8; background: rgba(10,45,84,0.45); }
+    .addon-check {
+      width: 18px; height: 18px; border-radius: 5px;
+      border: 1.5px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.04);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      transition: all .2s;
+    }
+    .addon-card.selected .addon-check { background: #7BBDE8; border-color: #7BBDE8; }
+    .addon-check::after {
+      content: ''; display: none;
+      width: 4px; height: 7px;
+      border: 1.5px solid #0a0a0a; border-top: none; border-left: none;
+      transform: rotate(42deg) translateY(-1px);
+    }
+    .addon-card.selected .addon-check::after { display: block; }
+    .addon-info { flex: 1; min-width: 0; }
+    .addon-name { font-size: 13px; font-weight: 600; color: #fff; line-height: 1.2; }
+    .addon-desc { font-size: 11px; color: #777; margin-top: 2px; line-height: 1.4; }
+    .addon-price { font-size: 13px; font-weight: 700; color: #7BBDE8; white-space: nowrap; flex-shrink: 0; text-align: right; }
+    .addon-price small { display: block; font-size: 9px; font-weight: 400; color: #49769F; margin-top: 2px; }
+
+    @media (min-width: 640px) {
+      .addons-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 1024px) {
+      .addons-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
   </style>
 </head>
 <body>
@@ -405,7 +493,7 @@
           <div>
             <div class="pkg-header">
               <div class="pkg-name">Basic Interior &amp; Exterior</div>
-              <div class="pkg-price"><span class="pkg-price-main">From $109</span><span class="pkg-price-sub">starting price</span></div>
+              <div class="pkg-price"><span class="pkg-price-main">From $139</span><span class="pkg-price-sub">+ GST (5%)</span><span class="tax-badge tax-gst tax-tip" data-tip="GST only (5%) — federal tax on basic cleaning services.">+ 5% GST</span></div>
             </div>
             <ul class="pkg-items">
               <li>Hand wash — two-bucket method</li>
@@ -425,7 +513,7 @@
             <div class="pkg-badge">Most Popular</div>
             <div class="pkg-header">
               <div class="pkg-name">Standard / Mid-Level Detail</div>
-              <div class="pkg-price"><span class="pkg-price-main">From $199</span><span class="pkg-price-sub">starting price</span></div>
+              <div class="pkg-price"><span class="pkg-price-main">From $229</span><span class="pkg-price-sub">+ GST &amp; PST (12%)</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">+ 12% Tax</span></div>
             </div>
             <ul class="pkg-items">
               <li>Everything in Basic, plus:</li>
@@ -447,7 +535,7 @@
           <div>
             <div class="pkg-header">
               <div class="pkg-name">Premium / Deluxe Detail</div>
-              <div class="pkg-price"><span class="pkg-price-main">From $299</span><span class="pkg-price-sub">starting price</span></div>
+              <div class="pkg-price"><span class="pkg-price-main">From $399</span><span class="pkg-price-sub">+ GST &amp; PST (12%)</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">+ 12% Tax</span></div>
             </div>
             <ul class="pkg-items">
               <li>Everything in Standard, plus:</li>
@@ -476,7 +564,7 @@
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Gloss Enhancement Polish</div>
-                <div class="pkg-price"><span class="pkg-price-main">Get Your Price</span><span class="pkg-price-sub">price on request</span></div>
+                <div class="pkg-price"><span class="pkg-price-main">From $299</span><span class="pkg-price-sub">+ GST &amp; PST (12%)</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">+ 12% Tax</span></div>
               </div>
               <ul class="pkg-items">
                 <li>Wash &amp; clay-bar decontamination</li>
@@ -491,7 +579,7 @@
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Correction + Sealant</div>
-                <div class="pkg-price"><span class="pkg-price-main">Get Your Price</span><span class="pkg-price-sub">price on request</span></div>
+                <div class="pkg-price"><span class="pkg-price-main">From $499</span><span class="pkg-price-sub">+ GST &amp; PST (12%)</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">+ 12% Tax</span></div>
               </div>
               <ul class="pkg-items">
                 <li>Wash, clay &amp; dedicated correcting polish</li>
@@ -507,7 +595,7 @@
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Multi-Stage Paint Correction</div>
-                <div class="pkg-price"><span class="pkg-price-main">Get Your Price</span><span class="pkg-price-sub">price on request</span></div>
+                <div class="pkg-price"><span class="pkg-price-main">From $899</span><span class="pkg-price-sub">+ GST &amp; PST (12%)</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">+ 12% Tax</span></div>
               </div>
               <ul class="pkg-items">
                 <li>Extensive wash + chemical &amp; mechanical decontam.</li>
@@ -530,7 +618,7 @@
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Entry-Level Ceramic</div>
-                <div class="pkg-price"><span class="pkg-price-main">Get Your Price</span><span class="pkg-price-sub">1–2 year protection</span></div>
+                <div class="pkg-price"><span class="pkg-price-main">From $699</span><span class="pkg-price-sub">+ GST &amp; PST (12%)</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">+ 12% Tax</span></div>
               </div>
               <ul class="pkg-items">
                 <li>Single layer after basic paint prep (wash + decontam.)</li>
@@ -544,7 +632,7 @@
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Mid-Tier Ceramic</div>
-                <div class="pkg-price"><span class="pkg-price-main">Get Your Price</span><span class="pkg-price-sub">3–5 year protection</span></div>
+                <div class="pkg-price"><span class="pkg-price-main">From $1,199</span><span class="pkg-price-sub">+ GST &amp; PST (12%)</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">+ 12% Tax</span></div>
               </div>
               <ul class="pkg-items">
                 <li>Multiple layers; machine paint correction</li>
@@ -560,7 +648,7 @@
             <div>
               <div class="pkg-header">
                 <div class="pkg-name">Premium / Pro Ceramic</div>
-                <div class="pkg-price"><span class="pkg-price-main">Get Your Price</span><span class="pkg-price-sub">5–9+ year protection</span></div>
+                <div class="pkg-price"><span class="pkg-price-main">From $1,799</span><span class="pkg-price-sub">+ GST &amp; PST (12%)</span><span class="tax-badge tax-gst-pst tax-tip" data-tip="GST 5% + PST 7% = 12% — BC provincial tax applies to polishing &amp; coating services.">+ 12% Tax</span></div>
               </div>
               <ul class="pkg-items">
                 <li>High-end ceramic or graphene coating</li>
@@ -572,6 +660,60 @@
             </div>
           </label>
         </div>
+
+      </div>
+    </div>
+
+
+    <!-- ── Add-on Services (revealed after package selected) ──────────── -->
+    <div class="addons-panel" id="addons-panel">
+      <div class="addons-title">➕  Add-On Services — Optional Upgrades</div>
+      <div class="addons-grid">
+
+        <label class="addon-card" onclick="toggleAddon(this,'Pet Hair Removal','$40','gst')">
+          <div class="addon-check"></div>
+          <div class="addon-info">
+            <div class="addon-name">🐾 Pet Hair Removal</div>
+            <div class="addon-desc">Deep extraction from seats, carpet &amp; cargo area</div>
+          </div>
+          <div class="addon-price">From $40<small>+ 5% GST</small></div>
+        </label>
+
+        <label class="addon-card" onclick="toggleAddon(this,'Ozone Odor Treatment','$150','gst')">
+          <div class="addon-check"></div>
+          <div class="addon-info">
+            <div class="addon-name">💨 Ozone Odor Treatment</div>
+            <div class="addon-desc">Eliminates smoke, mildew &amp; stubborn odors at the source</div>
+          </div>
+          <div class="addon-price">From $150<small>+ 5% GST</small></div>
+        </label>
+
+        <label class="addon-card" onclick="toggleAddon(this,'Headlight Restoration','$150','gst-pst')">
+          <div class="addon-check"></div>
+          <div class="addon-info">
+            <div class="addon-name">💡 Headlight Restoration</div>
+            <div class="addon-desc">Removes yellowing &amp; haze — restores clarity &amp; brightness</div>
+          </div>
+          <div class="addon-price">From $150<small>+ 12% Tax</small></div>
+        </label>
+
+        <label class="addon-card" onclick="toggleAddon(this,'Excessive Mud / Work Truck Fee','$85','gst')">
+          <div class="addon-check"></div>
+          <div class="addon-info">
+            <div class="addon-name">🛻 Excessive Mud / Work Truck Fee</div>
+            <div class="addon-desc">Heavy soiling, mud pack, or extreme work-site build-up</div>
+          </div>
+          <div class="addon-price">From $85<small>+ 5% GST</small></div>
+        </label>
+
+        <label class="addon-card" onclick="toggleAddon(this,'Glass Coating','$165','gst-pst')">
+          <div class="addon-check"></div>
+          <div class="addon-info">
+            <div class="addon-name">🪟 Glass Coating</div>
+            <div class="addon-desc">Hydrophobic nano-coating on all windows — repels water &amp; improves visibility</div>
+          </div>
+          <div class="addon-price">From $165<small>+ 12% Tax</small></div>
+        </label>
 
       </div>
     </div>
@@ -655,76 +797,96 @@
       dots.forEach((d, i) => d.classList.toggle('active', i === Math.min(idx, dots.length-1)));
     });
   }
-  // ── Services V2 — radio-style selection per group ────────────────────────
-  // selectedPkgs: Map of group → { card, name, isQuote }
-  const selectedPkgs = new Map();
+  // ── Services V2 — radio-style + add-ons ────────────────────────────────
+  const selectedPkgs  = new Map();   // group → { card, name, isQuote }
+  const selectedAddons = new Map();  // name  → { card, price, taxType }
+
+  // ── Quote packages (need photos) ─────────────────────────────────────────
+  const QUOTE_GROUPS = new Set(['polish','ceramic']);
 
   function togglePkg(card, name, group) {
     const current = selectedPkgs.get(group);
+    if (current) current.card.classList.remove('selected');
 
-    // Deselect whatever was previously selected in this group
-    if (current) {
-      current.card.classList.remove('selected');
-    }
-
-    // If clicking the already-selected card → deselect (toggle off)
     if (current && current.name === name) {
       selectedPkgs.delete(group);
     } else {
-      // Select the new card
       card.classList.add('selected');
-      const isQuote = card.dataset.priceType === 'quote';
+      const isQuote = QUOTE_GROUPS.has(group);
       selectedPkgs.set(group, { card, name, isQuote });
     }
+
+    // Show add-ons panel once at least one package is selected
+    document.getElementById('addons-panel').classList.toggle(
+      'visible', selectedPkgs.size > 0
+    );
 
     updateBookBar();
   }
 
-  function updateBookBar() {
-    const bar   = document.getElementById('book-bar');
-    const btn   = document.getElementById('book-now-btn');
-    const sel   = document.getElementById('bar-selected');
-
-    const entries = Array.from(selectedPkgs.values());
-
-    if (entries.length > 0) {
-      bar.classList.add('active');
-
-      // Show selected package names
-      const names = entries.map(e => e.name);
-      sel.textContent = names.length === 1
-        ? '✓ ' + names[0]
-        : '✓ ' + names.map(n => n.split(' ').slice(0,3).join(' ')).join('  +  ');
-
-      // Determine if ANY selected package is quote-based
-      const anyQuote = entries.some(e => e.isQuote);
-
-      // Update button label & style
-      if (anyQuote) {
-        btn.textContent = '📸 Get Your Price';
-        btn.style.background = '#0A4174';
-        btn.style.borderColor = '#0A4174';
-        btn.style.color = '#fff';
-        btn.style.boxShadow = '0 0 24px rgba(10,65,116,0.5)';
-      } else {
-        btn.textContent = '💬 Book Now';
-        btn.style.background = '#7BBDE8';
-        btn.style.borderColor = '#7BBDE8';
-        btn.style.color = '#0a0a0a';
-        btn.style.boxShadow = '0 0 24px rgba(123,189,232,0.35)';
-      }
-
-      // Build SMS body
-      const action = anyQuote ? 'I would like to get a price for' : 'I want to book';
-      const msg = encodeURIComponent('Hi Max! ' + action + ': ' + names.join(', ') + '. Please let me know the next steps.');
-      btn.href = 'sms:+12502587505?body=' + msg;
-
+  function toggleAddon(card, name, price, taxType) {
+    if (selectedAddons.has(name)) {
+      selectedAddons.delete(name);
+      card.classList.remove('selected');
     } else {
+      selectedAddons.set(name, { card, price, taxType });
+      card.classList.add('selected');
+    }
+    updateBookBar();
+  }
+
+  function updateBookBar() {
+    const bar = document.getElementById('book-bar');
+    const btn = document.getElementById('book-now-btn');
+    const sel = document.getElementById('bar-selected');
+
+    const pkgEntries   = Array.from(selectedPkgs.values());
+    const addonEntries = Array.from(selectedAddons.values());
+    const total        = pkgEntries.length + addonEntries.length;
+
+    if (total === 0) {
       bar.classList.remove('active');
       btn.textContent = '💬 Book Now';
       btn.style.cssText = '';
       btn.href = 'sms:+12502587505';
+      sel.textContent = '';
+      return;
     }
+
+    bar.classList.add('active');
+
+    // Build label
+    const pkgNames   = pkgEntries.map(e => e.name);
+    const addonNames = addonEntries.map(e => e.price + ' – ' + e.name.split('/')[0].trim() + (e.taxType === 'gst-pst' ? ' (+12%)' : ' (+GST)'));
+    const allLines   = pkgNames.concat(addonEntries.length ? ['Add-ons: ' + addonEntries.map(e => e.name.split(' ').slice(0,3).join(' ')).join(', ')] : []);
+    sel.textContent  = '✓ ' + (pkgNames.length === 1 && addonEntries.length === 0 ? pkgNames[0] : pkgNames.slice(0,2).join(' + ') + (addonEntries.length ? ' + ' + addonEntries.length + ' add-on' + (addonEntries.length > 1 ? 's' : '') : ''));
+
+    // Button style
+    const anyQuote = pkgEntries.some(e => e.isQuote);
+    if (anyQuote) {
+      btn.textContent = '📸 Get Your Price';
+      btn.style.background   = '#0A4174';
+      btn.style.borderColor  = '#0A4174';
+      btn.style.color        = '#fff';
+      btn.style.boxShadow    = '0 0 24px rgba(10,65,116,0.5)';
+    } else {
+      btn.textContent = '💬 Book Now';
+      btn.style.background   = '#7BBDE8';
+      btn.style.borderColor  = '#7BBDE8';
+      btn.style.color        = '#0a0a0a';
+      btn.style.boxShadow    = '0 0 24px rgba(123,189,232,0.35)';
+    }
+
+    // SMS body
+    const action = anyQuote ? 'get pricing for' : 'book';
+    let smsLines = ['Hi Max! I would like to ' + action + ':'];
+    pkgNames.forEach(n => smsLines.push('• ' + n));
+    if (addonEntries.length) {
+      smsLines.push('Add-ons:');
+      addonEntries.forEach(e => smsLines.push('• ' + e.name));
+    }
+    smsLines.push('Please let me know the next steps. I will send photos of my vehicle.');
+    btn.href = 'sms:+12502587505?body=' + encodeURIComponent(smsLines.join('\n'));
   }
 
 </script>
